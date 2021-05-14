@@ -41,6 +41,19 @@ var grupoB1 = 0;
 var grupoB2 = 0;
 var grupoC1 = 0;
 var grupoC2 = 0;
+var grupoAsignado = 0; 
+// creamos un array para ver el número de participantes en cada grupo
+let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
+var participantCount = new Array();
+for (var i = 1; i < grouplist.length; i++) {
+	if (grouplist[i] < value) {
+	  value = grouplist[i];
+	  index = i;
+	  grupoAsignado = index;
+	}
+  }
+console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
+
 
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++

@@ -48,10 +48,12 @@ var participantCount = new Array();
 var tempArray = [0, 1, 2, 3, 4, 5]; 
 var tempShuffled = shuffle(tempArray);
 var grupoAsignado = tempShuffled[0]; 	// Elige un grupo al azar
-console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 
-for (var i = 1; i < grouplist.length; i++) {
+// console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
+//console.log(grouplist.length + " is the length");							// debug
+for (var i = 0; i < grouplist.length; i++) {
+	// console.log(grouplist[i]+"--- i ="+i)								// debug
 	if (grouplist[i] < grouplist[grupoAsignado]) {
-	  grupoAsignado = grouplist[i];
+	  grupoAsignado = i;
 	}
   }
 console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug

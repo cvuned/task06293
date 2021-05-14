@@ -165,17 +165,17 @@ function arranca(){
     
     //genero las cadenas de outcomes:
     
-    switch (Fase1.Contingencia){
+    switch (FaseTest.Contingencia){
         case "ContNula": 
             
             for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 70% de éxito
                 var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
                 arrayOutcome=shuffle(arrayOutcome);
-                Fase1.posibleOutcomes=Fase1.posibleOutcomes.concat(arrayOutcome);
+                FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
                 
                 var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
                 arrayOutcome3=shuffle(arrayOutcome3);
-                Fase2.posibleOutcomes=Fase2.posibleOutcomes.concat(arrayOutcome3);
+                FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3);
 
                 
             }
@@ -188,17 +188,17 @@ function arranca(){
             for(var i=0; i<5; i++){ //creo 5 bloques...
                 var arrayOutcome= [1, 1, 1, 1, 1, 1, 0, 0];
                 arrayOutcome=shuffle(arrayOutcome);
-                Fase1.posibleOutcomesYES=Fase1.posibleOutcomesYES.concat(arrayOutcome);
+                FaseTest.posibleOutcomesYES=FaseTest.posibleOutcomesYES.concat(arrayOutcome);
                 var arrayOutcome2= [1, 0, 0, 0, 0, 0, 0, 0];
                 arrayOutcome2=shuffle(arrayOutcome2);
-                Fase1.posibleOutcomesNO=Fase1.posibleOutcomesNO.concat(arrayOutcome2);
+                FaseTest.posibleOutcomesNO=FaseTest.posibleOutcomesNO.concat(arrayOutcome2);
                 
                 var arrayOutcome3= [1, 1, 1, 1, 1, 1, 0, 0];
                 arrayOutcome3=shuffle(arrayOutcome3);
-                Fase2.posibleOutcomesYES=Fase2.posibleOutcomesYES.concat(arrayOutcome3);
+                FasePrevia.posibleOutcomesYES=FasePrevia.posibleOutcomesYES.concat(arrayOutcome3);
                 var arrayOutcome4= [1, 1, 1, 1, 1, 1, 0, 0];
                 arrayOutcome4=shuffle(arrayOutcome4);
-                Fase2.posibleOutcomesNO=Fase2.posibleOutcomesNO.concat(arrayOutcome4);
+                FasePrevia.posibleOutcomesNO=FasePrevia.posibleOutcomesNO.concat(arrayOutcome4);
                 
             }             
     }
@@ -227,7 +227,7 @@ function asignagrupo() {
 		group= "Experimental"; 
 		//console.log("If: Pues te ha tocado grupo :"+group+".");			// debug
 		// GRUPO EXPERIMENTAL Normal: Tarea aeronáutica -> Tarea alergia
-		training=[Fase2, Fase1];
+		training=[FasePrevia, FaseTest];
 
 	}
 	else {
@@ -238,7 +238,7 @@ function asignagrupo() {
 		//console.log("Else: Pues te ha tocado grupo : Contrabalanceo, pero como TFK estamos de testeo: "+group+"."); // debug
 		// EXPERIMENTAL Contrabalanceo: Tarea alergia -> Tarea aeronáutica
 		// training=[Fase2, Fase1]; // Solo para pruebas cuando el contrabalanceo no estaba
-		training=[Fase1, Fase2];  
+		training=[FaseTest, FasePrevia];  
 
 	}
     //console.log("Pues te ha tocado grupo :"+group+".");					// debug
@@ -254,7 +254,7 @@ function asignagrupo() {
 //var ordenContingencias = shuffle(["ContNula", "ContPositiva"]); //decide al azar el orden de las fases
 var ordenContingencias = shuffle(["ContNula", "ContNula"]); // No decided nada. 
 
-var Fase1 = {
+var FaseTest = {
   	nombreClave: "Batatrim",
 	nombreSindrome: "Síndrome de Lindsay",
 	ImagenClave: "img/BatatrimBoton.png",
@@ -272,14 +272,14 @@ var Fase1 = {
 	TiemposRespuesta: [],
 }
 
-var Fase2 = {
-	nombreClave: "recalibrado",
-	nombreSindrome: "Comportamientos erráticos de los sensores",
-	ImagenClave: "img/RecalibradoSi.png",
-	ImagenNOClave: "img/RecalibradoNo.png",
-	ImagenSindrome: "img/outcomeNoAvion.png",
-	ImagenSano: "img/outcomeAvion.png",
-    numTrials: 50,
+var FasePrevia = {
+	nombreClave: "Batatrim",
+	nombreSindrome: "Síndrome de Lindsay",
+	ImagenClave: "img/BatatrimBoton.png",
+	ImagenNOClave: "img/noBatatrimBoton.png",
+	ImagenSindrome: "img/Nooutcome.png",
+	ImagenSano: "img/outcome.png",
+    numTrials: 20,
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
@@ -312,15 +312,15 @@ function showCue(){
 	t0 = performance.now(); // Medir tiempos
 	//console.log("El tiempo actual es: "+t0+"."); // debug
 	
-	if(training[fase] == Fase2){ 
-		pintarHTML("divPreStatus", "<img src=\""+Fase2.ImagenSindrome+"\" width=250px>"+
+	if(training[fase] == FasePrevia){ 
+		pintarHTML("divPreStatus", "<img src=\""+FasePrevia.ImagenSindrome+"\" width=250px>"+
 				"<br><br><br><p class=\"mensaje\">El piloto de esta aeronave ha informado de comportamientos erráticos de los sensores de ángulo de ataque.</p><p class=\"mensaje\">¿Quieres recalibrar el sensor?</p>");
     
 		pintarHTML("divRegistro", "<h3>Aeronave EC-"+RandomString(3)+"</h3>");
     }
-	else if(training[fase] == Fase1){
-		pintarHTML("divPreStatus", "<img src=\""+Fase1.ImagenSindrome+"\" width=250px>"+
-              "<br><br><br><p class=\"mensaje\">Este paciente tiene el "+Fase1.nombreSindrome+".</p><p class=\"mensaje\">¿Quieres administrarle "+ Fase1.nombreClave+"?</p>");
+	else if(training[fase] == FaseTest){
+		pintarHTML("divPreStatus", "<img src=\""+FaseTest.ImagenSindrome+"\" width=250px>"+
+              "<br><br><br><p class=\"mensaje\">Este paciente tiene el "+FaseTest.nombreSindrome+".</p><p class=\"mensaje\">¿Quieres administrarle "+ FaseTest.nombreClave+"?</p>");
     
 		pintarHTML("divRegistro", "<h3>Paciente "+RandomString(4)+"</h3>");
 	}
@@ -336,7 +336,7 @@ function showCue(){
 
 function mostrarEleccion(){
 		
-	if(training[fase] == Fase1){ 
+	if(training[fase] == FaseTest){ 
 
 		if(BalPanel==1){
 				pintarHTML('divEleccion',
@@ -352,7 +352,7 @@ function mostrarEleccion(){
 
 		mostrar(divEleccion);
     }
-	else if(training[fase] == Fase2){
+	else if(training[fase] == FasePrevia){
 
 		if(BalPanel==1){
 				pintarHTML('divEleccion',
@@ -405,11 +405,11 @@ function respuestaYES(){
     document.getElementById("divPreStatus").classList.add('FadeOut');
     mostrar(divPreStatus);
     
-	if(training[fase] == Fase2){ 
+	if(training[fase] == FasePrevia){ 
 
 		pintarHTML("mensajeCue", "<p class=\"mensaje\">Has recalibrado el sensor</p>");
 	}
-	else if(training[fase] == Fase1){
+	else if(training[fase] == FaseTest){
 
 		pintarHTML("mensajeCue", "<p class=\"mensaje\">Has usado "+training[fase].nombreClave+"</p>");
 	}
@@ -437,11 +437,11 @@ function respuestaNO(){
     document.getElementById("divPreStatus").classList.add('FadeOut');
     mostrar(divPreStatus);
     
-	if(training[fase] == Fase2){ 
+	if(training[fase] == FasePrevia){ 
 		
 		pintarHTML("mensajeCue", "<p class=\"mensaje\">No has recalibrado el sensor</p>");
 	}
-	else if(training[fase] == Fase1){
+	else if(training[fase] == FaseTest){
 
 		pintarHTML("mensajeCue", "<p class=\"mensaje\">No has usado "+training[fase].nombreClave+"</p>");		
 	}
@@ -459,11 +459,11 @@ function showOutcome(){
         case 1: //si ha respondido 1:
             if(training[fase].posibleOutcomes[state]==1) {
                 imgOutcome = training[fase].ImagenSano;
-				if(training[fase] == Fase2){ 
+				if(training[fase] == FasePrevia){ 
 				
 					textoOutcome = "<br><p class=\"mensaje\">¡El problema ha sido resuelto!</p>";
 				}
-				else if(training[fase] == Fase1){
+				else if(training[fase] == FaseTest){
 			
 					textoOutcome = "<br><p class=\"mensaje\">¡El paciente ha superado la crisis!</p>";
 				}		
@@ -473,11 +473,11 @@ function showOutcome(){
                 
             else if(training[fase].posibleOutcomes[state]==0){
                 imgOutcome = training[fase].ImagenSindrome;
-				if(training[fase] == Fase2){ 
+				if(training[fase] == FasePrevia){ 
 				
 					textoOutcome = "<br><p class=\"mensajeMALO\">¡El problema NO ha sido resuelto!</p>";
 				}
-				else if(training[fase] == Fase1){
+				else if(training[fase] == FaseTest){
 			
 	                textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
 				}		
@@ -490,11 +490,11 @@ function showOutcome(){
         case 0: //si ha respondido 0:
             if(training[fase].posibleOutcomes[state]==1) {
                 imgOutcome = training[fase].ImagenSano;
-				if(training[fase] == Fase2){ 
+				if(training[fase] == FasePrevia){ 
 					textoOutcome = "<br><p class=\"mensaje\">¡El problema ha sido resuelto!</p>";
 				
 				}
-				else if(training[fase] == Fase1){
+				else if(training[fase] == FaseTest){
 					textoOutcome = "<br><p class=\"mensaje\">¡El paciente ha superado la crisis!</p>";
 
 				}
@@ -504,11 +504,11 @@ function showOutcome(){
                 
             else if(training[fase].posibleOutcomes[state]==0){
                 imgOutcome = training[fase].ImagenSindrome;
-               	if(training[fase] == Fase2){ 
+               	if(training[fase] == FasePrevia){ 
 					textoOutcome = "<br><p class=\"mensajeMALO\">¡El problema NO ha sido resuelto!</p>";
 				
 				}
-				else if(training[fase] == Fase1){
+				else if(training[fase] == FaseTest){
 					textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
 
 				}  
@@ -520,10 +520,10 @@ function showOutcome(){
         
 
     pintarHTML('divOutcome', "<img src=\""+imgOutcome+"\" width=250px><br><br>"+textoOutcome);
-    if(training[fase] == Fase2){ 
+    if(training[fase] == FasePrevia){ 
 		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente aeronave'/>")	
 	}
-	else if(training[fase] == Fase1){
+	else if(training[fase] == FaseTest){
 		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")	
 
 	}
@@ -571,10 +571,10 @@ function showJuicio(){
     ocultar(divContingencia);
     ocultar(divTextos);
     
-    if(training[fase] == Fase2){ 
+    if(training[fase] == FasePrevia){ 
 		textoJuicio= "<p class=\"pregunta\">¿Hasta qué punto crees que el recalibrado es efectivo para resolver los comportamientos erráticos de los sensores de ángulo de ataque?</p>";
 	}
-	else if(training[fase] == Fase1){
+	else if(training[fase] == FaseTest){
 		textoJuicio= "<p class=\"pregunta\">¿Hasta qué punto crees que el "+
 			training[fase].nombreClave+" es efectivo para curar las crisis del "+training[fase].nombreSindrome+"?</p>";
 	}
@@ -604,10 +604,10 @@ function showConfianza(){
     ocultar(divContingencia);
     ocultar(divTextos);
     
-    if(training[fase] == Fase2){ 
+    if(training[fase] == FasePrevia){ 
 		textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del recalibrado?</p>";
 	}
-	else if(training[fase] == Fase1){
+	else if(training[fase] == FaseTest){
 		textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
 	}
 
@@ -634,10 +634,10 @@ function showRiesgo(){
     ocultar(divContingencia);
     ocultar(divTextos);
     
-    if(training[fase] == Fase2){ 
+    if(training[fase] == FasePrevia){ 
 		textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la seguridad de la aeronave?</p>";
 	}
-	else if(training[fase] == Fase1){
+	else if(training[fase] == FaseTest){
 		textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
 	}
 	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Ningún riesgo.</li><li>100: Riesgo catastrófico.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
@@ -773,20 +773,20 @@ var arrayInstruc=[
 	"<h3 class=\"titulo\">Instrucciones</h3><p>A pesar de que los comportamientos no se reproducen en tierra ni producen registros de fallos, se sospecha que estos problemas pueden deberse a una calibración incorrecta del sensor que no es detectable. Por lo que se soluciona realizando una nueva calibración del sensor. La causa raíz de este problema está aún en fase de investigación, por lo que todavía no se ha comprobado claramente que sea efectiva.<br><br> Además, debes saber que esta re-calibración es una tarea larga y complicada con consecuencias que pueden ser graves, por lo que no siempre es posible realizarla.</p>",
 	
 	//4: Instrucciones 2.b
-	"<h3 class=\"titulo\">Instrucciones</h3><p>Te vamos a presentar una serie de informes de pilotos de aeronaves en servicio que sufren este fallo. <br><br>El procedimiento será el siguiente: para cada nueva aeronave, debes decidir si quieres recalibrar el sensor o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase2.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+Fase2.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Recalibrar el sensor</td><td>No recalibrar el sensor</td></tr></table><br><br>",
+	"<h3 class=\"titulo\">Instrucciones</h3><p>Te vamos a presentar una serie de informes de pilotos de aeronaves en servicio que sufren este fallo. <br><br>El procedimiento será el siguiente: para cada nueva aeronave, debes decidir si quieres recalibrar el sensor o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Recalibrar el sensor</td><td>No recalibrar el sensor</td></tr></table><br><br>",
 		
 	//5: Instrucciones 2.c
-	"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el problema fue resuelto. Después de darte esa información, se te presentará la siguiente aeronave.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase2.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+Fase2.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Problema no resuelto</td><td>Problema resuelto</td></tr></table><p>Intenta averiguar si el recalibrado es realmente efectivo. Cuando hayas revisado un buen número de aeronaves te haremos algunas preguntas.</p>"
+	"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el problema fue resuelto. Después de darte esa información, se te presentará la siguiente aeronave.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Problema no resuelto</td><td>Problema resuelto</td></tr></table><p>Intenta averiguar si el recalibrado es realmente efectivo. Cuando hayas revisado un buen número de aeronaves te haremos algunas preguntas.</p>"
 	,
 			
 	//6: Instrucciones de la tarea de ALERGIAS
-	"<p><h3 class=\"titulo\">Instrucciones</h3><p>Ya has terminado de estudiar el problema de comportamientos erráticos de los sensores de ángulo de ataque. Muchas gracias por tu colaboración.</p><p>Ahora imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ Fase1.nombreSindrome+", que hay que tratar muy rápido en urgencias. </p>",
+	"<p><h3 class=\"titulo\">Instrucciones</h3><p>Ya has terminado de estudiar el problema de comportamientos erráticos de los sensores de ángulo de ataque. Muchas gracias por tu colaboración.</p><p>Ahora imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. </p>",
 
 	//6: Instrucciones 1b Phase 2:
-	"<p><h3 class=\"titulo\">Instrucciones</h3><p>Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ Fase1.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.<br><br>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+Fase1.nombreSindrome+". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+Fase1.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase1.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+Fase1.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
+	"<p><h3 class=\"titulo\">Instrucciones</h3><p>Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.<br><br>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome+". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
 			
 	//7: Instrucciones 2 Phase 2
-	"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase1.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+Fase1.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Intenta averiguar hasta qué punto es efectivo el "+Fase1.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
+	"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 			
 	// A guardar datos via Firebase!  
 	//13: Save Data...
@@ -812,27 +812,27 @@ function prepararInstrucciones(){
 			"<h2 class=\"titulo\">MÁSTER UNIVERSITARIO EN INVESTIGACIÓN EN PSICOLOGÍA</h2><p>¡Muchas gracias por participar en este trabajo fin de máster!</p><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",	
 			
 			//2: Instrucciones 1
-			"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ Fase1.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ Fase1.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
+			"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
 			
 			//3: Instrucciones 2.a
-			"<h3 class=\"titulo\">Instrucciones</h3><p>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+Fase1.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+Fase1.nombreClave+ ".</p>",
+			"<h3 class=\"titulo\">Instrucciones</h3><p>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
 			
 			//4: Instrucciones 2.b
-			"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "+Fase1.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase1.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+Fase1.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
+			"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
 			
 			//5: Instrucciones 2.c
-			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase1.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+Fase1.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+Fase1.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>"
+			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>"
 			,
 				
 			// EXPERIMENTAL Contrabalanceo!!! Instrucciones para la tarea AERONÁUTICA 
 			//6: Instrucciones 1a Phase 2:
-			"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado de estudiar el "+Fase1.nombreSindrome +". Muchas gracias por tu colaboración.</p><p>Ahora imagina que eres un ingeniero que trabaja para una aerolínea. Eres especialista en sistemas de navegación y mandos de vuelo,  trabajas resolviendo problemas que hay que tratar muy rápido durante el día a día para poder operar con normalidad.<br><br> Los pilotos de un cierto modelo de avión de la aerolínea están informando de comportamientos erráticos de los sensores de ángulo de ataque, necesarios para calcular la posición y actitud (orientación) del avión.<br>A pesar de que los comportamientos no se reproducen en tierra ni producen registros de fallos, se sospecha que estos problemas pueden deberse a una calibración incorrecta del sensor que no es detectable. Por lo que se soluciona realizando una nueva calibración del sensor. La causa raíz de este problema está aún en fase de investigación, por lo que todavía no se ha comprobado claramente que sea efectiva.</p>",
+			"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado de estudiar el "+FaseTest.nombreSindrome +". Muchas gracias por tu colaboración.</p><p>Ahora imagina que eres un ingeniero que trabaja para una aerolínea. Eres especialista en sistemas de navegación y mandos de vuelo,  trabajas resolviendo problemas que hay que tratar muy rápido durante el día a día para poder operar con normalidad.<br><br> Los pilotos de un cierto modelo de avión de la aerolínea están informando de comportamientos erráticos de los sensores de ángulo de ataque, necesarios para calcular la posición y actitud (orientación) del avión.<br>A pesar de que los comportamientos no se reproducen en tierra ni producen registros de fallos, se sospecha que estos problemas pueden deberse a una calibración incorrecta del sensor que no es detectable. Por lo que se soluciona realizando una nueva calibración del sensor. La causa raíz de este problema está aún en fase de investigación, por lo que todavía no se ha comprobado claramente que sea efectiva.</p>",
 
 			//6: Instrucciones 1b Phase 2:
-			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Además, debes saber que esta re-calibración es una tarea larga y complicada con consecuencias que pueden ser graves, por lo que no siempre es posible realizarla.<br><br>Te vamos a presentar una serie de informes de pilotos de aeronaves en servicio que sufren este fallo.<br><br>El procedimiento será el siguiente: para cada nueva aeronave, debes decidir si quieres recalibrar el sensor o no, pulsando la imagen correspondiente de las dos siguientes.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase2.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+Fase2.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Recalibrar el sensor</td><td>No recalibrar el sensor</td></tr></table>",
+			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Además, debes saber que esta re-calibración es una tarea larga y complicada con consecuencias que pueden ser graves, por lo que no siempre es posible realizarla.<br><br>Te vamos a presentar una serie de informes de pilotos de aeronaves en servicio que sufren este fallo.<br><br>El procedimiento será el siguiente: para cada nueva aeronave, debes decidir si quieres recalibrar el sensor o no, pulsando la imagen correspondiente de las dos siguientes.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Recalibrar el sensor</td><td>No recalibrar el sensor</td></tr></table>",
 			
 			//7: Instrucciones 2 Phase 2
-			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación, te informaremos de si el problema fue resuelto. Después de darte esa información, se te presentará la siguiente aeronave. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+Fase2.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+Fase2.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Problema no resuelto</td><td>Problema resuelto</td></tr></table><p>Intenta averiguar hasta qué punto el recalibrado es efectivo. Cuando hayas observado a un buen número de aeronaves te haremos algunas preguntas.</p>",
+			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación, te informaremos de si el problema fue resuelto. Después de darte esa información, se te presentará la siguiente aeronave. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Problema no resuelto</td><td>Problema resuelto</td></tr></table><p>Intenta averiguar hasta qué punto el recalibrado es efectivo. Cuando hayas observado a un buen número de aeronaves te haremos algunas preguntas.</p>",
 						
 			// A guardar datos! 
 			//13: Save Data...
@@ -983,12 +983,12 @@ function saveData(){
     
     stringDate();
     
-    var Fase1countCells = new Map([...new Set(Fase1.secuenciaCells)].map(
-    x => [x, Fase1.secuenciaCells.filter(y => y === x).length]));
-    var Fase2countCells = new Map([...new Set(Fase2.secuenciaCells)].map(
-    x => [x, Fase2.secuenciaCells.filter(y => y === x).length]));
+    var Fase1countCells = new Map([...new Set(FaseTest.secuenciaCells)].map(
+    x => [x, FaseTest.secuenciaCells.filter(y => y === x).length]));
+    var Fase2countCells = new Map([...new Set(FasePrevia.secuenciaCells)].map(
+    x => [x, FasePrevia.secuenciaCells.filter(y => y === x).length]));
     
-    var BalanceoContingencia = Fase1.Contingencia+"-"+Fase2.Contingencia;
+    var BalanceoContingencia = FaseTest.Contingencia+"-"+FasePrevia.Contingencia;
      
    
     data = 
@@ -1002,20 +1002,20 @@ function saveData(){
 		Experience + "," +
         BalPanel + "," +               		//balanceo de panel botones
         BalanceoContingencia + "," +   		//orden de las contingencias
-        Fase1.Juicio + "," + 				//Juicio 
-        Fase1.Confianza + "," + 			//Confianza 
-        Fase1.Riesgo + "," + 				//Riesgo 
-        Fase2.Juicio + "," + 				//Fase 2 - Juicio
-        Fase2.Confianza + "," + 			//Fase 2 - Confianza 
-        Fase2.Riesgo + "," + 				//Fase 2 - Riesgo 
-		Fase1.TiemposRespuesta + "," + 		//Tiempos de respuesta 
-		Fase2.TiemposRespuesta + "," +  	//Fase 2 - Tiempos de respuesta 
-		Fase1.secuenciaResps + "," + 		//Secuencia de respuestas dada
-		Fase1.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
-		Fase1.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
-		Fase2.secuenciaResps + "," + 		//Fase 2 - Secuencia de respuestas dada
-		Fase2.posibleOutcomes + "," + 		//Fase 2 - Secuencia de resultados de éxito presentada
-		Fase2.secuenciaCells 				//Fase 2 - Secuencia de combinaciones acción-éxito
+        FaseTest.Juicio + "," + 				//Juicio 
+        FaseTest.Confianza + "," + 			//Confianza 
+        FaseTest.Riesgo + "," + 				//Riesgo 
+        FasePrevia.Juicio + "," + 				//Fase 2 - Juicio
+        FasePrevia.Confianza + "," + 			//Fase 2 - Confianza 
+        FasePrevia.Riesgo + "," + 				//Fase 2 - Riesgo 
+		FaseTest.TiemposRespuesta + "," + 		//Tiempos de respuesta 
+		FasePrevia.TiemposRespuesta + "," +  	//Fase 2 - Tiempos de respuesta 
+		FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
+		FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
+		FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
+		FasePrevia.secuenciaResps + "," + 		//Fase 2 - Secuencia de respuestas dada
+		FasePrevia.posibleOutcomes + "," + 		//Fase 2 - Secuencia de resultados de éxito presentada
+		FasePrevia.secuenciaCells 				//Fase 2 - Secuencia de combinaciones acción-éxito
     ;
     
 	if(group == "Experimental"){

@@ -35,8 +35,12 @@ var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
 var PregInduccion = ""; 		// No se usa, TFK comprobar y eliminar
 
 // Seguimiento de los participantes en cada grupo para adjudicar contrabalanceo o no
-var balanceo = 1;  		// controla el número de participantes del grupo de contrabalanceo
-var experimental = 0; 	// controla el número de participantes del grupo de contrabalanceo
+var grupoA1 = 1;  	// controla el número de participantes del grupo A1
+var grupoA2 = 0; 	// controla el número de participantes del grupo A2
+var grupoB1 = 0;
+var grupoB2 = 0;
+var grupoC1 = 0;
+var grupoC2 = 0;
 
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++

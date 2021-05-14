@@ -35,21 +35,23 @@ var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
 var PregInduccion = ""; 		// No se usa, TFK comprobar y eliminar
 
 // Seguimiento de los participantes en cada grupo para adjudicar contrabalanceo o no
-var grupoA1 = 1;  	// controla el número de participantes del grupo A1
-var grupoA2 = 0; 	// controla el número de participantes del grupo A2
-var grupoB1 = 0;
-var grupoB2 = 0;
-var grupoC1 = 0;
-var grupoC2 = 0;
-var grupoAsignado = 0; 
+var grupoA1 = 1;  	// grupo 0 -  controla el número de participantes del grupo A1
+var grupoA2 = 0; 	// grupo 1 -  controla el número de participantes del grupo A2
+var grupoB1 = 0;	// grupo 2
+var grupoB2 = 0;	// grupo 3
+var grupoC1 = 0;	// grupo 4
+var grupoC2 = 0;	// grupo 5
+
 // creamos un array para ver el número de participantes en cada grupo
 let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
 var participantCount = new Array();
+var tempArray = [0, 1, 2, 3, 4, 5]; 
+var tempShuffled = shuffle(tempArray);
+var grupoAsignado = tempShuffled[0]; 	// Elige un grupo al azar
+console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 
 for (var i = 1; i < grouplist.length; i++) {
-	if (grouplist[i] < value) {
-	  value = grouplist[i];
-	  index = i;
-	  grupoAsignado = index;
+	if (grouplist[i] < grouplist[grupoAsignado]) {
+	  grupoAsignado = grouplist[i];
 	}
   }
 console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug

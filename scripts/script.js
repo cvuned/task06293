@@ -28,7 +28,7 @@ var Gender="";
 var	Age=99;
 var Experience=99;
 var BalPanel = Math.floor((Math.random() * 2) + 1); //para aleatorizar la posición del panel de respuesta para cada sujeto
-var PartIP = "";
+// var PartIP = ""; //Modified for testing TFK
 
 
 var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
@@ -131,7 +131,7 @@ function arranca(){
 	
 	
 	// Ver IP
-	PartIP = myip;
+	// PartIP = myip; //Modified for testing TFK
 	//console.log("my IP is: "+PartIP+"."); //debug
 	
 	function gotData(data) {
@@ -225,7 +225,7 @@ function asignagrupo() {
 	group= "Experimental";	
 	// En función del número de participantes que hayan realizado la tarea en la secuencia normal
 	// y de contrabalanceo, asigna a un grupo o a otro al participante. 
-	if(balanceo > experimental){
+	if(grupoAsignado > 3){
         //console.log("Balanceo > experimental");    						// debug
 		//console.log("porque"+balanceo+" > que "+experimental+", ole");	// debug
 		group= "Experimental"; 
@@ -237,12 +237,12 @@ function asignagrupo() {
 	else {
 		//console.log("Pues no, experimental Igual o mayor"); 				// debug
 		//console.log("porque"+experimental+" > que "+balanceo+", ole");	// debug
-		group= "Contrabalanceo"; //se asigna el grupo manualmente
+		group= "Control"; //se asigna el grupo manualmente
 		// group= "Experimental"; //Solo para pruebas cuando el contrabalanceo no estaba
 		//console.log("Else: Pues te ha tocado grupo : Contrabalanceo, pero como TFK estamos de testeo: "+group+"."); // debug
 		// EXPERIMENTAL Contrabalanceo: Tarea alergia -> Tarea aeronáutica
 		// training=[Fase2, Fase1]; // Solo para pruebas cuando el contrabalanceo no estaba
-		training=[FaseTest, FasePrevia];  
+		training=[FasePrevia, FaseTest]; 
 
 	}
     //console.log("Pues te ha tocado grupo :"+group+".");					// debug
@@ -1002,7 +1002,7 @@ function saveData(){
     data = 
         "TFM-Control" + "," + 
         personId + "," +                	//ID aleatorio
-		PartIP + "," +						// IP del participante
+		//PartIP + "," +						// IP del participante //Modified for testing TFK
         fecha + "," + 
         group + "," +                   	//grupo: normal / contrabalanceo
         Age + "," +         		
@@ -1027,12 +1027,12 @@ function saveData(){
     ;
     
 	if(group == "Experimental"){
-		actualizarGrupo= experimental+1;
+		//actualizarGrupo= grouplist[grupoAsignado]+1;
 		//firebase.database().ref('GrupoControlExp').set(actualizarGrupo);				// MODO DEMO SIN CONEXIÓN
 		//console.log("Un participante al grupo normal")				// debug
 	}
 	else {
-		actualizarGrupo= balanceo+1;
+		//actualizarGrupo= grouplist[grupoAsignado]+1;
 		// firebase.database().ref('GrupoControlContrabalanceo').set(actualizarGrupo); 	// MODO DEMO SIN CONEXIÓN
 		//console.log("Un participante al grupo de contrabalanceo")		// debug
 	}

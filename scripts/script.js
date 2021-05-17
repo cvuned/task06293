@@ -188,7 +188,7 @@ function arranca(){
 			//console.log(arrayOutcome2);	// debug
 			//console.log(arrayOutcome3);	// debug
 			//console.log(arrayOutcome4);	// debug
-        case "ContPositiva": // Esto no debería ejecutarse TFK 
+        case "ContPositiva": // Esto ahora sí debería ejecutarse TFK 
             for(var i=0; i<5; i++){ //creo 5 bloques...
                 var arrayOutcome= [1, 1, 1, 1, 1, 1, 0, 0];
                 arrayOutcome=shuffle(arrayOutcome);
@@ -265,7 +265,9 @@ var FaseTest = {
 	ImagenNOClave: "img/noBatatrimBoton.png",
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
-    numTrials: 50,
+	textoCue: "El piloto de esta aeronave ha informado de comportamientos erráticos de los sensores de ángulo de ataque.",
+    textoPregunta: "¿Quieres recalibrar el sensor?",
+	numTrials: 50,
     posibleOutcomes: [],
     secuenciaCells: [],
     secuenciaResps: [],
@@ -283,6 +285,8 @@ var FasePrevia = {
 	ImagenNOClave: "img/noBatatrimBoton.png",
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
+	textoCue: "Este paciente tiene el Síndrome de Lindsay",
+    textoPregunta: "¿Quieres administrarle Batatrim?",
     numTrials: 20,
     posibleOutcomes: [],   
     secuenciaCells: [],
@@ -318,13 +322,13 @@ function showCue(){
 	
 	if(training[fase] == FasePrevia){ 
 		pintarHTML("divPreStatus", "<img src=\""+FasePrevia.ImagenSindrome+"\" width=250px>"+
-				"<br><br><br><p class=\"mensaje\">El piloto de esta aeronave ha informado de comportamientos erráticos de los sensores de ángulo de ataque.</p><p class=\"mensaje\">¿Quieres recalibrar el sensor?</p>");
+				"<br><br><br><p class=\"mensaje\">"+FasePrevia.textoCue+"</p><p class=\"mensaje\">"+FasePrevia.textoPregunta+"</p>");
     
 		pintarHTML("divRegistro", "<h3>Aeronave EC-"+RandomString(3)+"</h3>");
     }
 	else if(training[fase] == FaseTest){
 		pintarHTML("divPreStatus", "<img src=\""+FaseTest.ImagenSindrome+"\" width=250px>"+
-              "<br><br><br><p class=\"mensaje\">Este paciente tiene el "+FaseTest.nombreSindrome+".</p><p class=\"mensaje\">¿Quieres administrarle "+ FaseTest.nombreClave+"?</p>");
+              "<br><br><br><p class=\"mensaje\">"+FaseTest.textoCue+"</p><p class=\"mensaje\">"+FaseTest.textoPregunta+"</p>");
     
 		pintarHTML("divRegistro", "<h3>Paciente "+RandomString(4)+"</h3>");
 	}

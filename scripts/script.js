@@ -265,8 +265,10 @@ var FaseTest = {
 	ImagenNOClave: "img/noBatatrimBoton.png",
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
-	textoCue: "El piloto de esta aeronave ha informado de comportamientos erráticos de los sensores de ángulo de ataque.",
-    textoPregunta: "¿Quieres recalibrar el sensor?",
+	textoCue: "Este paciente tiene el Síndrome de Lindsay",
+    textoPregunta: "¿Quieres administrarle Batatrim?",
+	textoYES: "Has administrado Batatrim",
+	textoNO: "No administrado usado Batatrim",
 	numTrials: 50,
     posibleOutcomes: [],
     secuenciaCells: [],
@@ -285,8 +287,10 @@ var FasePrevia = {
 	ImagenNOClave: "img/noBatatrimBoton.png",
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
-	textoCue: "Este paciente tiene el Síndrome de Lindsay",
-    textoPregunta: "¿Quieres administrarle Batatrim?",
+	textoCue: "Este paciente tiene el Síndrome de Lindsay y se le va a administrar Batatrim",
+    textoPregunta: "¿Crees que va a recuperarse?",
+	textoYES: "Se ha administrado Batatrim y crees que se va a recuperar",
+	textoNO: "Se ha administrado Batatrim y crees que NO se va a recuperar",
     numTrials: 20,
     posibleOutcomes: [],   
     secuenciaCells: [],
@@ -319,19 +323,11 @@ function showCue(){
     
 	t0 = performance.now(); // Medir tiempos
 	//console.log("El tiempo actual es: "+t0+"."); // debug
-	
-	if(training[fase] == FasePrevia){ 
-		pintarHTML("divPreStatus", "<img src=\""+FasePrevia.ImagenSindrome+"\" width=250px>"+
-				"<br><br><br><p class=\"mensaje\">"+FasePrevia.textoCue+"</p><p class=\"mensaje\">"+FasePrevia.textoPregunta+"</p>");
+
+	pintarHTML("divPreStatus", "<img src=\""+training[fase].ImagenSindrome+"\" width=250px>"+
+            "<br><br><br><p class=\"mensaje\">"+training[fase].textoCue+"</p><p class=\"mensaje\">"+training[fase].textoPregunta+"</p>");
     
-		pintarHTML("divRegistro", "<h3>Aeronave EC-"+RandomString(3)+"</h3>");
-    }
-	else if(training[fase] == FaseTest){
-		pintarHTML("divPreStatus", "<img src=\""+FaseTest.ImagenSindrome+"\" width=250px>"+
-              "<br><br><br><p class=\"mensaje\">"+FaseTest.textoCue+"</p><p class=\"mensaje\">"+FaseTest.textoPregunta+"</p>");
-    
-		pintarHTML("divRegistro", "<h3>Paciente "+RandomString(4)+"</h3>");
-	}
+	pintarHTML("divRegistro", "<h3>Paciente "+RandomString(4)+"</h3>");
 	
 	
     mostrar(divRegistro);
@@ -413,14 +409,7 @@ function respuestaYES(){
     document.getElementById("divPreStatus").classList.add('FadeOut');
     mostrar(divPreStatus);
     
-	if(training[fase] == FasePrevia){ 
-
-		pintarHTML("mensajeCue", "<p class=\"mensaje\">Has recalibrado el sensor</p>");
-	}
-	else if(training[fase] == FaseTest){
-
-		pintarHTML("mensajeCue", "<p class=\"mensaje\">Has usado "+training[fase].nombreClave+"</p>");
-	}
+	pintarHTML("mensajeCue", "<p class=\"mensaje\">"+training[fase].textoYES+"</p>");
     
     setTimeout('showOutcome()', 500);
 }
@@ -445,14 +434,7 @@ function respuestaNO(){
     document.getElementById("divPreStatus").classList.add('FadeOut');
     mostrar(divPreStatus);
     
-	if(training[fase] == FasePrevia){ 
-		
-		pintarHTML("mensajeCue", "<p class=\"mensaje\">No has recalibrado el sensor</p>");
-	}
-	else if(training[fase] == FaseTest){
-
-		pintarHTML("mensajeCue", "<p class=\"mensaje\">No has usado "+training[fase].nombreClave+"</p>");		
-	}
+	pintarHTML("mensajeCue", "<p class=\"mensaje\">"+training[fase].textoNO+"</p>");
     
     setTimeout('showOutcome()', 500);
 }

@@ -35,7 +35,7 @@ var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
 var PregInduccion = ""; 		// No se usa, TFK comprobar y eliminar
 
 // Seguimiento de los participantes en cada grupo para adjudicar contrabalanceo o no
-var grupoA1 = 1;  	// grupo 0 -  controla el número de participantes del grupo A1
+var grupoA1 = 0;  	// grupo 0 -  controla el número de participantes del grupo A1
 var grupoA2 = 0; 	// grupo 1 -  controla el número de participantes del grupo A2
 var grupoB1 = 0;	// grupo 2
 var grupoB2 = 0;	// grupo 3
@@ -169,60 +169,40 @@ function arranca(){
     
     //genero las cadenas de outcomes:
     
-    switch (FaseTest.Contingencia){
-        case "ContPrevia": 
-            
-            for(var i=0; i<2; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
-                if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
-					var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-				}
-				else{        			// grupos B1 y B2 (expectativa inicial baja)
-					var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
-				}  
-				arrayOutcome=shuffle(arrayOutcome);
-                FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome);
-                
-				// if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
-				// 	var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-				// }
-				// else{        			// grupos B1 y B2 (expectativa inicial baja)
-				// 	var arrayOutcome3= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
-				// }  
-                // arrayOutcome3=shuffle(arrayOutcome3);
-                // FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3)              
-            }
-            break;
+	for(var i=0; i<2; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
+		if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
+			var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+		}
+		else{        			// grupos B1 y B2 (expectativa inicial baja)
+			var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+		}  
+		arrayOutcome=shuffle(arrayOutcome);
+		FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome);              
+	}
 
-        case "ContTest": 
-            for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 30%/70% de éxito
-                if(grupoAsignado%2==0){  	// grupos A2, B2 y C2 (remisión espontánea alta)
-					var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-				}
-				else{        			// grupos A1, B1 y C1 (remisión espontánea baja)
-					var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
-				}  
-                arrayOutcome=shuffle(arrayOutcome);
-                FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
-                
-                // if(grupoAsignado%2==0){  	// grupos A2, B2 y C2 (remisión espontánea alta)
-				// 	var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-				// }
-				// else{        			// grupos A1, B1 y C1 (remisión espontánea baja)
-				// 	var arrayOutcome3= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
-				// }  
-                // arrayOutcome3=shuffle(arrayOutcome3);
-                // FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3);
+	for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 30%/70% de éxito
+		if(grupoAsignado%2==0){  	// grupos A1, B1 y C1 (remisión espontánea baja)
+			var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];}
+		else{        				// grupos A2, B2 y C2 (remisión espontánea alta)
+			var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+		}  
+		arrayOutcome=shuffle(arrayOutcome);
+		FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
+	}             
 
-            }             
-    }
-    console.log("Resultados para fase previa:");	// debug
-    console.log(FasePrevia.posibleOutcomes);	// debug
-    console.log("Resultados para fase test:");	// debug
-    console.log(FaseTest.posibleOutcomes);	// debug
-	sum = FaseTest.posibleOutcomes.reduce((a, b) => {
+    //console.log("Resultados para fase previa:");	// debug
+    //console.log(FasePrevia.posibleOutcomes);	// debug
+	sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
 		return a + b;
 	  });
-	console.log("Remisión espontánea: "+100*sum/50+"%.");	// debug
+	console.log("Expectativa inicial: "+100*sum/20+"%.");	// debug
+
+    //console.log("Resultados para fase test:");	// debug
+    //console.log(FaseTest.posibleOutcomes);	// debug
+	sum2 = FaseTest.posibleOutcomes.reduce((a, b) => {
+		return a + b;
+	  });
+	console.log("Remisión espontánea: "+100*sum2/50+"%.");	// debug
 
 
     pregInduccion();
@@ -273,8 +253,6 @@ function asignagrupo() {
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
 
-var ordenContingencias = ["ContPrevia", "ContTest"];  
-
 var FaseTest = {
   	nombreClave: "Batatrim",
 	nombreSindrome: "Síndrome de Lindsay",
@@ -290,7 +268,7 @@ var FaseTest = {
     posibleOutcomes: [],
     secuenciaCells: [],
     secuenciaResps: [],
-    Contingencia: ordenContingencias[1],
+    // Contingencia: ordenContingencias[1], //Ya no se usa 
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
@@ -312,7 +290,7 @@ var FasePrevia = {
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
-    Contingencia: ordenContingencias[0],
+    // Contingencia: ordenContingencias[1], //Ya no se usa
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,

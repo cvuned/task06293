@@ -918,7 +918,7 @@ var arrayBoton = [
 
 function cuestionarioEdad(){
 	
-	
+
     ocultar(divTextos);
     mostrar(divCuestionariosEdad);
 	

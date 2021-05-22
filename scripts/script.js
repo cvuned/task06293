@@ -192,10 +192,7 @@ function arranca(){
                 FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3)              
             }
             break;
-			//console.log(arrayOutcome);	// debug
-			//console.log(arrayOutcome2);	// debug
-			//console.log(arrayOutcome3);	// debug
-			//console.log(arrayOutcome4);	// debug
+
         case "ContTest": 
             for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 30%/70% de éxito
                 var arrayOutcome= [1, 1, 1, 1, 1, 1, 0, 0];
@@ -214,7 +211,8 @@ function arranca(){
                 
             }             
     }
-    
+    //console.log(FaseTest.posibleOutcomes);	// debug
+
     pregInduccion();
     //if(group=="control"){
     //    siguienteTexto();    

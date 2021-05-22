@@ -220,32 +220,54 @@ function arranca(){
 
 function asignagrupo() {
 
-	group= "Experimental";	
+	group= "No asignado";	
 	// En función del número de participantes que hayan realizado la tarea en la secuencia normal
 	// y de contrabalanceo, asigna a un grupo o a otro al participante. 
 	if(grupoAsignado > 3){
-        //console.log("Balanceo > experimental");    						// debug
-		//console.log("porque"+balanceo+" > que "+experimental+", ole");	// debug
-		group= "Experimental"; 
-		//console.log("If: Pues te ha tocado grupo :"+group+".");			// debug
-		// GRUPO EXPERIMENTAL Normal: Tarea aeronáutica -> Tarea alergia
+
+		training=[FaseControl, FaseTest];
+		if(grupoAsignado == 4){
+			group= "Control Remisión Baja - C1"; 
+		}
+		else if(grupoAsignado == 5){
+			group= "Control Remisión Alta - C2"; 
+		}
+		else{
+			group= "ERROR!!!"
+			console.log(group);
+			console.log("El grupo asignado era: "+grupoAsignado+".");  
+		}
+	}
+	else if(grupoAsignado < 2){
 		training=[FasePrevia, FaseTest];
-
+		if(grupoAsignado == 0){
+			group= "Expectativa Alta y Remisión Baja - A1"; 
+		}
+		else if(grupoAsignado == 1){
+			group= "Expectativa Alta y Remisión Alta - A2"; 
+		}
+		else{
+			group= "ERROR!!!"
+			console.log(group);
+			console.log("El grupo asignado era: "+grupoAsignado+".");
+		}  
 	}
-	else {
-		//console.log("Pues no, experimental Igual o mayor"); 				// debug
-		//console.log("porque"+experimental+" > que "+balanceo+", ole");	// debug
-		group= "Control"; //se asigna el grupo manualmente
-		// group= "Experimental"; //Solo para pruebas cuando el contrabalanceo no estaba
-		//console.log("Else: Pues te ha tocado grupo : Contrabalanceo, pero como TFK estamos de testeo: "+group+"."); // debug
-		// EXPERIMENTAL Contrabalanceo: Tarea alergia -> Tarea aeronáutica
-		// training=[Fase2, Fase1]; // Solo para pruebas cuando el contrabalanceo no estaba
-		training=[FasePrevia, FaseTest]; 
-
+	else{
+		training=[FasePrevia, FaseTest];
+		if(grupoAsignado == 2){
+			group= "Expectativa Baja y Remisión Baja - B1"; 
+		}
+		else if(grupoAsignado == 3){
+			group= "Expectativa Baja y Remisión Alta - B2"; 
+		}
+		else{
+			group= "ERROR!!!"
+			console.log(group);
+			console.log("El grupo asignado era: "+grupoAsignado+".");  
+		}
 	}
-    //console.log("Pues te ha tocado grupo :"+group+".");					// debug
-	//group= "Experimental"; //se asigna el grupo manualmente
-    // group= "Control"; //se asigna el grupo manualmente - TFK Parece que no va... 
+    // console.log("Pues te ha tocado grupo :"+group+".");					// debug
+
 }    
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
@@ -278,8 +300,8 @@ var FaseTest = {
 var FasePrevia = {
 	nombreClave: "Batatrim",
 	nombreSindrome: "Síndrome de Lindsay",
-	ImagenClave: "img/BatatrimBoton.png",
-	ImagenNOClave: "img/noBatatrimBoton.png",
+	ImagenClave: "img/BatatrimBoton.png",		// Cambiar imagen a YES
+	ImagenNOClave: "img/noBatatrimBoton.png",	// Cambiar imagen a NO
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
 	textoCue: "Este paciente tiene el Síndrome de Lindsay y se le va a administrar Batatrim",
@@ -293,6 +315,28 @@ var FasePrevia = {
     // Contingencia: ordenContingencias[1], //Ya no se usa
     Juicio: 999,
     Confianza: 999,
+	Riesgo: 999,
+	TiemposRespuesta: [],
+}
+
+var FaseControl = {
+	nombreClave: "Batatrim",
+	nombreSindrome: "Síndrome de Lindsay",
+	ImagenClave: "img/BatatrimBoton.png",
+	ImagenNOClave: "img/noBatatrimBoton.png",
+	ImagenSindrome: "img/Nooutcome.png",
+	ImagenSano: "img/outcome.png",
+	textoCue: "Este paciente tiene el Síndrome de Lindsay",
+	textoPregunta: "¿Quieres administrarle Batatrim?",
+	textoYES: "Has administrado Batatrim",
+	textoNO: "No administrado usado Batatrim",
+	numTrials: 50,
+	posibleOutcomes: [],
+	secuenciaCells: [],
+	secuenciaResps: [],
+	// Contingencia: ordenContingencias[1], //Ya no se usa 
+	Juicio: 999,
+	Confianza: 999,
 	Riesgo: 999,
 	TiemposRespuesta: [],
 }

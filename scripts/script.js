@@ -172,16 +172,24 @@ function arranca(){
     switch (FaseTest.Contingencia){
         case "ContPrevia": 
             
-            for(var i=0; i<5; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
-                var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-                arrayOutcome=shuffle(arrayOutcome);
+            for(var i=0; i<2; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
+                if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
+					var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+				}
+				else{        			// grupos B1 y B2 (expectativa inicial baja)
+					var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+				}  
+				arrayOutcome=shuffle(arrayOutcome);
                 FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
                 
-                var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+				if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
+					var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+				}
+				else{        			// grupos B1 y B2 (expectativa inicial baja)
+					var arrayOutcome3= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+				}  
                 arrayOutcome3=shuffle(arrayOutcome3);
-                FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3);
-
-                
+                FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3)              
             }
             break;
 			//console.log(arrayOutcome);	// debug

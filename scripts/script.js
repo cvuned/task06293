@@ -180,38 +180,50 @@ function arranca(){
 					var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
 				}  
 				arrayOutcome=shuffle(arrayOutcome);
-                FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
+                FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome);
                 
-				if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
-					var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-				}
-				else{        			// grupos B1 y B2 (expectativa inicial baja)
-					var arrayOutcome3= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
-				}  
-                arrayOutcome3=shuffle(arrayOutcome3);
-                FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3)              
+				// if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
+				// 	var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+				// }
+				// else{        			// grupos B1 y B2 (expectativa inicial baja)
+				// 	var arrayOutcome3= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+				// }  
+                // arrayOutcome3=shuffle(arrayOutcome3);
+                // FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3)              
             }
             break;
 
         case "ContTest": 
             for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 30%/70% de éxito
-                var arrayOutcome= [1, 1, 1, 1, 1, 1, 0, 0];
+                if(grupoAsignado%2==0){  	// grupos A2, B2 y C2 (remisión espontánea alta)
+					var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+				}
+				else{        			// grupos A1, B1 y C1 (remisión espontánea baja)
+					var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+				}  
                 arrayOutcome=shuffle(arrayOutcome);
-                FaseTest.posibleOutcomesYES=FaseTest.posibleOutcomesYES.concat(arrayOutcome);
-                var arrayOutcome2= [1, 0, 0, 0, 0, 0, 0, 0];
-                arrayOutcome2=shuffle(arrayOutcome2);
-                FaseTest.posibleOutcomesNO=FaseTest.posibleOutcomesNO.concat(arrayOutcome2);
+                FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
                 
-                var arrayOutcome3= [1, 1, 1, 1, 1, 1, 0, 0];
-                arrayOutcome3=shuffle(arrayOutcome3);
-                FasePrevia.posibleOutcomesYES=FasePrevia.posibleOutcomesYES.concat(arrayOutcome3);
-                var arrayOutcome4= [1, 1, 1, 1, 1, 1, 0, 0];
-                arrayOutcome4=shuffle(arrayOutcome4);
-                FasePrevia.posibleOutcomesNO=FasePrevia.posibleOutcomesNO.concat(arrayOutcome4);
-                
+                // if(grupoAsignado%2==0){  	// grupos A2, B2 y C2 (remisión espontánea alta)
+				// 	var arrayOutcome3= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+				// }
+				// else{        			// grupos A1, B1 y C1 (remisión espontánea baja)
+				// 	var arrayOutcome3= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+				// }  
+                // arrayOutcome3=shuffle(arrayOutcome3);
+                // FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome3);
+
             }             
     }
-    //console.log(FaseTest.posibleOutcomes);	// debug
+    console.log("Resultados para fase previa:");	// debug
+    console.log(FasePrevia.posibleOutcomes);	// debug
+    console.log("Resultados para fase test:");	// debug
+    console.log(FaseTest.posibleOutcomes);	// debug
+	sum = FaseTest.posibleOutcomes.reduce((a, b) => {
+		return a + b;
+	  });
+	console.log("Remisión espontánea: "+100*sum/50+"%.");	// debug
+
 
     pregInduccion();
     //if(group=="control"){
@@ -278,7 +290,7 @@ var FaseTest = {
     posibleOutcomes: [],
     secuenciaCells: [],
     secuenciaResps: [],
-    Contingencia: ordenContingencias[0],
+    Contingencia: ordenContingencias[1],
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
@@ -300,7 +312,7 @@ var FasePrevia = {
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
-    Contingencia: ordenContingencias[1],
+    Contingencia: ordenContingencias[0],
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,

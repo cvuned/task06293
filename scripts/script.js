@@ -170,9 +170,9 @@ function arranca(){
     //genero las cadenas de outcomes:
     
     switch (FaseTest.Contingencia){
-        case "ContNula": 
+        case "ContPrevia": 
             
-            for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 70% de éxito
+            for(var i=0; i<5; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
                 var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
                 arrayOutcome=shuffle(arrayOutcome);
                 FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
@@ -188,8 +188,8 @@ function arranca(){
 			//console.log(arrayOutcome2);	// debug
 			//console.log(arrayOutcome3);	// debug
 			//console.log(arrayOutcome4);	// debug
-        case "ContPositiva": // Esto ahora sí debería ejecutarse TFK 
-            for(var i=0; i<5; i++){ //creo 5 bloques...
+        case "ContTest": 
+            for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 30%/70% de éxito
                 var arrayOutcome= [1, 1, 1, 1, 1, 1, 0, 0];
                 arrayOutcome=shuffle(arrayOutcome);
                 FaseTest.posibleOutcomesYES=FaseTest.posibleOutcomesYES.concat(arrayOutcome);
@@ -255,8 +255,7 @@ function asignagrupo() {
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
 
-//var ordenContingencias = shuffle(["ContNula", "ContPositiva"]); //decide al azar el orden de las fases
-var ordenContingencias = shuffle(["ContNula", "ContNula"]); // No decided nada. 
+var ordenContingencias = ["ContPrevia", "ContTest"];  
 
 var FaseTest = {
   	nombreClave: "Batatrim",

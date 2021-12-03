@@ -41,6 +41,8 @@ var grupoB1 = 0;	// grupo 2 - B1
 var grupoB2 = 0;	// grupo 3 - B2
 var grupoC1 = 0;	// grupo 4 - Control 1
 var grupoC2 = 0;	// grupo 5 - Control 2
+// Esta variable realmente se verá como la variable: grupoAsignado
+// [grupoA1 = 0, grupoA2 = 1, grupoB1 = 2, grupoB2= 3, grupoC1 = 4, grupoC2 = 5] 
 
 // creamos un array para ver el número de participantes en cada grupo
 let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];

@@ -37,10 +37,10 @@ var PregInduccion = ""; 		// No se usa, TFK comprobar y eliminar
 // Seguimiento de los participantes en cada grupo para adjudicar contrabalanceo o no
 var grupoA1 = 0;  	// grupo 0 -  controla el número de participantes del grupo A1
 var grupoA2 = 0; 	// grupo 1 -  controla el número de participantes del grupo A2
-var grupoB1 = 0;	// grupo 2
-var grupoB2 = 0;	// grupo 3
-var grupoC1 = 0;	// grupo 4
-var grupoC2 = 0;	// grupo 5
+var grupoB1 = 0;	// grupo 2 - B1 
+var grupoB2 = 0;	// grupo 3 - B2
+var grupoC1 = 0;	// grupo 4 - Control 1
+var grupoC2 = 0;	// grupo 5 - Control 2
 
 // creamos un array para ver el número de participantes en cada grupo
 let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];

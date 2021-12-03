@@ -344,14 +344,14 @@ var FaseControl = {
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
 	numTrials: 0,
-	posibleOutcomes: [],
-	secuenciaCells: [],
-	secuenciaResps: [],
+	posibleOutcomes: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+	secuenciaCells: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+	secuenciaResps: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 	// Contingencia: ordenContingencias[1], //Ya no se usa 
 	Juicio: 999,
 	Confianza: 999,
 	Riesgo: 999,
-	TiemposRespuesta: [],
+	TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
 }
 
 function RandomString(length){

@@ -175,6 +175,9 @@ function arranca(){
 		if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
 			var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
 		}
+		else if(grupoAsignado>3){  	// grupos C1 y C2 (Control - sin ensayos)
+			var arrayOutcome= []; // Añadido para que este grupo salte directamente 
+		}
 		else{        			// grupos B1 y B2 (expectativa inicial baja)
 			var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
 		}  
@@ -194,11 +197,16 @@ function arranca(){
 
     //console.log("Resultados para fase previa:");	// debug
     //console.log(FasePrevia.posibleOutcomes);	// debug
-	sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
-		return a + b;
-	  });
-	console.log("Expectativa inicial: "+100*sum/20+"%.");	// debug
-
+	if(grupoAsignado<4){
+		sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
+			return a + b;
+		});
+		console.log("Expectativa inicial: "+100*sum/20+"%.");	// debug
+				// Para control qué dice
+	}
+	else{ 
+		console.log("Este es un grupo de control sin manipulación");	
+	}
     //console.log("Resultados para fase test:");	// debug
     //console.log(FaseTest.posibleOutcomes);	// debug
 	sum2 = FaseTest.posibleOutcomes.reduce((a, b) => {

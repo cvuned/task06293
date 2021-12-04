@@ -314,10 +314,8 @@ var FasePrevia = {
 	ImagenNOClave: "img/noBatatrimBoton.png",	// Cambiar imagen a NO
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
-	textoIntroAlta: "Como parte de un experimento piloto de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente al que se ha administrado \"Batatrim\" y se te pedirá intentar predecir si va a superar la crisis o no.",
-	textoIntroBaja: "Como parte de un experimento piloto de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente al que se ha administrado \"Batatrim\" y se te pedirá intentar predecir si va a superar la crisis o no.",
-	trxtoTransitAlta: "Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\" ha sido alta. <p> Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.",
-	trxtoTransitBaja: "Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\"  ha sido baja. <p>Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.",
+	textoTransitAlta: "Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\" ha sido alta. <p> Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.",
+	textoTransitBaja: "Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\"  ha sido baja. <p>Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.",
 	textoCue: "Este paciente tiene el Síndrome de Lindsay y se le ha administrado Batatrim",
     textoPregunta: "¿Crees que va a recuperarse?",
 	//textoYES: "Se ha administrado Batatrim y crees que se va a recuperar",
@@ -807,40 +805,79 @@ function previoTexto(){
 
 // Inicializamos el arrayInstruc con el modo grupos experimentales (grupos A y B)
 
-var arrayInstruc=[
-	//0: (portada)  // TFK requiere cambio
-	"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
-		
-	// EXPERIMENTAL! Instrucciones para la fase previa // TFK requiere cambio
-	//2: Instrucciones 1
-	"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
+if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2: 
+	var arrayInstruc=[
+		//0: (portada)  // TFK requiere cambio
+		"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
+			
+		// EXPERIMENTAL! Instrucciones para la fase previa // TFK Comprobar - modificada
+		//2: Instrucciones 1
+		"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+".<br>",
+					
+		//3: Instrucciones 2.a // TFK requiere cambio // TFK Comprobar - modificada
+		"<h3 class=\"titulo\">Instrucciones</h3><p> Como parte de un experimento piloto de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". <br><br>En cada ficha verás un paciente al que se ha administrado \"Batatrim\" y se te pedirá intentar predecir si va a superar la crisis o no. </p>",
 				
-	//3: Instrucciones 2.a // TFK requiere cambio
-	"<h3 class=\"titulo\">Instrucciones</h3><p>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
+		//4: Instrucciones 2.b // TFK requiere cambio
+		"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
+				
+		//5: Instrucciones 2.c // TFK requiere cambio
+		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>"
+		,
+				
+		//6: Instrucciones de la tarea de ALERGIAS // TFK requiere cambio
+		"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado de estudiar el "+FaseTest.nombreSindrome +". Muchas gracias por tu colaboración.</p><p>Ahora imagina que eres un ingeniero que trabaja para una aerolínea. Eres especialista en sistemas de navegación y mandos de vuelo,  trabajas resolviendo problemas que hay que tratar muy rápido durante el día a día para poder operar con normalidad.<br><br> Los pilotos de un cierto modelo de avión de la aerolínea están informando de comportamientos erráticos de los sensores de ángulo de ataque, necesarios para calcular la posición y actitud (orientación) del avión.<br>A pesar de que los comportamientos no se reproducen en tierra ni producen registros de fallos, se sospecha que estos problemas pueden deberse a una calibración incorrecta del sensor que no es detectable. Por lo que se soluciona realizando una nueva calibración del sensor. La causa raíz de este problema está aún en fase de investigación, por lo que todavía no se ha comprobado claramente que sea efectiva.</p>",
+	
+		//6: Instrucciones 1b Phase 2: // TFK requiere cambio
+		"<p><h3 class=\"titulo\">Instrucciones</h3><p>Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.<br><br>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome+". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
+				
+		//7: Instrucciones 2 Phase 2 // TFK requiere cambio
+		"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
+				
+		// A guardar datos via Firebase!  
+		//13: Save Data...
+		"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
+				
+		//13:
+		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autor: <br>Carlos Vera <br><br> Tutores del Trabajo Fin de Máster:<br> Pedro Montoro, Cris Orgaz y María José Contreras.</p>"		
+	];
+}
+else{
+	var arrayInstruc=[ // Instrucciones para los grupos B1 y B2: 
+		//0: (portada)  // TFK requiere cambio
+		"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 			
-	//4: Instrucciones 2.b // TFK requiere cambio
-	"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
-			
-	//5: Instrucciones 2.c // TFK requiere cambio
-	"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>"
-	,
-			
-	//6: Instrucciones de la tarea de ALERGIAS // TFK requiere cambio
-	"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado de estudiar el "+FaseTest.nombreSindrome +". Muchas gracias por tu colaboración.</p><p>Ahora imagina que eres un ingeniero que trabaja para una aerolínea. Eres especialista en sistemas de navegación y mandos de vuelo,  trabajas resolviendo problemas que hay que tratar muy rápido durante el día a día para poder operar con normalidad.<br><br> Los pilotos de un cierto modelo de avión de la aerolínea están informando de comportamientos erráticos de los sensores de ángulo de ataque, necesarios para calcular la posición y actitud (orientación) del avión.<br>A pesar de que los comportamientos no se reproducen en tierra ni producen registros de fallos, se sospecha que estos problemas pueden deberse a una calibración incorrecta del sensor que no es detectable. Por lo que se soluciona realizando una nueva calibración del sensor. La causa raíz de este problema está aún en fase de investigación, por lo que todavía no se ha comprobado claramente que sea efectiva.</p>",
-
-	//6: Instrucciones 1b Phase 2: // TFK requiere cambio
-	"<p><h3 class=\"titulo\">Instrucciones</h3><p>Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.<br><br>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome+". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
-			
-	//7: Instrucciones 2 Phase 2 // TFK requiere cambio
-	"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
-			
-	// A guardar datos via Firebase!  
-	//13: Save Data...
-	"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
-			
-	//13:
-	"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autor: <br>Carlos Vera <br><br> Tutores del Trabajo Fin de Máster:<br> Pedro Montoro, Cris Orgaz y María José Contreras.</p>"		
-]; 
+		// EXPERIMENTAL! Instrucciones para la fase previa // TFK requiere cambio
+		//2: Instrucciones 1
+		"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
+					
+		//3: Instrucciones 2.a // TFK requiere cambio
+		"<h3 class=\"titulo\">Instrucciones</h3><p>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
+				
+		//4: Instrucciones 2.b // TFK requiere cambio
+		"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
+				
+		//5: Instrucciones 2.c // TFK requiere cambio
+		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>"
+		,
+				
+		//6: Instrucciones de la tarea de ALERGIAS // TFK requiere cambio
+		"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado de estudiar el "+FaseTest.nombreSindrome +". Muchas gracias por tu colaboración.</p><p>Ahora imagina que eres un ingeniero que trabaja para una aerolínea. Eres especialista en sistemas de navegación y mandos de vuelo,  trabajas resolviendo problemas que hay que tratar muy rápido durante el día a día para poder operar con normalidad.<br><br> Los pilotos de un cierto modelo de avión de la aerolínea están informando de comportamientos erráticos de los sensores de ángulo de ataque, necesarios para calcular la posición y actitud (orientación) del avión.<br>A pesar de que los comportamientos no se reproducen en tierra ni producen registros de fallos, se sospecha que estos problemas pueden deberse a una calibración incorrecta del sensor que no es detectable. Por lo que se soluciona realizando una nueva calibración del sensor. La causa raíz de este problema está aún en fase de investigación, por lo que todavía no se ha comprobado claramente que sea efectiva.</p>",
+	
+		//6: Instrucciones 1b Phase 2: // TFK requiere cambio
+		"<p><h3 class=\"titulo\">Instrucciones</h3><p>Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.<br><br>Te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome+". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
+				
+		//7: Instrucciones 2 Phase 2 // TFK requiere cambio
+		"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
+				
+		// A guardar datos via Firebase!  
+		//13: Save Data...
+		"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
+				
+		//13:
+		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autor: <br>Carlos Vera <br><br> Tutores del Trabajo Fin de Máster:<br> Pedro Montoro, Cris Orgaz y María José Contreras.</p>"		
+	];
+}
+ 
 
 function prepararInstrucciones(){
 
@@ -850,8 +887,8 @@ function prepararInstrucciones(){
 		// Hay que modificar el arrayInstruc
 		arrayInstruc=[
 			//0: (portada) //TFK Corregir 
-			"<h2 class=\"titulo\">MÁSTER UNIVERSITARIO EN INVESTIGACIÓN EN PSICOLOGÍA</h2><p>¡Muchas gracias por participar en este trabajo fin de máster!</p><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",	
-			
+			"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
+		
 			//2: Instrucciones 1 //TFK Corregir 
 			"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
 			

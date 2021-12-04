@@ -805,7 +805,7 @@ function previoTexto(){
 
 var arrayInstruc=[
 	//0: (portada)  // TFK requiere cambio
-	"<h2 class=\"titulo\">MÁSTER UNIVERSITARIO EN INVESTIGACIÓN EN PSICOLOGÍA</h2><p>¡Muchas gracias por participar en este trabajo fin de máster!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
+	"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 		
 	// EXPERIMENTAL! Instrucciones para la fase previa // TFK requiere cambio
 	//2: Instrucciones 1

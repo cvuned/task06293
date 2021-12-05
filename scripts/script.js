@@ -500,62 +500,52 @@ function showOutcome(){
     var textoOutcome = "";
     
     switch(training[fase].secuenciaResps[state]){
-        case 1: //si ha respondido 1:
+        case 1: //si ha respondido 1 --> Administrar Batatrim:
             if(training[fase].posibleOutcomes[state]==1) {
                 imgOutcome = training[fase].ImagenSano;
-				if(training[fase] == FasePrevia){ 
-				
-					textoOutcome = "<br><p class=\"mensaje\">¡El problema ha sido resuelto!</p>";
-				}
-				else if(training[fase] == FaseTest){
-			
-					textoOutcome = "<br><p class=\"mensaje\">¡El paciente ha superado la crisis!</p>";
-				}		
+				textoOutcome = "<br><p class=\"mensaje\">¡El paciente ha superado la crisis!</p>";
+				// Comentado el bloque que daba diferente texto por fases
+				//if(training[fase] == FasePrevia){ 
+				//
+				//	textoOutcome = "<br><p class=\"mensaje\">¡El problema ha sido resuelto!</p>";
+				//}
+				//else if(training[fase] == FaseTest){
+				//
+				//	textoOutcome = "<br><p class=\"mensaje\">¡El paciente ha superado la crisis!</p>";
+				//}		
 				training[fase].secuenciaCells.push("a");
                 //console.log(" debug: cell a");
             }
                 
             else if(training[fase].posibleOutcomes[state]==0){
                 imgOutcome = training[fase].ImagenSindrome;
-				if(training[fase] == FasePrevia){ 
-				
-					textoOutcome = "<br><p class=\"mensajeMALO\">¡El problema NO ha sido resuelto!</p>";
-				}
-				else if(training[fase] == FaseTest){
-			
-	                textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
-				}		
+				textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
+				// Comentado el bloque que daba diferente texto por fases
+				//if(training[fase] == FasePrevia){ 
+				//
+				//	textoOutcome = "<br><p class=\"mensajeMALO\">¡El problema NO ha sido resuelto!</p>";
+				//}
+				//else if(training[fase] == FaseTest){
+				//
+	            //    textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
+				//}		
     
                 training[fase].secuenciaCells.push("b");
                 //console.log(" debug: cell b");
             }
      
             break;
-        case 0: //si ha respondido 0:
+        case 0: //si ha respondido 0 --> no administrar Batatrim:
             if(training[fase].posibleOutcomes[state]==1) {
                 imgOutcome = training[fase].ImagenSano;
-				if(training[fase] == FasePrevia){ 
-					textoOutcome = "<br><p class=\"mensaje\">¡El problema ha sido resuelto!</p>";
-				
-				}
-				else if(training[fase] == FaseTest){
-					textoOutcome = "<br><p class=\"mensaje\">¡El paciente ha superado la crisis!</p>";
-
-				}
+				textoOutcome = "<br><p class=\"mensaje\">¡El paciente ha superado la crisis!</p>"; //en estos bloques hemos eliminado el if del Case 1
 				training[fase].secuenciaCells.push("c");   
                 //console.log(" debug: cell c"); 				// debug
             }
                 
             else if(training[fase].posibleOutcomes[state]==0){
                 imgOutcome = training[fase].ImagenSindrome;
-               	if(training[fase] == FasePrevia){ 
-					textoOutcome = "<br><p class=\"mensajeMALO\">¡El problema NO ha sido resuelto!</p>";
-				
-				}
-				else if(training[fase] == FaseTest){
-					textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
-
-				}  
+				textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
                 training[fase].secuenciaCells.push("d"); 
                 //console.log(" debug: cell d"); 				// debug
             }            
@@ -565,7 +555,7 @@ function showOutcome(){
 
     pintarHTML('divOutcome', "<img src=\""+imgOutcome+"\" width=250px><br><br>"+textoOutcome);
     if(training[fase] == FasePrevia){ 
-		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente aeronave'/>")	
+		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")	
 	}
 	else if(training[fase] == FaseTest){
 		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")	
@@ -615,14 +605,18 @@ function showJuicio(){
     ocultar(divContingencia);
     ocultar(divTextos);
     
-    if(training[fase] == FasePrevia){ 
-		textoJuicio= "<p class=\"pregunta\">¿Hasta qué punto crees que el recalibrado es efectivo para resolver los comportamientos erráticos de los sensores de ángulo de ataque?</p>";
-	}
-	else if(training[fase] == FaseTest){
-		textoJuicio= "<p class=\"pregunta\">¿Hasta qué punto crees que el "+
+	// Se deja comentado por si hay que segregar por fases: 
+    //if(training[fase] == FasePrevia){ 
+	//	textoJuicio= "<p class=\"pregunta\">¿Hasta qué punto crees que el recalibrado es efectivo para resolver los comportamientos erráticos de los sensores de ángulo de ataque?</p>";
+	//}
+	//lse if(training[fase] == FaseTest){
+	//	textoJuicio= "<p class=\"pregunta\">¿Hasta qué punto crees que el "+
+	//		training[fase].nombreClave+" es efectivo para curar las crisis del "+training[fase].nombreSindrome+"?</p>";
+	//}
+	textoJuicio= "<p class=\"pregunta\">¿Hasta qué punto crees que el "+
 			training[fase].nombreClave+" es efectivo para curar las crisis del "+training[fase].nombreSindrome+"?</p>";
-	}
-		
+	
+
 	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Nada efectivo.</li><li>100: Completamente efectivo.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
 	textoJuicio = textoJuicio.concat(textoInstrucciones);
 	
@@ -648,13 +642,7 @@ function showConfianza(){
     ocultar(divContingencia);
     ocultar(divTextos);
     
-    if(training[fase] == FasePrevia){ 
-		textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del recalibrado?</p>";
-	}
-	else if(training[fase] == FaseTest){
-		textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
-	}
-
+	textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
 	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: He respondido al azar.</li><li>100: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
 	textoConfianza = textoConfianza.concat(textoInstrucciones);
 	pintarHTML('divPregunta', textoConfianza);
@@ -678,12 +666,13 @@ function showRiesgo(){
     ocultar(divContingencia);
     ocultar(divTextos);
     
-    if(training[fase] == FasePrevia){ 
-		textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la seguridad de la aeronave?</p>";
-	}
-	else if(training[fase] == FaseTest){
-		textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
-	}
+    //if(training[fase] == FasePrevia){ 
+	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la seguridad de la aeronave?</p>";
+	//}
+	//else if(training[fase] == FaseTest){
+	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
+	//}
+	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
 	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Ningún riesgo.</li><li>100: Riesgo catastrófico.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
 	textoRiesgo = textoRiesgo.concat(textoInstrucciones);
 

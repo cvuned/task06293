@@ -865,42 +865,6 @@ else{
 	];
 }
  
-
-function prepararInstrucciones(){
-
-	if(grupoAsignado>3){ // Instrucciones para el grupo de control --> sin modificación 
-		// GRUPO EXPERIMENTAL Contrabalanceo: Tarea alergia -> Tarea aeronáutica
-		//console.log("Estamos generando instrucciones para el grupo de Contrabalanceo")	// debug
-		// Hay que modificar el arrayInstruc
-		arrayInstruc=[
-			//0: (portada) //TFK Corregir 
-			"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
-		
-			//2: Instrucciones 1 //TFK Corregir 
-			"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
-			
-			//3: Instrucciones 2.a //TFK Corregir 
-			"<h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
-			
-			//4: Instrucciones 2.b //TFK Corregir 
-			"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
-			
-			//5: Instrucciones 2.c //TFK Corregir 
-			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
-							
-			// A guardar datos! 
-			//13: Save Data... 
-			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
-			
-			//13:
-			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autor: <br>Carlos Vera <br><br> Tutores del Trabajo Fin de Máster:<br> Pedro Montoro, Cris Orgaz y María José Contreras.</p>"		
-		];
-	}
-	else {
-        // No hay que modificar el arrayInstruc
-	}	
-}
-
 var arrayBoton = [
     //0:
     "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",
@@ -938,6 +902,81 @@ var arrayBoton = [
     ""
     
 ];
+
+function prepararInstrucciones(){
+
+	if(grupoAsignado>3){ // Instrucciones para el grupo de control --> sin modificación 
+		// GRUPO EXPERIMENTAL Contrabalanceo: Tarea alergia -> Tarea aeronáutica
+		//console.log("Estamos generando instrucciones para el grupo de Contrabalanceo")	// debug
+		// Hay que modificar el arrayInstruc
+		arrayInstruc=[
+			//0: (portada) //TFK Corregir 
+			"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
+		
+			//2: Instrucciones 1 //TFK Corregir 
+			"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
+			
+			//3: Instrucciones 2.a //TFK Corregir 
+			"<h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
+			
+			//4: Instrucciones 2.b //TFK Corregir 
+			"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
+			
+			//5: Instrucciones 2.c //TFK Corregir 
+			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
+							
+			// A guardar datos! 
+			//13: Save Data... 
+			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
+			
+			//13:
+			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autor: <br>Carlos Vera <br><br> Tutores del Trabajo Fin de Máster:<br> Pedro Montoro, Cris Orgaz y María José Contreras.</p>"		
+		];
+		// También hay que modificar el array de botones?? TFK El bug de "Atrás / Comenzar" parece estar en otro sitio
+		var arrayBoton = [
+			//0:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",
+			
+			//1:
+			//"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Continuar'/>",
+			
+			//2:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+			//3:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='previoTexto()' value='Atrás'/>   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+		
+			//4:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='previoTexto()' value='Atrás'/>   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+			
+			//5:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='previoTexto()' value='Atrás'/>   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='showCue()' value='Comenzar'/>",
+			
+			
+			//6a:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+		
+			//6b:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='previoTexto()' value='Atrás'/>   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+		
+			
+			//7:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='previoTexto()' value='Atrás'/>   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='showCue()' value='Comenzar'/>",
+			
+			// A guardar datos! 
+			//13:
+			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='saveData()' value='Enviar'/>",
+			
+			//14:
+			""
+			
+		];
+	}
+	else {
+        // No hay que modificar el arrayInstruc
+	}	
+}
+
+
 
 
 //++++++++++++++++++++++++++++++++++++++

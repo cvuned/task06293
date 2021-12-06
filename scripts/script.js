@@ -795,7 +795,7 @@ function previoTexto(){
 // Inicializamos el arrayInstruc con el modo grupos experimentales (grupos A y B)
 
 if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2: 
-	console.log("Preparando textos para grupo de ALTA"),
+	console.log("Preparando textos para grupo de ALTA");
 	var arrayInstruc=[
 		//0: (portada)  // TFK requiere cambio
 		"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
@@ -833,7 +833,7 @@ if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2:
 else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL 
 	// GRUPO EXPERIMENTAL Contrabalanceo: Tarea alergia -> Tarea aeronáutica
 	// Hay que modificar el arrayInstruc
-	console.log("Preparando textos para grupo de CONTROL"),
+	console.log("Preparando textos para grupo de CONTROL");
 	var arrayInstruc=[
 		//0: (portada) //TFK Corregir 
 		"<h2 class=\"titulo\">ESTUDIO MODIFICADO</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display"
@@ -883,7 +883,7 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 	];
 }
 else{
-	console.log("Preparando textos para grupo de BAJA"),
+	console.log("Preparando textos para grupo de BAJA");
 	var arrayInstruc=[ // Instrucciones para los grupos B1 y B2: 
 		//0: (portada)  // TFK requiere cambio
 		"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
@@ -921,7 +921,7 @@ else{
  
 if(grupoAsignado>3){
 	// También hay que modificar el array de botones?? TFK El bug de "Atrás / Comenzar" parece estar en otro sitio
-	console.log("Preparando botones para grupo de CONTROL"),
+	console.log("Preparando botones para grupo de CONTROL");
 	var arrayBoton = [
 		//0:
 		"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",
@@ -963,7 +963,7 @@ if(grupoAsignado>3){
 	];
 }
 else {
-	console.log("Preparando textos para grupos A y B"),
+	console.log("Preparando textos para grupos A y B");
 	var arrayBoton = [
 		//0:
 		"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",

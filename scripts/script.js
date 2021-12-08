@@ -836,7 +836,7 @@ if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2:
 		"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 				
 		//13:
-		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autores:"
+		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
 			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
 			+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"
 	];
@@ -890,7 +890,7 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 		"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 		
 		//13:
-		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autores:"
+		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
 			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
 			+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"
 	];
@@ -928,7 +928,7 @@ else{
 		"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 				
 		//13:
-		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br>Autores:"
+		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
 			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
 			+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"		
 	];

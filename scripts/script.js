@@ -347,7 +347,7 @@ var FaseControl = {
 	textoPregunta: "¿Quieres administrarle Batatrim?",
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
-	numTrials: 0,
+	numTrials: 5,
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],

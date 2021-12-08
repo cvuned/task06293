@@ -567,7 +567,7 @@ function showOutcome(){
 		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")	
 
 	}
-	else(training[fase] == FaseControl){
+	else if(training[fase] == FaseControl){
 		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")		
 	}
     mostrar(divOutcome);

@@ -44,6 +44,7 @@ var grupoC2 = 0;	// grupo 5 - Control 2
 // Esta variable realmente se verá como la variable: grupoAsignado
 // [grupoA1 = 0, grupoA2 = 1, grupoB1 = 2, grupoB2= 3, grupoC1 = 4, grupoC2 = 5] 
 
+var groupNames = ["A1", "A2", "B1", "B2", "C1", "C2"]; // currently not used TFK
 // creamos un array para ver el número de participantes en cada grupo
 let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
 var participantCount = new Array();
@@ -346,14 +347,18 @@ var FaseControl = {
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
 	numTrials: 0,
-	posibleOutcomes: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
-	secuenciaCells: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
-	secuenciaResps: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+    posibleOutcomes: [],   
+    secuenciaCells: [],
+    secuenciaResps: [],
+	//posibleOutcomes: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+	//secuenciaCells: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+	//secuenciaResps: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 	// Contingencia: ordenContingencias[1], //Ya no se usa 
 	Juicio: 999,
 	Confianza: 999,
 	Riesgo: 999,
-	TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
+	TiemposRespuesta: [],
+	//TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
 }
 
 function RandomString(length){

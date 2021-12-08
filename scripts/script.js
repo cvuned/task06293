@@ -567,6 +567,9 @@ function showOutcome(){
 		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")	
 
 	}
+	else(training[fase] == FaseControl){
+		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")		
+	}
     mostrar(divOutcome);
     setTimeout('mostrar(divBoton)', 500);
     
@@ -789,7 +792,7 @@ function siguienteTexto(){
 	
 	pintarHTML("divTextos",htmlContenido);
     pintarHTML("divBoton",htmlBotones);
-
+	console.log("Estado de texto actual = " + stateTexto)
     stateTexto++;	
 }
 

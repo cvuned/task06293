@@ -807,7 +807,7 @@ if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2:
 	console.log("Preparando textos para grupo de ALTA");
 	var arrayInstruc=[
 		//0: (portada)  // TFK requiere cambio
-		"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
+		"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 			
 		// EXPERIMENTAL! Instrucciones para la fase previa // TFK Comprobar - modificada
 		//2: Instrucciones 1
@@ -847,7 +847,7 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 	console.log("Preparando textos para grupo de CONTROL");
 	var arrayInstruc=[
 		//0: (portada) //TFK Corregir 
-		"<h2 class=\"titulo\">ESTUDIO MODIFICADO</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display"
+		"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display"
 		+ ": block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 	
 		//2: Instrucciones 1 //TFK Corregir 
@@ -899,7 +899,7 @@ else{
 	console.log("Preparando textos para grupo de BAJA");
 	var arrayInstruc=[ // Instrucciones para los grupos B1 y B2: 
 		//0: (portada)  // TFK requiere cambio
-		"<h2 class=\"titulo\">ESTUDIO TBD</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
+		"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 			
 		// EXPERIMENTAL! Instrucciones para la fase previa // TFK Comprobar - modificada
 		//2: Instrucciones 1

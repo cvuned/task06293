@@ -606,10 +606,11 @@ function ITI(){
      else if(state==training[fase].numTrials-1){
 
 		// Esta siguiente línea se activa si estamos en la fase de creación de expectativas TFK
-		if(training[fase] == FaseControl){
+		if(training[fase] == FasePrevia){
 			console.log("Estamos en la fase de manipulación")
 		}
 		else{
+			console.log("Esta es la de verdad")
 			showJuicio();
 			juiciorealizado++;	
 		}

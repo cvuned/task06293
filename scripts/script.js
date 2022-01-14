@@ -324,8 +324,9 @@ var FasePrevia = {
 	//textoNO: "Se ha administrado Batatrim y crees que NO se va a recuperar",
     textoYES: "Crees que se va a recuperar",
 	textoNO: "Crees que NO se va a recuperar",
-    numTrials: 20,
-    posibleOutcomes: [],   
+    //numTrials: 20,
+    numTrials: 2, //TFK modificado para testear más rápido
+	posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
     // Contingencia: ordenContingencias[1], //Ya no se usa

@@ -359,9 +359,6 @@ var FaseControl = {
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
 	numTrials: 50, // TFK, do not forget!! 
-	if(testeo === 1){
-		numTrials: 2;
-	}
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
@@ -376,6 +373,15 @@ var FaseControl = {
 	TiemposRespuesta: [],
 	//TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
 }
+
+if(testeo === 1){
+	FaseControl.numTrials = 2;
+	FasePrevia.numTrials = 2;
+	FaseTest.numTrials = 2; 
+	console.log("This should only be running during tests.")
+}
+
+
 
 function RandomString(length){
     var mask = 'ABCDEFGHIJKLMNOPQRSTUVW';

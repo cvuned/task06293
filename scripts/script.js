@@ -23,10 +23,10 @@ var juiciorealizado = 0;
 var confianzaevaluada = 0;
 var riesgoevaluado = 0;
 var evidenciavaluado = 0; 
-var evidenciaA = 999
-var evidenciaB = 999
-var evidenciaC = 999
-var evidenciaD = 999
+var evidenciaA = 999;
+var evidenciaB = 999;
+var evidenciaC = 999;
+var evidenciaD = 999;
 var tempOrden = ["a", "b", "c", "d"];
 tempOrden = shuffle(tempOrden);
 
@@ -779,8 +779,13 @@ function showEvidentialValue(){
 	mostrar(divJuicio);
 	setTimeout('mostrar(divBoton)', 500);
 		
-	if (!tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
-		showEvidentialValue()
+	if (tempOrden.length != 0){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
+		console.log("Running evidential value again");
+		showEvidentialValue();
+	}	
+	else if {
+		console.log("MEEEKKKK - We are done!!");
+		console.log(temOrden);
 	}
 
 }

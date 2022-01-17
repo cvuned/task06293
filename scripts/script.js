@@ -723,35 +723,62 @@ function showEvidentialValue(){
 	console.log("Vamos a ver que el orden de Evidential Value se haya hecho aleatorio de forma correcta:");
 	console.log(tempOrden);
 
-	ocultar(divContingencia);
-    ocultar(divTextos);
-    
-    //if(training[fase] == FasePrevia){ 
-	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la seguridad de la aeronave?</p>";
+	tomaOno = "";
+    recuperaOno = "";
+	//while(tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento tendremos que salir del bucle
+	//	pregunta = tempOrden.pop()
 	//}
-	//else if(training[fase] == FaseTest){
-	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
-	//}
-	textoEvidentialValue= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
-	textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
+	for (let i = 0; i < 4; i++) {
 
-	pintarHTML('divPregunta', textoEvidentialValue);
-    
-    document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
+		ocultar(divContingencia);
+		ocultar(divTextos);
+		pregunta = tempOrden.pop()
+		console.log("Vamos a ver que efectivamente estamos eliminando opciones");
+		console.log(tempOrden);
 
-    ReseteoJuicios();
-    
-    document.getElementById("textInput").disabled = true;
-    document.getElementById("textInput").value = "";
+		if (pregunta == "a"){
+			tomaOno = "fue administrado Batatrim";
+			recuperaOno = "superó la crisis";
+		}
+		else if (pregunta == "b"){
+			tomaOno = "fue administrado Batatrim";
+			recuperaOno = "NO superó la crisis";
+		}
+		else if (pregunta == "c"){
+			tomaOno = "NO fue administrado Batatrim";
+			recuperaOno = "superó la crisis";
+		}
+		else if (pregunta == "d"){
+			tomaOno = "NO fue administrado Batatrim";
+			recuperaOno = "NO superó la crisis";
+		}
+		textoEvidentialValue= "<p class=\"pregunta\">>En ciertos ensayos has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
+			+"<br>¿Consideras que este tipo de ensayo son importantes para determinar la eficacia del Batatrim?<br></p>";
+		textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
+		textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
 
-	// tempEvidentialValue = document.getElementById('textInput').value // <-- así se guarda el valor que da el participante de validaJuicio
-    // Aquí hay que hacer que mientras no tengamos las cuatro preguntas no lance valida juicio
-    textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
-    pintarHTML('divBoton', textoBoton);
-    
-    mostrar(divJuicio);
-    setTimeout('mostrar(divBoton)', 500);
+		pintarHTML('divPregunta', textoEvidentialValue);
+		
+		document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
+
+		ReseteoJuicios();
+		
+		document.getElementById("textInput").disabled = true;
+		document.getElementById("textInput").value = "";
+
+		// tempEvidentialValue = document.getElementById('textInput').value // <-- así se guarda el valor que da el participante de validaJuicio
+		// Aquí hay que hacer que mientras no tengamos las cuatro preguntas no lance valida juicio
+		if (!tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
+			textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
+		}
+		else{ // comprobar qué funciona al dejar vacío "onclick"
+			textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='' value='Confirmar'/>";	
+		}
+		pintarHTML('divBoton', textoBoton);
+		
+		mostrar(divJuicio);
+		setTimeout('mostrar(divBoton)', 500);
+	}
 }
 
 

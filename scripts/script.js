@@ -561,7 +561,8 @@ function showOutcome(){
                 //console.log(" debug: cell a");
             }
                 
-            else if(training[fase].posibleOutcomes[state]==0){
+            else {
+			//else if(training[fase].posibleOutcomes[state]==0){
                 imgOutcome = training[fase].ImagenSindrome;
 				textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
 				// Comentado el bloque que daba diferente texto por fases

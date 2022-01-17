@@ -454,7 +454,7 @@ function mostrarEleccion(){
 		mostrar(divEleccion);
 	}
 
-	if(training[fase] == FaseControl){ 
+	if(training[fase] == FaseTest){ 
 
 		if(BalPanel==1){
 				pintarHTML('divEleccion',
@@ -469,6 +469,7 @@ function mostrarEleccion(){
 		}
 
 		mostrar(divEleccion);
+	}
 	
     if(BalPanel==1){
             pintarHTML('divEleccion',

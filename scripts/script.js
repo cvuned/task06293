@@ -778,16 +778,6 @@ function showEvidentialValue(){
 		
 	mostrar(divJuicio);
 	setTimeout('mostrar(divBoton)', 500);
-		
-	if (tempOrden.length != 0){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
-		console.log("Running evidential value again");
-		showEvidentialValue();
-	}	
-	else {
-		console.log("MEEEKKKK - We are done!!");
-		console.log(temOrden);
-	}
-
 }
 
 
@@ -843,6 +833,9 @@ function validaJuicio(){
 		}	
 		else if(evidenciavaluado==0){
 			showEvidentialValue() // descomentar cuando esté añadido todo
+			showEvidentialValue()
+			showEvidentialValue()
+			showEvidentialValue() 
 			evidenciavaluado++
 		}
 		else if(evidenciavaluado==1){

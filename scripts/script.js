@@ -359,7 +359,7 @@ var FaseControl = {
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
 	numTrials: 50, // TFK, do not forget!! 
-	if(testeo == 1){
+	if(testeo === 1){
 		numTrials: 2;
 	}
     posibleOutcomes: [],   

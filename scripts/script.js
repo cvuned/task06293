@@ -17,6 +17,7 @@ var fecha="";           //contendrá la fecha/hora.
 var Cuestionario=[];    //contiene las respuestas al cuestionario de generalizacion
 var t0 = 0; 
 var t1 = 0; 
+var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // TFK -- mover a 0 para producción 
 
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;
@@ -357,7 +358,10 @@ var FaseControl = {
 	textoPregunta: "¿Quieres administrarle Batatrim?",
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
-	numTrials: 5, // TFK, do not forget!! 
+	numTrials: 50, // TFK, do not forget!! 
+	if(testeo == 1){
+		numTrials: 2;
+	}
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],

@@ -782,8 +782,6 @@ function showEvidentialValue(){
 	if (!tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
 		showEvidentialValue()
 	}
-	
-	}
 
 }
 

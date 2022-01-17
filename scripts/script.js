@@ -831,14 +831,11 @@ function validaJuicio(){
 			showRiesgo();
 			riesgoevaluado++;
 		}	
-		else if(evidenciavaluado==0){
-			showEvidentialValue() // descomentar cuando esté añadido todo
-			showEvidentialValue()
-			showEvidentialValue()
+		else if(evidenciavaluado<4){
 			showEvidentialValue() 
 			evidenciavaluado++
 		}
-		else if(evidenciavaluado==1){
+		else if(evidenciavaluado==4){
 			cambiafase();
 		}
         

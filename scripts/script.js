@@ -118,7 +118,7 @@ function stringDate() {
 
 
 //precache de imágenes:
-var preloadImages="img/BatatrimBoton.png, img/enfermo.png, img/noBatatrimBoton.png, img/noBatatrimBoton2.png, img/Nooutcome.png, img/outcome.png, img/outcomeAvion.png, img/outcomeNoAvion.png, img/Sano.png, img/uned.png, img/RecalibradoNo.png, img/RecalibradoSi.png".split(",");
+var preloadImages="img/BatatrimBoton.png, img/enfermo.png, img/recuperaSi.png, img/recuperaNo.png, img/noBatatrimBoton.png, img/noBatatrimBoton2.png, img/Nooutcome.png, img/outcome.png, img/outcomeAvion.png, img/outcomeNoAvion.png, img/Sano.png, img/uned.png, img/RecalibradoNo.png, img/RecalibradoSi.png".split(",");
 var tempIMG=[];
 
 function preloadIMG(){
@@ -321,8 +321,8 @@ var FaseTest = {
 var FasePrevia = {
 	nombreClave: "Batatrim",
 	nombreSindrome: "Síndrome de Lindsay",
-	ImagenClave: "img/BatatrimBoton.png",		// Cambiar imagen a YES
-	ImagenNOClave: "img/noBatatrimBoton.png",	// Cambiar imagen a NO
+	ImagenClave: "img/recuperaSi.png",		// Cambiar imagen a YES
+	ImagenNOClave: "img/recuperaNo.png",	// Cambiar imagen a NO
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
 	textoTransitAlta: "alta",

@@ -19,9 +19,10 @@ var t0 = 0;
 var t1 = 0; 
 
 // Indicadores de estado para ver qué pregunta se lanza  
-var juiciorealizado =0;
-var confianzaevaluada =0;
-var riesgoevaluado =0;
+var juiciorealizado = 0;
+var confianzaevaluada = 0;
+var riesgoevaluado = 0;
+var evidenciavaluado = 0; 
 
 //variables demográficas:
 var Gender=""; 
@@ -713,6 +714,39 @@ function showRiesgo(){
 
 }
 
+function showEvidentialValue(){
+    ocultar(divContingencia);
+    ocultar(divTextos);
+    
+    //if(training[fase] == FasePrevia){ 
+	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la seguridad de la aeronave?</p>";
+	//}
+	//else if(training[fase] == FaseTest){
+	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
+	//}
+	textoEvidentialValue= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
+	textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
+
+	pintarHTML('divPregunta', textoEvidentialValue);
+    
+    document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
+
+    ReseteoJuicios();
+    
+    document.getElementById("textInput").disabled = true;
+    document.getElementById("textInput").value = "";
+
+    
+    textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
+    pintarHTML('divBoton', textoBoton);
+    
+    mostrar(divJuicio);
+    setTimeout('mostrar(divBoton)', 500);
+    
+
+}
+
 
 function updateTextInput(val) {
 	document.getElementById('textInput').value=val; 
@@ -750,7 +784,11 @@ function validaJuicio(){
 			showRiesgo();
 			riesgoevaluado++;
 		}	
-		else if(riesgoevaluado==1){
+		else if(evidenciavaluado==0){
+			//showEvidentialValue() // descomentar cuando esté añadido todo
+			evidenciavaluado++
+		}
+		else if(evidenciavaluado==1){
 			cambiafase();
 		}
         
@@ -770,6 +808,7 @@ function cambiafase(){
 		juiciorealizado=0;
 		confianzaevaluada=0;
 		riesgoevaluado=0;
+		evidenciavaluado=0;
      }
     
     siguienteTexto();

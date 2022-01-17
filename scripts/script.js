@@ -754,21 +754,32 @@ function showEvidentialValue(){
 	if (pregunta == "a"){
 		tomaOno = "fue administrado Batatrim";
 		recuperaOno = "superó la crisis";
+		Clarificar1 = FaseTest.ImagenClave;
+		Clarificar2 = FaseTest.ImagenSano;
 	}
 	else if (pregunta == "b"){
 		tomaOno = "fue administrado Batatrim";
 		recuperaOno = "NO superó la crisis";
+		Clarificar1 = FaseTest.ImagenClave;
+		Clarificar2 = FaseTest.ImagenSindrome;
 	}
 	else if (pregunta == "c"){
 		tomaOno = "NO fue administrado Batatrim";
 		recuperaOno = "superó la crisis";
+		Clarificar1 = FaseTest.ImagenNoClave;
+		Clarificar2 = FaseTest.ImagenSano;
 	}
 	else if (pregunta == "d"){
 		tomaOno = "NO fue administrado Batatrim";
 		recuperaOno = "NO superó la crisis";
+		Clarificar1 = FaseTest.ImagenNoClave;
+		Clarificar2 = FaseTest.ImagenSindrome;
 	}
-	textoEvidentialValue= "<p class=\"pregunta\">>En ciertos ensayos has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
-		+"<br>¿Consideras que este tipo de ensayo son importantes para determinar la eficacia del Batatrim?<br></p>";
+	textoEvidentialValue= "<p class=\"pregunta\">En ciertos ensayos has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
+		+"¿Consideras que este tipo de ensayo son importantes para determinar la eficacia del Batatrim?<br>"
+		+ "<table style=\"text-align: center; align-content:center; border: 0px; width: 100%;\"><tr><td><img src=\""+Clarificar1+"\" width=\"150px\"></td><td><img src=\""+Clarificar2+"\" width"
+		+ "=\"150px\"></td></tr></table></p><br>";
+	//	+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table></p>";
 	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
 	textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
 

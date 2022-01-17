@@ -23,6 +23,12 @@ var juiciorealizado = 0;
 var confianzaevaluada = 0;
 var riesgoevaluado = 0;
 var evidenciavaluado = 0; 
+var evidenciaA = 999
+var evidenciaB = 999
+var evidenciaC = 999
+var evidenciaD = 999
+var tempOrden = ["a", "b", "c", "d"];
+tempOrden = shuffle(tempOrden);
 
 //variables demográficas:
 var Gender=""; 
@@ -718,8 +724,7 @@ function showRiesgo(){
 }
 
 function showEvidentialValue(){
-	tempOrden = ["a", "b", "c", "d"];
-	tempOrden = shuffle(tempOrden);
+	
 	console.log("Vamos a ver que el orden de Evidential Value se haya hecho aleatorio de forma correcta:");
 	console.log(tempOrden);
 
@@ -728,57 +733,58 @@ function showEvidentialValue(){
 	//while(tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento tendremos que salir del bucle
 	//	pregunta = tempOrden.pop()
 	//}
-	for (let i = 0; i < 4; i++) {
 
-		ocultar(divContingencia);
-		ocultar(divTextos);
-		pregunta = tempOrden.pop()
-		console.log("Vamos a ver que efectivamente estamos eliminando opciones");
-		console.log(tempOrden);
 
-		if (pregunta == "a"){
-			tomaOno = "fue administrado Batatrim";
-			recuperaOno = "superó la crisis";
-		}
-		else if (pregunta == "b"){
-			tomaOno = "fue administrado Batatrim";
-			recuperaOno = "NO superó la crisis";
-		}
-		else if (pregunta == "c"){
-			tomaOno = "NO fue administrado Batatrim";
-			recuperaOno = "superó la crisis";
-		}
-		else if (pregunta == "d"){
-			tomaOno = "NO fue administrado Batatrim";
-			recuperaOno = "NO superó la crisis";
-		}
-		textoEvidentialValue= "<p class=\"pregunta\">>En ciertos ensayos has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
-			+"<br>¿Consideras que este tipo de ensayo son importantes para determinar la eficacia del Batatrim?<br></p>";
-		textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
-		textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
+	ocultar(divContingencia);
+	ocultar(divTextos);
+	pregunta = tempOrden.pop()
+	console.log("Vamos a ver que efectivamente estamos eliminando opciones");
+	console.log(tempOrden);
 
-		pintarHTML('divPregunta', textoEvidentialValue);
-		
-		document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
-
-		ReseteoJuicios();
-		
-		document.getElementById("textInput").disabled = true;
-		document.getElementById("textInput").value = "";
-
-		// tempEvidentialValue = document.getElementById('textInput').value // <-- así se guarda el valor que da el participante de validaJuicio
-		// Aquí hay que hacer que mientras no tengamos las cuatro preguntas no lance valida juicio
-		if (!tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
-			textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
-		}
-		else{ // comprobar qué funciona al dejar vacío "onclick" --> eliminado
-			textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\"  value='Confirmar'/>";	
-		}
-		pintarHTML('divBoton', textoBoton);
-		
-		mostrar(divJuicio);
-		setTimeout('mostrar(divBoton)', 500);
+	if (pregunta == "a"){
+		tomaOno = "fue administrado Batatrim";
+		recuperaOno = "superó la crisis";
 	}
+	else if (pregunta == "b"){
+		tomaOno = "fue administrado Batatrim";
+		recuperaOno = "NO superó la crisis";
+	}
+	else if (pregunta == "c"){
+		tomaOno = "NO fue administrado Batatrim";
+		recuperaOno = "superó la crisis";
+	}
+	else if (pregunta == "d"){
+		tomaOno = "NO fue administrado Batatrim";
+		recuperaOno = "NO superó la crisis";
+	}
+	textoEvidentialValue= "<p class=\"pregunta\">>En ciertos ensayos has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
+		+"<br>¿Consideras que este tipo de ensayo son importantes para determinar la eficacia del Batatrim?<br></p>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
+	textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
+
+	pintarHTML('divPregunta', textoEvidentialValue);
+	
+	document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
+
+	ReseteoJuicios();
+		
+	document.getElementById("textInput").disabled = true;
+	document.getElementById("textInput").value = "";
+
+	// tempEvidentialValue = document.getElementById('textInput').value // <-- así se guarda el valor que da el participante de validaJuicio
+	// Aquí hay que hacer que mientras no tengamos las cuatro preguntas no lance valida juicio
+	textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
+	pintarHTML('divBoton', textoBoton);
+		
+	mostrar(divJuicio);
+	setTimeout('mostrar(divBoton)', 500);
+		
+	if (!tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
+		showEvidentialValue()
+	}
+	
+	}
+
 }
 
 
@@ -804,6 +810,20 @@ function validaJuicio(){
 			training[fase].Riesgo=document.getElementById('textInput').value;
 			//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
 			//console.log(training[fase].Riesgo);								// debug
+		}
+		else{
+			if (pregunta == "a"){
+				evidenciaA = document.getElementById('textInput').value;
+			}
+			else if (pregunta == "b"){
+				evidenciaB = document.getElementById('textInput').value;
+			}
+			else if (pregunta == "c"){
+				evidenciaC = document.getElementById('textInput').value;
+			}
+			else if (pregunta == "d"){
+				evidenciaD = document.getElementById('textInput').value;
+			}
 		}
 		//training[fase].Juicio=document.getElementById('textInput').value;
         //console.log("--- LA HORA DEL JUICIO ESTÁ CERCA!!! ---");

@@ -307,6 +307,7 @@ var FaseTest = {
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
+	EvidentialValue: [],
 	TiemposRespuesta: [],
 }
 
@@ -334,6 +335,7 @@ var FasePrevia = {
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
+	EvidentialValue: [],
 	TiemposRespuesta: [],
 }
 
@@ -349,7 +351,7 @@ var FaseControl = {
 	textoPregunta: "¿Quieres administrarle Batatrim?",
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
-	numTrials: 5,
+	numTrials: 5, // TFK, do not forget!! 
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
@@ -360,6 +362,7 @@ var FaseControl = {
 	Juicio: 999,
 	Confianza: 999,
 	Riesgo: 999,
+	EvidentialValue: [],
 	TiemposRespuesta: [],
 	//TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
 }
@@ -685,7 +688,7 @@ function showRiesgo(){
     ocultar(divContingencia);
     ocultar(divTextos);
     
-    //if(training[fase] == FasePrevia){ 
+	//if(training[fase] == FasePrevia){ 
 	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la seguridad de la aeronave?</p>";
 	//}
 	//else if(training[fase] == FaseTest){
@@ -715,7 +718,12 @@ function showRiesgo(){
 }
 
 function showEvidentialValue(){
-    ocultar(divContingencia);
+	tempOrden = ["a", "b", "c", "d"];
+	tempOrden = tempOrden.shuffle();
+	console.log("Vamos a ver que el orden de Evidential Value se haya hecho aleatorio de forma correcta:");
+	console.log(tempOrden);
+
+	ocultar(divContingencia);
     ocultar(divTextos);
     
     //if(training[fase] == FasePrevia){ 
@@ -737,14 +745,13 @@ function showEvidentialValue(){
     document.getElementById("textInput").disabled = true;
     document.getElementById("textInput").value = "";
 
-    
+	// tempEvidentialValue = document.getElementById('textInput').value // <-- así se guarda el valor que da el participante de validaJuicio
+    // Aquí hay que hacer que mientras no tengamos las cuatro preguntas no lance valida juicio
     textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
     pintarHTML('divBoton', textoBoton);
     
     mostrar(divJuicio);
     setTimeout('mostrar(divBoton)', 500);
-    
-
 }
 
 

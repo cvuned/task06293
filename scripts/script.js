@@ -719,7 +719,7 @@ function showRiesgo(){
 
 function showEvidentialValue(){
 	tempOrden = ["a", "b", "c", "d"];
-	tempOrden = tempOrden.shuffle();
+	tempOrden = shuffle(tempOrden);
 	console.log("Vamos a ver que el orden de Evidential Value se haya hecho aleatorio de forma correcta:");
 	console.log(tempOrden);
 

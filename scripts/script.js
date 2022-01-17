@@ -783,7 +783,7 @@ function showEvidentialValue(){
 		console.log("Running evidential value again");
 		showEvidentialValue();
 	}	
-	else if {
+	else {
 		console.log("MEEEKKKK - We are done!!");
 		console.log(temOrden);
 	}

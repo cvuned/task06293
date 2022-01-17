@@ -615,7 +615,7 @@ function ITI(){
 			cambiafase();
 		}
 		else{
-			console.log("Esta es la de verdad");
+			console.log("Esta es la fase de test de verdad");
 			showJuicio();
 			juiciorealizado++;	
 		}
@@ -819,7 +819,7 @@ function validaJuicio(){
 			riesgoevaluado++;
 		}	
 		else if(evidenciavaluado==0){
-			//showEvidentialValue() // descomentar cuando esté añadido todo
+			showEvidentialValue() // descomentar cuando esté añadido todo
 			evidenciavaluado++
 		}
 		else if(evidenciavaluado==1){

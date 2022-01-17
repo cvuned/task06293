@@ -587,8 +587,9 @@ function showOutcome(){
 				training[fase].secuenciaCells.push("c");   
                 //console.log(" debug: cell c"); 				// debug
             }
-                
-            else if(training[fase].posibleOutcomes[state]==0){
+            
+			else {
+            //else if(training[fase].posibleOutcomes[state]==0){
                 imgOutcome = training[fase].ImagenSindrome;
 				textoOutcome = "<br><p class=\"mensajeMALO\">¡El paciente NO ha superado la crisis!</p>";
                 training[fase].secuenciaCells.push("d"); 

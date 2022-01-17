@@ -933,7 +933,6 @@ if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2:
 		//13:
 		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
 			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
-			+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"
 	];
 }
 else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL 
@@ -970,9 +969,9 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 		+ "Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 						
 		//6: Instrucciones de la tarea de ALERGIAS // TFK requiere cambio - Texto fundamental en la fase de manipulación // CAMBIAR PARA GRUPOS B
-		"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado esta fase del estudio de "+FaseTest.nombreSindrome +". Como has visto, la tasa de" 
-		+" recuperación de los pacientes que han recibido \"Batatrim\" ha sido "+FasePrevia.textoTransitBaja+". <br><br> Después de ver los resultados anteriores,"
-		+ " se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.</p>",
+		//"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado esta fase del estudio de "+FaseTest.nombreSindrome +". Como has visto, la tasa de" 
+		//+" recuperación de los pacientes que han recibido \"Batatrim\" ha sido "+FasePrevia.textoTransitBaja+". <br><br> Después de ver los resultados anteriores,"
+		//+ " se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.</p>", // TFK Eliminar texto
 		
 		//6: Instrucciones 1b Phase 2: // TFK requiere cambio
 		//"<p><h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una nueva serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el \"Batatrim\". <br><br> En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
@@ -1054,7 +1053,7 @@ if(grupoAsignado>3){
 			+"   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='showCue()' value='Comenzar'/>",
 		
 		//6a:
-		"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+		//"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
 
 		//6b:
 		//"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='previoTexto()' value='Atrás'/>"

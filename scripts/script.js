@@ -771,8 +771,8 @@ function showEvidentialValue(){
 		if (!tempOrden.length){  // Checks if tempOrden is empty --> False si está vacío, en ese momento )
 			textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
 		}
-		else{ // comprobar qué funciona al dejar vacío "onclick"
-			textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='' value='Confirmar'/>";	
+		else{ // comprobar qué funciona al dejar vacío "onclick" --> eliminado
+			textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\"  value='Confirmar'/>";	
 		}
 		pintarHTML('divBoton', textoBoton);
 		

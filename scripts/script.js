@@ -453,6 +453,22 @@ function mostrarEleccion(){
 
 		mostrar(divEleccion);
 	}
+
+	if(training[fase] == FaseControl){ 
+
+		if(BalPanel==1){
+				pintarHTML('divEleccion',
+				   "<div ><button id=\"botonYES\" value=\"YES\" class=\"botonEleccion\" onclick='respuestaYES()'><img src=\""+training[fase].ImagenClave+"\" width=150px class=\"icon icon_hover\" id=\"imagenYES\"></button></div><div ><button id=\"botonNO\" value=\"NO\" class=\"botonEleccion\" onclick='respuestaNO()'><img src=\""+training[fase].ImagenNOClave+"\" width=150px  class=\"icon icon_hover\" id=\"imagenNO\"></button></div><div id=\"mensajeCue\"></div>"
+				   );
+		}
+		else if(BalPanel==2){
+				pintarHTML('divEleccion',
+				   "<div ><button id=\"botonNO\" value=\"NO\" class=\"botonEleccion\" onclick='respuestaNO()'><img src=\""+training[fase].ImagenNOClave+"\" width=150px  class=\"icon icon_hover\" id=\"imagenNO\"></button></div><div ><button id=\"botonYES\" value=\"YES\" class=\"botonEleccion\" onclick='respuestaYES()'><img src=\""+training[fase].ImagenClave+"\" width=150px class=\"icon icon_hover\" id=\"imagenYES\"></button></div><div id=\"mensajeCue\"></div>"
+				   );
+
+		}
+
+		mostrar(divEleccion);
 	
     if(BalPanel==1){
             pintarHTML('divEleccion',
@@ -766,13 +782,13 @@ function showEvidentialValue(){
 	else if (pregunta == "c"){
 		tomaOno = "NO fue administrado Batatrim";
 		recuperaOno = "superó la crisis";
-		Clarificar1 = FaseTest.ImagenNoClave;
+		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSano;
 	}
 	else if (pregunta == "d"){
 		tomaOno = "NO fue administrado Batatrim";
 		recuperaOno = "NO superó la crisis";
-		Clarificar1 = FaseTest.ImagenNoClave;
+		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
 	}
 	textoEvidentialValue= "<p class=\"pregunta\">En ciertos ensayos has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 

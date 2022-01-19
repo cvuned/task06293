@@ -144,9 +144,9 @@ function arranca(){
 	firebase.database().ref().on("value", gotData, errData); 	// MODO DEMO SIN CONEXIÓN
 	
 	
-	Ver IP
-	PartIP = myip; //Modified for testing TFK
-	console.log("my IP is: "+PartIP+"."); //debug
+	//Ver IP
+	//PartIP = myip; //Modified for testing TFK
+	//console.log("my IP is: "+PartIP+"."); //debug
 	
 	function gotData(data) { //TFK actualizar líneas 64 y siguientes
 		

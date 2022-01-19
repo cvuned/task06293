@@ -36,7 +36,7 @@ var Gender="";
 var	Age=99;
 var Experience=99;
 var BalPanel = Math.floor((Math.random() * 2) + 1); //para aleatorizar la posición del panel de respuesta para cada sujeto
-// var PartIP = ""; //Modified for testing TFK
+var PartIP = ""; //Modified for testing TFK
 
 
 var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
@@ -51,6 +51,7 @@ var grupoC1 = 0;	// grupo 4 - Control 1
 var grupoC2 = 0;	// grupo 5 - Control 2
 // Esta variable realmente se verá como la variable: grupoAsignado
 // [grupoA1 = 0, grupoA2 = 1, grupoB1 = 2, grupoB2= 3, grupoC1 = 4, grupoC2 = 5] 
+// TFK Falta actualizar las variables de los grupos con el número de participantes reales en cada grupo
 
 var groupNames = ["A1", "A2", "B1", "B2", "C1", "C2"]; // currently not used TFK
 // creamos un array para ver el número de participantes en cada grupo
@@ -59,6 +60,8 @@ var participantCount = new Array();
 var tempArray = [0, 1, 2, 3, 4, 5]; 
 var tempShuffled = shuffle(tempArray);
 var grupoAsignado = tempShuffled[0]; 	// Elige un grupo al azar
+
+// TFK: Cuando firebase esté listo lo siguiente tiene que ir en la función "gotData"
 // console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
 //console.log(grouplist.length + " is the length");							// debug
 for (var i = 0; i < grouplist.length; i++) {
@@ -68,7 +71,7 @@ for (var i = 0; i < grouplist.length; i++) {
 	}
   }
 console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
-
+console.log("El grupo asignado es el: "+groupNames[i]+".")
 
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
@@ -138,14 +141,14 @@ function arranca(){
     //preloadIMG();
     //GeneraEnsayos();
     
-	// firebase.database().ref().on("value", gotData, errData); 	// MODO DEMO SIN CONEXIÓN
+	firebase.database().ref().on("value", gotData, errData); 	// MODO DEMO SIN CONEXIÓN
 	
 	
-	// Ver IP
-	// PartIP = myip; //Modified for testing TFK
-	//console.log("my IP is: "+PartIP+"."); //debug
+	Ver IP
+	PartIP = myip; //Modified for testing TFK
+	console.log("my IP is: "+PartIP+"."); //debug
 	
-	function gotData(data) {
+	function gotData(data) { //TFK actualizar líneas 64 y siguientes
 		
 		//console.log("-------EMPIEZA EL UPDATE!----------") 		// debug
 	    //console.log(data.val());									// debug
@@ -1316,7 +1319,7 @@ function guardaFirebase(){
 		datos:data
 	}
     
-	//firebase.database().ref('tallerFEcyt/').push(data);
+
     //firebase.database().ref('datoscontrol/').push(data); 								// MODO DEMO SIN CONEXIÓN
 	console.log("Experimento realizado en modo DEMO. ¡Datos NO guardados!");
 }

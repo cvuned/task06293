@@ -71,7 +71,7 @@ for (var i = 0; i < grouplist.length; i++) {
 	}
   }
 console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
-console.log("El grupo asignado es el: "+groupNames[i]+".")
+console.log("El GRUPO asignado es el: "+groupNames[i]+".");
 
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++

@@ -54,6 +54,8 @@ var grupoC2 = 0;	// grupo 5 - Control 2
 // TFK Falta actualizar las variables de los grupos con el número de participantes reales en cada grupo
 
 var groupNames = ["A1", "A2", "B1", "B2", "C1", "C2"]; // currently not used TFK
+
+console.log(groupNames);
 // creamos un array para ver el número de participantes en cada grupo
 let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
 var participantCount = new Array();

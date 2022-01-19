@@ -36,7 +36,7 @@ var Gender="";
 var	Age=99;
 var Experience=99;
 var BalPanel = Math.floor((Math.random() * 2) + 1); //para aleatorizar la posición del panel de respuesta para cada sujeto
-var PartIP = ""; //Modified for testing TFK
+//var PartIP = ""; //Modified for testing TFK
 
 
 var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
@@ -72,8 +72,10 @@ for (var i = 0; i < grouplist.length; i++) {
 	  grupoAsignado = i;
 	}
   }
-console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
+console.log(groupNames[grupoAsignado]);
 console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");
+console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
+
 
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++

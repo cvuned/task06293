@@ -55,7 +55,7 @@ var grupoC2 = 0;	// grupo 5 - Control 2
 
 var groupNames = ["A1", "A2", "B1", "B2", "C1", "C2"]; // currently not used TFK
 
-console.log(groupNames);
+
 // creamos un array para ver el número de participantes en cada grupo
 let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
 var participantCount = new Array();
@@ -73,7 +73,7 @@ for (var i = 0; i < grouplist.length; i++) {
 	}
   }
 console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
-console.log("El GRUPO asignado es el: "+groupNames[i]+".");
+console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");
 
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++

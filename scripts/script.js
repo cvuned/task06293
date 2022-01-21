@@ -38,6 +38,18 @@ var Experience=99;
 var BalPanel = Math.floor((Math.random() * 2) + 1); //para aleatorizar la posición del panel de respuesta para cada sujeto
 //var PartIP = ""; //Modified for testing TFK
 
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+  // Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBRnlxlZ8dznbmcy3fx5cIygx132Nkd9K8",
+    authDomain: "cvtd22xx2.firebaseapp.com",
+    projectId: "cvtd22xx2",
+    storageBucket: "cvtd22xx2.appspot.com",
+    messagingSenderId: "543313949228",
+    appId: "1:543313949228:web:bab0cf4e65d6111d5f9789",
+    measurementId: "G-0QZLQNDWGQ"
+}
 
 var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
 var PregInduccion = ""; 		// No se usa, TFK comprobar y eliminar

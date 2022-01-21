@@ -156,7 +156,7 @@ function arranca(){
     //preloadIMG();
     //GeneraEnsayos();
     firebase.initializeApp(firebaseConfig); 
-	analytics = getAnalytics(app);
+	//analytics = getAnalytics(app);
 	firebase.database().ref().on("value", gotData, errData); 	// MODO DEMO SIN CONEXIÓN
 	
 	

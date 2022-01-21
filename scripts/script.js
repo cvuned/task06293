@@ -38,9 +38,8 @@ var Experience=99;
 var BalPanel = Math.floor((Math.random() * 2) + 1); //para aleatorizar la posición del panel de respuesta para cada sujeto
 //var PartIP = ""; //Modified for testing TFK
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-  // Your web app's Firebase configuration
+
+// Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyBRnlxlZ8dznbmcy3fx5cIygx132Nkd9K8",
     authDomain: "cvtd22xx2.firebaseapp.com",

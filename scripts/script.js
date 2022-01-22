@@ -1318,6 +1318,7 @@ function saveData(){
 	grouplist[grupoAsignado]++
 	console.log("participantes: "+grouplist+".")
 	firebase.database().ref('participantesPorGrupo').set(grouplist)
+	//firebase.database().ref('participantes/porGrupo/participantesPorGrupo').set(grouplist)
 
 
 

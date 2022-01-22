@@ -1034,7 +1034,7 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 		//13:
 		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
 			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
-			+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"
+			//+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"
 	];
 }
 else{

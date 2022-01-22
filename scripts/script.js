@@ -63,19 +63,6 @@ var tempArray = [0, 1, 2, 3, 4, 5];
 var tempShuffled = shuffle(tempArray);
 var grupoAsignado = tempShuffled[0]; 	// Elige un grupo al azar
 
-// TFK: Cuando firebase esté listo lo siguiente tiene que ir en la función "gotData"
-// console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
-//console.log(grouplist.length + " is the length");							// debug
-for (var i = 0; i < grouplist.length; i++) {
-	// console.log(grouplist[i]+"--- i ="+i)								// debug
-	if (grouplist[i] < grouplist[grupoAsignado]) {
-	  grupoAsignado = i;
-	}
-  }
-console.log(groupNames[grupoAsignado]);
-console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");
-console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
-
 
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
@@ -157,9 +144,22 @@ function arranca(){
 	    //console.log(data.val());									// debug
 	    //console.log("Experimental: "+experimental+".");			// debug
 	    //console.log("Balanceo: "+balanceo+".");	
-		console.log("participantes: "+grouplist+".");				// debug
-	    grouplist = data.val().participantesPorGrupo;
-		console.log("participantes: "+grouplist+".");				// debug
+		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
+	    grouplist = data.val().participantesPorGrupo;				// esta línea lee el histórico de firebase (añadida en el 2º run de la app)
+		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
+		
+		// console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
+		//console.log(grouplist.length + " is the length");							// debug
+		for (var i = 0; i < grouplist.length; i++) {								// Este bucle asigna al grupo con menos participantes
+			// console.log(grouplist[i]+"--- i ="+i)								// debug
+			if (grouplist[i] < grouplist[grupoAsignado]) {
+			grupoAsignado = i;
+			}
+		}
+		console.log(groupNames[grupoAsignado]);
+		console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");
+		console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
+
 	    // balanceo = data.val().GrupoControlContrabalanceo;		// MODO DEMO SIN CONEXIÓN
 	    // experimental = data.val().GrupoControlExp;				// MODO DEMO SIN CONEXIÓN
 

@@ -144,8 +144,6 @@ function preloadIMG(){
 function arranca(){
     //preloadIMG();
     //GeneraEnsayos();
-    //firebase.initializeApp(firebaseConfig); 
-	//analytics = getAnalytics(app);
 	firebase.database().ref().on("value", gotData, errData); 	// MODO DEMO SIN CONEXIÓN
 	
 	
@@ -1302,16 +1300,27 @@ function saveData(){
 		FasePrevia.secuenciaCells 				//Fase 2 - Secuencia de combinaciones acción-éxito
     ;
     
-	if(group == "Experimental"){
+	// Así guardaba los partizipantes en el primer experimento, que solo tenía 2 tipos. Ahora me da que ya no me vale porque tengo 6. 
+	//if(group == "Experimental"){
 		//actualizarGrupo= grouplist[grupoAsignado]+1;
 		//firebase.database().ref('GrupoControlExp').set(actualizarGrupo);				// MODO DEMO SIN CONEXIÓN
 		//console.log("Un participante al grupo normal")				// debug
-	}
-	else {
+	//}
+	//else {
 		//actualizarGrupo= grouplist[grupoAsignado]+1;
 		// firebase.database().ref('GrupoControlContrabalanceo').set(actualizarGrupo); 	// MODO DEMO SIN CONEXIÓN
 		//console.log("Un participante al grupo de contrabalanceo")		// debug
-	}
+	//}
+	// la siguiente línea guarda un vector con los participantes. 
+	// Recordatorio de cómo se lee: 
+	// grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
+	console.log("participantes: "+grouplist+".")
+	grouplist[grupoAsignado]++
+	console.log("participantes: "+grouplist+".")
+	firebase.database().ref('participantesPorGrupo').set(grouplist)
+
+
+
     //console.log(data);      // Debug
     guardaFirebase();
     siguienteTexto();
@@ -1324,7 +1333,7 @@ function guardaFirebase(){
 		datos:data
 	}
     
-
+	firebase.database().ref('datoscontrol/').push(data); 								// MODO Operativo! 
     //firebase.database().ref('datoscontrol/').push(data); 								// MODO DEMO SIN CONEXIÓN
 	console.log("Experimento realizado en modo DEMO. ¡Datos NO guardados!");
 }

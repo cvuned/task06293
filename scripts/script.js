@@ -186,7 +186,7 @@ function arranca(){
     stateTexto=0;
     fase=0;
     
-    //genero las cadenas de outcomes:
+    //genero las cadenas de outcomes: // TFK --> todo este bloque tiene que ir en una nueva función a la que llame después de leer de firebase
     
 	for(var i=0; i<2; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
 		if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)

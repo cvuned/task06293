@@ -156,8 +156,10 @@ function arranca(){
 		//console.log("-------EMPIEZA EL UPDATE!----------") 		// debug
 	    //console.log(data.val());									// debug
 	    //console.log("Experimental: "+experimental+".");			// debug
-	    //console.log("Balanceo: "+balanceo+".");					// debug
-	    
+	    //console.log("Balanceo: "+balanceo+".");	
+		console.log("participantes: "+grouplist+".");				// debug
+	    grouplist = data.val().participantesPorGrupo;
+		console.log("participantes: "+grouplist+".");				// debug
 	    // balanceo = data.val().GrupoControlContrabalanceo;		// MODO DEMO SIN CONEXIÓN
 	    // experimental = data.val().GrupoControlExp;				// MODO DEMO SIN CONEXIÓN
 

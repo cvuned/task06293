@@ -129,8 +129,8 @@ function preloadIMG(){
 
 //función global
 function arranca(){
-    //preloadIMG();
-    //GeneraEnsayos();
+    preloadIMG();
+	// CARGA la base de datos: 
 	firebase.database().ref().on("value", gotData, errData); 	// MODO DEMO SIN CONEXIÓN
 	
 	
@@ -140,10 +140,6 @@ function arranca(){
 	
 	function gotData(data) { //TFK actualizar líneas 64 y siguientes
 		
-		//console.log("-------EMPIEZA EL UPDATE!----------") 		// debug
-	    //console.log(data.val());									// debug
-	    //console.log("Experimental: "+experimental+".");			// debug
-	    //console.log("Balanceo: "+balanceo+".");	
 		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
 	    grouplist = data.val().participantesPorGrupo;				// esta línea lee el histórico de firebase (añadida en el 2º run de la app)
 		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
@@ -184,35 +180,7 @@ function arranca(){
 		FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
 	}             
 
-    //console.log("Resultados para fase previa:");	// debug
-    //console.log(FasePrevia.posibleOutcomes);	// debug
-	if(grupoAsignado<4){
-		sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
-			return a + b;
-		});
-		console.log("Expectativa inicial: "+100*sum/20+"%.");	// debug
-				// Para control qué dice
-	}
-	else{ 
-		console.log("Este es un grupo de control sin manipulación");	
-	}
-    //console.log("Resultados para fase test:");	// debug
-    //console.log(FaseTest.posibleOutcomes);	// debug
-	sum2 = FaseTest.posibleOutcomes.reduce((a, b) => {
-		return a + b;
-	  });
-	console.log("Remisión espontánea: "+100*sum2/50+"%.");	// debug
-
-
     pregInduccion();
-    //if(group=="control"){
-    //    siguienteTexto();    
-    //}
-    //else if(group=="Experimental"){
-    //    pregInduccion();	  
-    //}
-	
-    
     alert("Pulsa F11 para verme a pantalla completa.");
 }
 
@@ -286,6 +254,26 @@ function asignagrupo() {
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
 //GENERACION DE ENSAYOS:
+
+function generaEnsayos(){
+	if(grupoAsignado<4){
+		sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
+			return a + b;
+		});
+		console.log("Expectativa inicial: "+100*sum/20+"%.");	// debug
+				// Para control qué dice
+	}
+	else{ 
+		console.log("Este es un grupo de control sin manipulación");	
+	}
+    //console.log("Resultados para fase test:");	// debug
+    //console.log(FaseTest.posibleOutcomes);	// debug
+	sum2 = FaseTest.posibleOutcomes.reduce((a, b) => {
+		return a + b;
+	  });
+	console.log("Remisión espontánea: "+100*sum2/50+"%.");	// debug
+}
+
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
 
@@ -1171,6 +1159,7 @@ function cuestionarioEdad(){
 	// Aquí mientras se rellenan los cuestionarios lanzamos la llamada a Firebase 
 	// para calcular grupos y tal
 	asignagrupo();
+	generaEnsayos();
 	document.querySelector('input[name="edad"]').value="";
     
     var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";

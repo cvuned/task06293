@@ -147,34 +147,6 @@ function arranca(){
 		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
 	    grouplist = data.val().participantesPorGrupo;				// esta línea lee el histórico de firebase (añadida en el 2º run de la app)
 		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
-		
-		// console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
-		//console.log(grouplist.length + " is the length");							// debug
-		for (var i = 0; i < grouplist.length; i++) {								// Este bucle asigna al grupo con menos participantes
-			// console.log(grouplist[i]+"--- i ="+i)								// debug
-			if (grouplist[i] < grouplist[grupoAsignado]) {
-			grupoAsignado = i;
-			}
-		}
-		console.log(groupNames[grupoAsignado]);
-		console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");
-		console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
-
-	    // balanceo = data.val().GrupoControlContrabalanceo;		// MODO DEMO SIN CONEXIÓN
-	    // experimental = data.val().GrupoControlExp;				// MODO DEMO SIN CONEXIÓN
-
-	    //console.log("Experimental: "+experimental+".");			// debug
-	    //console.log("Balanceo: "+balanceo+".");					// debug
-	  
-	    //if(balanceo > experimental){								// debug (el condicional entero)
-		//	console.log("Arranca(): Balanceo > experimental");    
-		//	console.log("porque"+balanceo+" > que "+experimental+", ole");
-		//}
-		//else {
-		//	console.log("Arranca(): Pues no, experimental Igual o mayor");
-		//	console.log("porque"+experimental+" > que "+balanceo+", ole");
-		//}
-		//console.log("-------UPDATE COMPLETO!----------")			// debug
 	};
 		
 	function errData(err) {
@@ -247,6 +219,20 @@ function arranca(){
 
 function asignagrupo() {
 
+	//console.log(groupNames[grupoAsignado]);
+	
+	console.log(grouplist.length + " is the length");							// debug
+	for (var i = 0; i < grouplist.length; i++) {								// Este bucle asigna al grupo con menos participantes
+		console.log(grouplist[i]+"--- i ="+i)								// debug
+		if (grouplist[i] < grouplist[grupoAsignado]) {
+			grupoAsignado = i;
+		}
+	console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");
+	console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
+	console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
+	}
+	
+	// TODO ESTE BLOQUE SIGUIENTE CHECKEA LAS PROBABILIDADES: 
 	group= "No asignado";	
 	// En función del número de participantes que hayan realizado la tarea en la secuencia normal
 	// y de contrabalanceo, asigna a un grupo o a otro al participante. 

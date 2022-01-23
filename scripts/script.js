@@ -344,9 +344,9 @@ var FaseControl = {
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
-	//posibleOutcomes: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
-	//secuenciaCells: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
-	//secuenciaResps: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+	posibleOutcomes: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9], // Esto lo dejamos para que todos los grupos tengan los datos ordenados igual
+	secuenciaCells: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
+	secuenciaResps: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 	// Contingencia: ordenContingencias[1], //Ya no se usa 
 	Juicio: 999,
 	Confianza: 999,
@@ -1249,32 +1249,49 @@ function saveData(){
     
     var BalanceoContingencia = FaseTest.Contingencia+"-"+FasePrevia.Contingencia;
      
-   
-    data = 
-        "TFM-Control" + "," + 
-        personId + "," +                	//ID aleatorio
-		//PartIP + "," +						// IP del participante //Modified for testing TFK
-        fecha + "," + 
-        group + "," +                   	//grupo: normal / contrabalanceo
-        Age + "," +         		
-        Gender + "," +		
-		Experience + "," +
-        BalPanel + "," +               		//balanceo de panel botones
-        BalanceoContingencia + "," +   		//orden de las contingencias
-        FaseTest.Juicio + "," + 				//Juicio 
-        FaseTest.Confianza + "," + 			//Confianza 
-        FaseTest.Riesgo + "," + 				//Riesgo 
-        FasePrevia.Juicio + "," + 				//Fase 2 - Juicio
-        FasePrevia.Confianza + "," + 			//Fase 2 - Confianza 
-        FasePrevia.Riesgo + "," + 				//Fase 2 - Riesgo 
-		FaseTest.TiemposRespuesta + "," + 		//Tiempos de respuesta 
-		FasePrevia.TiemposRespuesta + "," +  	//Fase 2 - Tiempos de respuesta 
-		FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
-		FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
-		FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
-		FasePrevia.secuenciaResps + "," + 		//Fase 2 - Secuencia de respuestas dada
-		FasePrevia.posibleOutcomes + "," + 		//Fase 2 - Secuencia de resultados de éxito presentada
-		FasePrevia.secuenciaCells 				//Fase 2 - Secuencia de combinaciones acción-éxito
+	if(grupoAsignado>3){  // En esta caso estamos en un participante del grupo de control
+		data = 
+			"ExpCVTD22XX2" + "," + 
+			grouplist[grupoAsignado] + "," + 
+			personId + "," +                		//ID aleatorio
+			//PartIP + "," +						// IP del participante //Modified for testing TFK
+			Age + "," +         		
+			Gender + "," +		
+			FaseTest.Juicio + "," + 				//Juicio 
+			FaseTest.Confianza + "," + 				//Confianza 
+			FaseTest.Riesgo + "," + 				//Riesgo 
+			// FaseTest.Evidential value - respuestas dadas
+			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
+			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
+			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
+			FaseControl.secuenciaResps + "," + 		//Fase 2 - Secuencia de respuestas dada
+			FaseControl.posibleOutcomes + "," + 	//Fase 2 - Secuencia de resultados de éxito presentada
+			FaseControl.secuenciaCells + "," +  				//Fase 2 - Secuencia de combinaciones acción-éxito
+			FaseTest.TiemposRespuesta + "," + 		//Tiempos de respuesta 
+			fecha
+	}
+	else{
+		data = 
+			"ExpCVTD22XX2" + "," + 
+			grouplist[grupoAsignado] + "," + 
+			personId + "," +                		//ID aleatorio
+			//PartIP + "," +						// IP del participante //Modified for testing TFK
+			Age + "," +         		
+			Gender + "," +		
+			FaseTest.Juicio + "," + 				//Juicio 
+			FaseTest.Confianza + "," + 				//Confianza 
+			FaseTest.Riesgo + "," + 				//Riesgo 
+			FaseTest.EvidentialValue + "," +  		// Evidential value - respuestas dadas en un array
+			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
+			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
+			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
+			FasePrevia.secuenciaResps + "," + 		//Fase 2 - Secuencia de respuestas dada
+			FasePrevia.posibleOutcomes + "," + 		//Fase 2 - Secuencia de resultados de éxito presentada
+			FasePrevia.secuenciaCells + "," + 	 				//Fase 2 - Secuencia de combinaciones acción-éxito
+			FaseTest.TiemposRespuesta + "," + 		//Tiempos de respuesta 
+			fecha
+	}
+    
     ;
     
 	// Así guardaba los partizipantes en el primer experimento, que solo tenía 2 tipos. Ahora me da que ya no me vale porque tengo 6. 

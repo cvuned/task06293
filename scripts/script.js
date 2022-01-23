@@ -802,15 +802,15 @@ function showEvidentialValue(){
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
 	}
-	textoEvidentialValue= "<p class=\"pregunta\">En ciertos ensayos has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
-		+"¿Consideras que este tipo de ensayo son importantes para determinar la eficacia del Batatrim?<br>"
+	textoEvidentialValue= "<p class=\"pregunta\">A veces has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
+		+"¿Consideras que os casos son importantes para determinar la eficacia del Batatrim?<br>"
 		+ "<table style=\"text-align: center; align-content:center; border: 0px; width: 100%;\"><tr><td><img src=\""+Clarificar1+"\" width=\"150px\"></td><td><img src=\""+Clarificar2+"\" width"
 		+ "=\"150px\"></td></tr></table></p><br>";
 	//	+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table></p>";
 	
 	// Estas dos líneas ya son un poco redundantes
-	//textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
-	//textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul><br><br>";
+	textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
 
 	pintarHTML('divPregunta', textoEvidentialValue);
 	

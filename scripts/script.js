@@ -1264,7 +1264,7 @@ function saveData(){
 	if(grupoAsignado>3){  // En esta caso estamos en un participante del grupo de control
 		data = 
 			"ExpCVTD22XX2" + "," + 
-			grouplist[grupoAsignado] + "," + 
+			groupNames[grupoAsignado] + "," + 
 			personId + "," +                		//ID aleatorio
 			//PartIP + "," +						// IP del participante //Modified for testing TFK
 			Age + "," +         		
@@ -1285,7 +1285,7 @@ function saveData(){
 	else{
 		data = 
 			"ExpCVTD22XX2" + "," + 
-			grouplist[grupoAsignado] + "," + 
+			groupNames[grupoAsignado] + "," + 
 			personId + "," +                		//ID aleatorio
 			//PartIP + "," +						// IP del participante //Modified for testing TFK
 			Age + "," +         		

@@ -57,7 +57,7 @@ var groupNames = ["A1", "A2", "B1", "B2", "C1", "C2"]; // currently not used TFK
 
 
 // creamos un array para ver el número de participantes en cada grupo
-let grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
+var grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
 var participantCount = new Array();
 var tempArray = [0, 1, 2, 3, 4, 5]; 
 var tempShuffled = shuffle(tempArray);
@@ -199,7 +199,7 @@ function asignagrupo() {
 	console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
 	console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
 	}
-	grupoAsignado = 4;											// TFK -- Modificado para checkear grupo de control
+	//grupoAsignado = 4;											// TFK -- Modificado para checkear grupo de control
 	// TODO ESTE BLOQUE SIGUIENTE CHECKEA LAS PROBABILIDADES: 
 	group= "No asignado";	
 	// En función del número de participantes que hayan realizado la tarea en la secuencia normal

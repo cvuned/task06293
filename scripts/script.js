@@ -199,15 +199,16 @@ function asignagrupo() {
 	console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
 	console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
 	}
-	
+	grupoAsignado = 4;											// TFK -- Modificado para checkear grupo de control
 	// TODO ESTE BLOQUE SIGUIENTE CHECKEA LAS PROBABILIDADES: 
 	group= "No asignado";	
 	// En función del número de participantes que hayan realizado la tarea en la secuencia normal
 	// y de contrabalanceo, asigna a un grupo o a otro al participante. 
 	if(grupoAsignado > 3){
 
+		training=[FaseTest];
 		//training=[FaseControl, FaseTest];
-		training=[FaseControl];
+		//training=[FaseControl];
 		if(grupoAsignado == 4){
 			group= "Control Remisión Baja - C1"; 
 		}
@@ -248,7 +249,7 @@ function asignagrupo() {
 			console.log("El grupo asignado era: "+grupoAsignado+".");  
 		}
 	}
-    // console.log("Pues te ha tocado grupo :"+group+".");					// debug
+	console.log("Pues te ha tocado grupo :"+group+".");					// debug
 
 }    
 //++++++++++++++++++++++++++++++++++++++

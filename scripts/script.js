@@ -814,17 +814,20 @@ function validaJuicio(){
 		
 		// Vamos a grabar el valor del slider en un punto u otro según nuestra fase
 		if(training[fase].Juicio==999){
-			training[fase].Juicio=document.getElementById('textInput').value;
+			//training[fase].Juicio=document.getElementById('textInput').value;
+			FaseTest.Juicio=document.getElementById('textInput').value; 			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
 			//console.log("--- LA HORA DEL JUICIO ESTÁ CERCA!!! ---");			// debug
 			//console.log(training[fase].Juicio);								// debug
 		}	
 		else if(training[fase].Confianza==999){
-			training[fase].Confianza=document.getElementById('textInput').value;
+			//training[fase].Confianza=document.getElementById('textInput').value;
+			FaseTest.Confianza=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
 			//console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
 			//console.log(training[fase].Confianza);							// debug
 		}	
 		else if(training[fase].Riesgo==999){
-			training[fase].Riesgo=document.getElementById('textInput').value;
+			//training[fase].Riesgo=document.getElementById('textInput').value;
+			FaseTest.Riesgo=document.getElementById('textInput').value;		// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
 			//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
 			//console.log(training[fase].Riesgo);								// debug
 		}

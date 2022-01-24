@@ -884,6 +884,10 @@ function cambiafase(){
 		confianzaevaluada=0;
 		riesgoevaluado=0;
 		evidenciavaluado=0;
+
+		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
+		console.log("The evidential value is: "+FaseTest.EvidentialValue+" without TFK TFK.");
+		siguienteTexto();
      }
 	else{
 		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 

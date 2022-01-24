@@ -296,7 +296,7 @@ var FaseTest = {
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
-	EvidentialValue: [],
+	EvidentialValue: [999,999,999,999],
 	TiemposRespuesta: [],
 }
 
@@ -324,7 +324,7 @@ var FasePrevia = {
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
-	EvidentialValue: [],
+	EvidentialValue: [999,999,999,999],
 	TiemposRespuesta: [],
 }
 
@@ -351,7 +351,7 @@ var FaseControl = {
 	Juicio: 999,
 	Confianza: 999,
 	Riesgo: 999,
-	EvidentialValue: [],
+	EvidentialValue: [999,999,999,999],
 	TiemposRespuesta: [],
 	//TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
 }
@@ -876,12 +876,14 @@ function cambiafase(){
         fase++;
         state=0; 
         
+
 		juiciorealizado=0;
 		confianzaevaluada=0;
 		riesgoevaluado=0;
 		evidenciavaluado=0;
      }
-    
+	FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
+	console.log("The evidential value is: "+FaseTest.EvidentialValue+".");
     siguienteTexto();
 }
 
@@ -1260,7 +1262,7 @@ function saveData(){
 			FaseTest.Juicio + "," + 				//Juicio 
 			FaseTest.Confianza + "," + 				//Confianza 
 			FaseTest.Riesgo + "," + 				//Riesgo 
-			// FaseTest.Evidential value - respuestas dadas
+			FaseTest.EvidentialValue + "," +  			//Evidential Value (a,b,c,d) respuestas dadas
 			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
 			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
 			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito

@@ -292,7 +292,6 @@ var FaseTest = {
     posibleOutcomes: [],
     secuenciaCells: [],
     secuenciaResps: [],
-    // Contingencia: ordenContingencias[1], //Ya no se usa 
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
@@ -303,24 +302,20 @@ var FaseTest = {
 var FasePrevia = {
 	nombreClave: "Batatrim",
 	nombreSindrome: "Síndrome de Lindsay",
-	ImagenClave: "img/recuperaSi.png",		// Cambiar imagen a YES
-	ImagenNOClave: "img/recuperaNo.png",	// Cambiar imagen a NO
+	ImagenClave: "img/recuperaSi.png",		
+	ImagenNOClave: "img/recuperaNo.png",	
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
 	textoTransitAlta: "alta",
 	textoTransitBaja: "baja", 
 	textoCue: "Este paciente tiene el Síndrome de Lindsay y se le ha administrado Batatrim",
     textoPregunta: "¿Crees que va a recuperarse?",
-	//textoYES: "Se ha administrado Batatrim y crees que se va a recuperar",
-	//textoNO: "Se ha administrado Batatrim y crees que NO se va a recuperar",
     textoYES: "Crees que se va a recuperar",
 	textoNO: "Crees que NO se va a recuperar",
-    //numTrials: 20,
-    numTrials: 2, //TFK modificado para testear más rápido
+    numTrials: 20,
 	posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
-    // Contingencia: ordenContingencias[1], //Ya no se usa
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
@@ -340,20 +335,19 @@ var FaseControl = {
 	textoPregunta: "¿Quieres administrarle Batatrim?",
 	textoYES: "Has administrado Batatrim",
 	textoNO: "No administrado usado Batatrim",
-	numTrials: 50, // TFK, do not forget!! 
+	numTrials: 50, 
     posibleOutcomes: [],   
     secuenciaCells: [],
     secuenciaResps: [],
 	posibleOutcomes: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9], // Esto lo dejamos para que todos los grupos tengan los datos ordenados igual
 	secuenciaCells: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 	secuenciaResps: [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
-	// Contingencia: ordenContingencias[1], //Ya no se usa 
 	Juicio: 999,
 	Confianza: 999,
 	Riesgo: 999,
 	EvidentialValue: [999,999,999,999],
 	TiemposRespuesta: [],
-	//TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
+	TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
 }
 
 if(testeo === 1){

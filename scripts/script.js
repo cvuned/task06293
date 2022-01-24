@@ -870,7 +870,12 @@ function validaJuicio(){
 }
 
 function cambiafase(){
-    if(fase==0) {
+    if (grupoAsignado > 3){
+		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
+		console.log("The evidential value is: "+FaseTest.EvidentialValue+", TFK TFK TFK.");
+		siguienteTexto();
+	}
+	else if(fase==0) {
         fase++;
         state=0; 
         
@@ -880,9 +885,12 @@ function cambiafase(){
 		riesgoevaluado=0;
 		evidenciavaluado=0;
      }
-	FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
-	console.log("The evidential value is: "+FaseTest.EvidentialValue+".");
-    siguienteTexto();
+	else{
+		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
+		console.log("The evidential value is: "+FaseTest.EvidentialValue+" without TFK.");
+		siguienteTexto();
+	}
+
 }
 
 function ReseteoJuicios(){

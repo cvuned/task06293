@@ -1167,6 +1167,7 @@ else {
 
 function cuestionarioEdad(){
 	
+	alert("Pulsa F11 para verme a pantalla completa.");
 
     ocultar(divTextos);
     mostrar(divCuestionariosEdad);
@@ -1179,7 +1180,6 @@ function cuestionarioEdad(){
     
     var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";
     pintarHTML('divBoton', HTMLboton);
-	alert("Pulsa F11 para verme a pantalla completa.");
 
 }
 

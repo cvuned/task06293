@@ -281,7 +281,7 @@ function generaEnsayos(){
 //++++++++++++++++++++++++++++++++++++++
 
 var FaseTest = {
-  	nombreClave: "\"Batatrim\",
+  	nombreClave: "\"Batatrim\"",
 	nombreSindrome: "Síndrome de Lindsay",
 	ImagenClave: "img/BatatrimBoton.png",
 	ImagenNOClave: "img/noBatatrimBoton.png",
@@ -775,7 +775,7 @@ function showEvidentialValue(){
 		Clarificar2 = FaseTest.ImagenSindrome;
 	}
 	textoEvidentialValue= "<p class=\"pregunta\">A veces has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
-		+"¿Consideras que os casos son importantes para determinar la eficacia del \"Batatrim\"?<br>"
+		+"¿Consideras que estos casos son importantes para determinar la eficacia del \"Batatrim\"?<br>"
 		+ "<table style=\"text-align: center; align-content:center; border: 0px; width: 100%;\"><tr><td><img src=\""+Clarificar1+"\" width=\"150px\"></td><td><img src=\""+Clarificar2+"\" width"
 		+ "=\"150px\"></td></tr></table></p>";
 	//	+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table></p>";

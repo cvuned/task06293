@@ -31,7 +31,7 @@ var evidenciaC = 999;
 var evidenciaD = 999;
 var tempOrden = ["a", "b", "c", "d"];
 tempOrden = shuffle(tempOrden);
-
+var alertcount = 0; 
 //variables demográficas:
 var Gender=""; 
 var	Age=99;
@@ -1167,8 +1167,10 @@ else {
 
 function cuestionarioEdad(){
 	
-	alert("Pulsa F11 para verme a pantalla completa.");
-
+	if ( alertcount == 0){
+			alertcount++
+			alert("Pulsa F11 para verme a pantalla completa.");
+	}
     ocultar(divTextos);
     mostrar(divCuestionariosEdad);
 	

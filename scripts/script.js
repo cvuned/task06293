@@ -108,7 +108,8 @@ function ocultar(panel){panel.style.display="none";}
 //función de fecha:
 function stringDate() {
   var fecha = new(Date);
-  return(String(fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + fecha.getFullYear() + "-" + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds()));
+  //return(String(fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + fecha.getFullYear() + "-" + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds()));
+  return(String(fecha.getFullYear() + "/" + (fecha.getMonth()+1) + "/" + fecha.getDate() + "-" + fecha.getHours() + ":" + fecha.getMinutes() ));
 }
 
 
@@ -362,9 +363,10 @@ var FaseControl = {
 
 
 function RandomString(length){
-    var mask = 'ABCDEFGHIJKLMNOPQRSTUVW';
+//    var mask = 'ABCDEFGHIJKLMNOPQRSTUVW';
 //    var mask = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    var result = '';
+    var mask = 'BCDFGHJKLMNPQRSTVWXZ';
+var result = '';
     for (var i = length; i > 0; --i) result += mask[Math.floor(Math.random() * mask.length)];
     return result;
 }
@@ -386,7 +388,7 @@ function showCue(){
 	pintarHTML("divPreStatus", "<img src=\""+training[fase].ImagenSindrome+"\" width=250px>"+
             "<br><br><br><p class=\"mensaje\">"+training[fase].textoCue+"</p><p class=\"mensaje\">"+training[fase].textoPregunta+"</p>");
     
-	pintarHTML("divRegistro", "<h3>Paciente "+RandomString(4)+"</h3>");
+	pintarHTML("divRegistro", "<h3>Paciente "+RandomString(8)+"</h3>");
 	
 	
     mostrar(divRegistro);
@@ -993,7 +995,7 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 			+ "de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
 		
 		//4: Instrucciones 2.b //TFK Corregir 
-		"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el"
+		"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "
 		+ ""+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content:"
 		+ "center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width"
 		+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",

@@ -281,16 +281,16 @@ function generaEnsayos(){
 //++++++++++++++++++++++++++++++++++++++
 
 var FaseTest = {
-  	nombreClave: "Batatrim",
+  	nombreClave: "\"Batatrim\",
 	nombreSindrome: "Síndrome de Lindsay",
 	ImagenClave: "img/BatatrimBoton.png",
 	ImagenNOClave: "img/noBatatrimBoton.png",
 	ImagenSindrome: "img/Nooutcome.png",
 	ImagenSano: "img/outcome.png",
 	textoCue: "Este paciente tiene el Síndrome de Lindsay",
-    textoPregunta: "¿Quieres administrarle Batatrim?",
-	textoYES: "Has administrado Batatrim",
-	textoNO: "No administrado usado Batatrim",
+    textoPregunta: "¿Quieres administrarle \"Batatrim\"?",
+	textoYES: "Has administrado \"Batatrim\"",
+	textoNO: "No administrado usado \"Batatrim\"",
 	numTrials: 50,
     posibleOutcomes: [],
     secuenciaCells: [],
@@ -303,7 +303,7 @@ var FaseTest = {
 }
 
 var FasePrevia = {
-	nombreClave: "Batatrim",
+	nombreClave: "\"Batatrim\"",
 	nombreSindrome: "Síndrome de Lindsay",
 	ImagenClave: "img/recuperaSi.png",		
 	ImagenNOClave: "img/recuperaNo.png",	
@@ -311,7 +311,7 @@ var FasePrevia = {
 	ImagenSano: "img/outcome.png",
 	textoTransitAlta: "alta",
 	textoTransitBaja: "baja", 
-	textoCue: "Este paciente tiene el Síndrome de Lindsay y se le ha administrado Batatrim",
+	textoCue: "Este paciente tiene el Síndrome de Lindsay y se le ha administrado \"Batatrim\"",
     textoPregunta: "¿Crees que va a recuperarse?",
     textoYES: "Crees que se va a recuperar",
 	textoNO: "Crees que NO se va a recuperar",
@@ -327,7 +327,7 @@ var FasePrevia = {
 }
 
 var FaseControl = {
-	nombreClave: "Batatrim",
+	nombreClave: "\"Batatrim\"",
 	nombreSindrome: "Síndrome de Lindsay",
 	ImagenClave: "img/BatatrimBoton.png",
 	ImagenNOClave: "img/noBatatrimBoton.png",
@@ -335,9 +335,9 @@ var FaseControl = {
 	ImagenSano: "img/outcome.png",
 	textoIntroControl: "Sin embargo, esta medicina aún está en fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.",
 	textoCue: "Este paciente tiene el Síndrome de Lindsay",
-	textoPregunta: "¿Quieres administrarle Batatrim?",
-	textoYES: "Has administrado Batatrim",
-	textoNO: "No administrado usado Batatrim",
+	textoPregunta: "¿Quieres administrarle \"Batatrim\"?",
+	textoYES: "Has administrado \"Batatrim\"",
+	textoNO: "No administrado usado \"Batatrim\"",
 	numTrials: 50, 
     posibleOutcomes: [],   
     secuenciaCells: [],
@@ -751,31 +751,31 @@ function showEvidentialValue(){
 	console.log(tempOrden);
 
 	if (pregunta == "a"){
-		tomaOno = "fue administrado Batatrim";
+		tomaOno = "fue administrado \"Batatrim\"";
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSano;
 	}
 	else if (pregunta == "b"){
-		tomaOno = "fue administrado Batatrim";
+		tomaOno = "fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
 	}
 	else if (pregunta == "c"){
-		tomaOno = "NO fue administrado Batatrim";
+		tomaOno = "NO fue administrado \"Batatrim\"";
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSano;
 	}
 	else if (pregunta == "d"){
-		tomaOno = "NO fue administrado Batatrim";
+		tomaOno = "NO fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
 	}
 	textoEvidentialValue= "<p class=\"pregunta\">A veces has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
-		+"¿Consideras que os casos son importantes para determinar la eficacia del Batatrim?<br>"
+		+"¿Consideras que os casos son importantes para determinar la eficacia del \"Batatrim\"?<br>"
 		+ "<table style=\"text-align: center; align-content:center; border: 0px; width: 100%;\"><tr><td><img src=\""+Clarificar1+"\" width=\"150px\"></td><td><img src=\""+Clarificar2+"\" width"
 		+ "=\"150px\"></td></tr></table></p>";
 	//	+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table></p>";
@@ -984,14 +984,14 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 		+ ": block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 	
 		//2: Instrucciones 1 //TFK Corregir 
-		"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad."
+		"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. "
 		+ "Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. "
-		+ "Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en" 
+		+ "Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en " 
 		+ "fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
 		
 		//3: Instrucciones 2.a //TFK Corregir 
-		"<h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie"
-			+ "de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad"
+		"<h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie "
+			+ "de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad "
 			+ "de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
 		
 		//4: Instrucciones 2.b //TFK Corregir 
@@ -1001,8 +1001,8 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 		+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
 		
 		//5: Instrucciones 2.c //TFK Corregir 
-		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información,"
-		+ " se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\">"
+		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. Después de darte esa información, "
+		+ "se te presentará la ficha del siguiente paciente.</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\">"
 		+ "<tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>"
 		+ "Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". "
 		+ "Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",

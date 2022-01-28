@@ -986,33 +986,33 @@ if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2:
 	];
 }
 else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL 
-	// GRUPO EXPERIMENTAL Contrabalanceo: Tarea alergia -> Tarea aeronáutica
+
 	// Hay que modificar el arrayInstruc
 	console.log("Preparando textos para grupo de CONTROL");
 	var arrayInstruc=[
-		//0: (portada) //TFK Corregir 
+		//0: (portada) 
 		"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display"
 		+ ": block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 	
-		//2: Instrucciones 1 //TFK Corregir 
+		//2: Instrucciones 1 
 		"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. "
 		+ "Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. "
 		+ "Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+", pero esta medicina aún está en " 
 		+ "fase experimental, por lo que todavía no se ha comprobado claramente su efectividad.</p><br>",
 		
-		//3: Instrucciones 2.a //TFK Corregir 
+		//3: Instrucciones 2.a 
 		"<h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie "
 			+ "de fichas médicas de pacientes que están sufriendo una crisis del "+FaseTest.nombreSindrome +". En cada ficha verás un paciente y se te dará la oportunidad "
 			+ "de administrarle o no el "+FaseTest.nombreClave+ ".</p>",
 		
-		//4: Instrucciones 2.b //TFK Corregir 
+		//4: Instrucciones 2.b 
 		"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes decidir si quieres administrar el "
 		+ ""+FaseTest.nombreClave+ " o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br><table style=\"text-align: center; align-content:"
 		+ "center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width"
 		+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
 		
-		//5: Instrucciones 2.c //TFK Corregir 
-		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis EXISTENCIAL."
+		//5: Instrucciones 2.c 
+		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis."
 		+ "</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\">"
 		+ "<tr><td><img src=\""+FaseControl.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseControl.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>"
 		+ "Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br>"
@@ -1026,7 +1026,6 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 		//13:
 		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
 			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
-			//+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"
 	];
 }
 else{
@@ -1065,8 +1064,7 @@ else{
 				
 		//13:
 		"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
-			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
-			+ "<br><br> Si quieres más información sobre la ilusión de control puedes consultar nuestro trabajo previo aquí: <TFK Missing link>"		
+			+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"	
 	];
 }
  

@@ -39,6 +39,8 @@ var Experience=99;
 var BalPanel = Math.floor((Math.random() * 2) + 1); //para aleatorizar la posición del panel de respuesta para cada sujeto
 //var PartIP = ""; //Modified for testing TFK
 
+var arrayInstruc=[];
+var arrayBoton = [];
 
 var PregInduccionPrecio = "";	// No se usa, TFK comprobar y eliminar
 var PregInduccion = ""; 		// No se usa, TFK comprobar y eliminar
@@ -941,7 +943,7 @@ function previoTexto(){
 function prepararTextos(){
 	if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2: 
 		console.log("Preparando textos para grupo de ALTA");
-		var arrayInstruc=[
+		arrayInstruc=[
 			//0: (portada)  // TFK requiere cambio
 			"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br>"
 			+ "<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
@@ -991,7 +993,7 @@ function prepararTextos(){
 
 		// Hay que modificar el arrayInstruc
 		console.log("Preparando textos para grupo de CONTROL");
-		var arrayInstruc=[
+		arrayInstruc=[
 			//0: (portada) 
 			"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display"
 			+ ": block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
@@ -1032,7 +1034,7 @@ function prepararTextos(){
 	}
 	else{
 		console.log("Preparando textos para grupo de BAJA");
-		var arrayInstruc=[ // Instrucciones para los grupos B1 y B2: 
+		arrayInstruc=[ // Instrucciones para los grupos B1 y B2: 
 			//0: (portada)  // TFK requiere cambio
 			"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 				
@@ -1073,7 +1075,7 @@ function prepararTextos(){
 	if(grupoAsignado>3){
 		// También hay que modificar el array de botones?? TFK El bug de "Atrás / Comenzar" parece estar en otro sitio
 		console.log("Preparando botones para grupo de CONTROL");
-		var arrayBoton = [
+		arrayBoton = [
 			//0:
 			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",
 			
@@ -1117,7 +1119,7 @@ function prepararTextos(){
 	}
 	else {
 		console.log("Preparando textos para grupos A y B");
-		var arrayBoton = [
+		arrayBoton = [
 			//0:
 			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",
 			

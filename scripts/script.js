@@ -159,8 +159,10 @@ function arranca(){
     fase=0;
 
           
-
-    pregInduccion();
+	setTimeout(function() {
+		pregInduccion();
+	}, (1 * 1000));
+    
     
 }
 

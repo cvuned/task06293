@@ -155,31 +155,11 @@ function arranca(){
 	state=0;
     stateTexto=0;
     fase=0;
-    
+	asignagrupo();
+	prepararTextos();
     //genero las cadenas de outcomes: // TFK --> todo este bloque tiene que ir en una nueva función a la que llame después de leer de firebase
     
-	for(var i=0; i<2; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
-		if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
-			var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-		}
-		else if(grupoAsignado>3){  	// grupos C1 y C2 (Control - sin ensayos)
-			var arrayOutcome= []; // Añadido para que este grupo salte directamente 
-		}
-		else{        			// grupos B1 y B2 (expectativa inicial baja)
-			var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
-		}  
-		arrayOutcome=shuffle(arrayOutcome);
-		FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome);              
-	}
-
-	for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 30%/70% de éxito
-		if(grupoAsignado%2==0){  	// grupos A1, B1 y C1 (remisión espontánea baja)
-			var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];}
-		else{        				// grupos A2, B2 y C2 (remisión espontánea alta)
-			var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
-		}  
-		arrayOutcome=shuffle(arrayOutcome);
-		FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
+	
 	}             
 
     pregInduccion();
@@ -259,6 +239,30 @@ function asignagrupo() {
 //GENERACION DE ENSAYOS:
 
 function generaEnsayos(){
+
+	for(var i=0; i<2; i++){ //creo 2 bloques de 10 con 30%/70% de éxito
+		if(grupoAsignado<2){  	// grupos A1 y A2 (expectativa inicial alta)
+			var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+		}
+		else if(grupoAsignado>3){  	// grupos C1 y C2 (Control - sin ensayos)
+			var arrayOutcome= []; // Añadido para que este grupo salte directamente 
+		}
+		else{        			// grupos B1 y B2 (expectativa inicial baja)
+			var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
+		}  
+		arrayOutcome=shuffle(arrayOutcome);
+		FasePrevia.posibleOutcomes=FasePrevia.posibleOutcomes.concat(arrayOutcome);              
+	}
+
+	for(var i=0; i<5; i++){ //creo 5 bloques de 10 con 30%/70% de éxito
+		if(grupoAsignado%2==0){  	// grupos A1, B1 y C1 (remisión espontánea baja)
+			var arrayOutcome= [1, 1, 1, 0, 0, 0, 0, 0, 0, 0];}
+		else{        				// grupos A2, B2 y C2 (remisión espontánea alta)
+			var arrayOutcome= [1, 1, 1, 1, 1, 1, 1, 0, 0, 0];
+		}  
+		arrayOutcome=shuffle(arrayOutcome);
+		FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
+		
 	if(grupoAsignado<4){
 		sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
 			return a + b;
@@ -1179,8 +1183,6 @@ function cuestionarioEdad(){
 	
 	// Aquí mientras se rellenan los cuestionarios lanzamos la llamada a Firebase 
 	// para calcular grupos y tal
-	asignagrupo();
-	prepararTextos();
 	generaEnsayos();
 	document.querySelector('input[name="edad"]').value="";
     

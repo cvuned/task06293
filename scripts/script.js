@@ -1012,7 +1012,7 @@ else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL
 		+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
 		
 		//5: Instrucciones 2.c 
-		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis."
+		"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. BIG WTF"
 		+ "</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\">"
 		+ "<tr><td><img src=\""+FaseControl.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseControl.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>"
 		+ "Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br>"

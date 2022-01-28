@@ -17,7 +17,7 @@ var fecha="";           //contendrá la fecha/hora.
 var Cuestionario=[];    //contiene las respuestas al cuestionario de generalizacion
 var t0 = 0; 
 var t1 = 0; 
-//var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // TFK -- mover a 0 para producción 
+//var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // mover a 0 para producción 
 var testeo = 0;  
 
 // Indicadores de estado para ver qué pregunta se lanza  
@@ -54,9 +54,8 @@ var grupoC1 = 0;	// grupo 4 - Control 1
 var grupoC2 = 0;	// grupo 5 - Control 2
 // Esta variable realmente se verá como la variable: grupoAsignado
 // [grupoA1 = 0, grupoA2 = 1, grupoB1 = 2, grupoB2= 3, grupoC1 = 4, grupoC2 = 5] 
-// TFK Falta actualizar las variables de los grupos con el número de participantes reales en cada grupo
 
-var groupNames = ["A1", "A2", "B1", "B2", "C1", "C2"]; // currently not used TFK
+var groupNames = ["A1", "A2", "B1", "B2", "C1", "C2"];		//Usado para extraer datos
 
 
 // creamos un array para ver el número de participantes en cada grupo
@@ -142,7 +141,7 @@ function arranca(){
 	//PartIP = myip; //Modified for testing TFK
 	//console.log("my IP is: "+PartIP+"."); //debug
 	
-	function gotData(data) { //TFK actualizar líneas 64 y siguientes
+	function gotData(data) { 
 		
 		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
 	    grouplist = data.val().participantesPorGrupo;				// esta línea lee el histórico de firebase (añadida en el 2º run de la app)
@@ -182,7 +181,7 @@ function asignagrupo() {
 	console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
 	console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
 	}
-	//grupoAsignado = 4;											// TFK -- Modificado para checkear grupo de control
+
 	// TODO ESTE BLOQUE SIGUIENTE CHECKEA LAS PROBABILIDADES: 
 	group= "No asignado";	
 	// En función del número de participantes que hayan realizado la tarea en la secuencia normal
@@ -630,13 +629,13 @@ function ITI(){
     }
      else if(state==training[fase].numTrials-1){
 
-		// Esta siguiente línea se activa si estamos en la fase de creación de expectativas TFK
+		// Esta siguiente línea se activa si estamos en la fase de creación de expectativas 
 		if(training[fase] == FasePrevia){
-			console.log("Estamos en la fase de manipulación");
+			//console.log("Estamos en la fase de manipulación");		 // Comentarios para debug
 			cambiafase();
 		}
 		else{
-			console.log("Esta es la fase de test de verdad");
+			//console.log("Esta es la fase de test de verdad");			 // Comentarios para debug
 			showJuicio();
 			juiciorealizado++;	
 		}
@@ -881,7 +880,7 @@ function validaJuicio(){
 function cambiafase(){
     if (grupoAsignado > 3){
 		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
-		console.log("The evidential value is: "+FaseTest.EvidentialValue+", TFK TFK TFK.");
+		//console.log("The evidential value is: "+FaseTest.EvidentialValue+", .");  		// Comentarios para debug
 		siguienteTexto();
 	}
 	else if(fase==0) {
@@ -895,12 +894,12 @@ function cambiafase(){
 		evidenciavaluado=0;
 
 		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
-		console.log("The evidential value is: "+FaseTest.EvidentialValue+" without TFK TFK.");
+		//console.log("The evidential value is: "+FaseTest.EvidentialValue+" without .");	 // Comentarios para debug
 		siguienteTexto();
      }
 	else{
 		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
-		console.log("The evidential value is: "+FaseTest.EvidentialValue+" without TFK.");
+		//console.log("The evidential value is: "+FaseTest.EvidentialValue+" without.");  		// Comentarios para debug
 		siguienteTexto();
 	}
 
@@ -947,17 +946,17 @@ function prepararTextos(){
 	if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2: 
 		console.log("Preparando textos para grupo de ALTA");
 		arrayInstruc=[
-			//0: (portada)  // TFK requiere cambio
+			//0: (portada)  
 			"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br>"
 			+ "<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 				
-			// EXPERIMENTAL! Instrucciones para la fase previa // TFK Comprobar - modificada
+			// EXPERIMENTAL! Instrucciones para la fase previa
 			//2: Instrucciones 1
 			"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. "
 			+ "Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. "
 			+ "Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+".<br>",
 						
-			//3: Instrucciones 2.a // TFK requiere cambio // TFK Comprobar - modificada
+			//3: Instrucciones 2.a 
 			"<h3 class=\"titulo\">Instrucciones</h3><p> Como parte de un experimento piloto de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", "
 			+ "te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". "
 			+ "<br><br>En cada ficha verás un paciente al que se ha administrado \"Batatrim\" y se te pedirá intentar predecir si va a superar la crisis o no. </p>",
@@ -968,19 +967,19 @@ function prepararTextos(){
 			+ "center; border: 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>"
 			+ "Va a superar la crisis</td><td>No va a superar la crisis</td></tr></table><br><br>",
 					
-			//5: Instrucciones 2.c // TFK requiere cambio // TFK Comprobar - modificada
+			//5: Instrucciones 2.c 
 			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis.</p>"
 			+ "<table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenSano+"\" width=\"150px\"></td></tr>"
 			+ "<tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p> Después de darte esa información, se te presentará la ficha del siguiente paciente. "
 			+ "<br> Cuando hayas visto a un cierto número de pacientes pasaremos a la siguiente fase.</p>",
 					
-			//6: Instrucciones de la tarea de ALERGIAS // TFK requiere cambio - Texto fundamental en la fase de manipulación // CAMBIAR PARA GRUPOS B
+			//6: Instrucciones de la tarea de ALERGIAS 
 			"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado esta fase del estudio de "+FaseTest.nombreSindrome +". Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\" ha sido "+FasePrevia.textoTransitAlta+". <br><br> Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.</p>",
 		
-			//6: Instrucciones 1b Phase 2: // TFK requiere cambio
+			//6: Instrucciones 1b Phase 2: 
 			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una nueva serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el \"Batatrim\". <br><br> En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
 					
-			//7: Instrucciones 2 Phase 2 // TFK requiere cambio
+			//7: Instrucciones 2 Phase 2
 			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br> Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 					
 			// A guardar datos via Firebase!  
@@ -1019,7 +1018,7 @@ function prepararTextos(){
 			+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table><br><br>",
 			
 			//5: Instrucciones 2.c 
-			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis. BIG WTF TFK"
+			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis."
 			+ "</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\">"
 			+ "<tr><td><img src=\""+FaseControl.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseControl.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>"
 			+ "Paciente enfermo</td><td>Paciente curado</td></tr></table><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br>"
@@ -1036,33 +1035,33 @@ function prepararTextos(){
 		];
 	}
 	else{
-		console.log("Preparando textos para grupo de BAJA");
+		//console.log("Preparando textos para grupo de BAJA");		 // Comentarios para debug
 		arrayInstruc=[ // Instrucciones para los grupos B1 y B2: 
-			//0: (portada)  // TFK requiere cambio
+			//0: (portada)  
 			"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"img/uned.png\" width=\"200px\"><p>Sigue las instrucciones que encontrarás a continuación.</p>",
 				
-			// EXPERIMENTAL! Instrucciones para la fase previa // TFK Comprobar - modificada
+			// EXPERIMENTAL! Instrucciones para la fase previa
 			//2: Instrucciones 1
 			"<h3 class=\"titulo\">Instrucciones</h3><p align=\"left\">Imagina que eres un médico que trabaja en el laboratorio de investigación de una universidad. Eres especialista en una enfermedad muy rara y peligrosa llamada "+ FaseTest.nombreSindrome+", que hay que tratar muy rápido en urgencias. Las crisis que provoca esta enfermedad podrían curarse inmediatamente con una medicina llamada "+ FaseTest.nombreClave+".<br>",
 						
-			//3: Instrucciones 2.a // TFK requiere cambio // TFK Comprobar - modificada
+			//3: Instrucciones 2.a // 
 			"<h3 class=\"titulo\">Instrucciones</h3><p> Como parte de un experimento piloto de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". <br><br>En cada ficha verás un paciente al que se ha administrado \"Batatrim\" y se te pedirá intentar predecir si va a superar la crisis o no. </p>",
 					
 			//4: Instrucciones 2.b 
 			"<h3 class=\"titulo\">Instrucciones</h3><p>El procedimiento será el siguiente: para cada nuevo paciente, debes intentar predecir si va a superar la crisis o no, pulsando la imagen correspondiente de las dos siguientes.</p><br><br>"
 			+ "<table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Va a superar la crisis</td><td>No va a superar la crisis</td></tr></table><br><br>",
 					
-			//5: Instrucciones 2.c // TFK requiere cambio // TFK Comprobar - modificada
+			//5: Instrucciones 2.c // 
 			"<p><h3 class=\"titulo\">Instrucciones</h3>A continuación te informaremos de si el paciente superó la crisis.</p><table style=\"text-align: center; align-content: center; border:"
 			+ " 0px; width: 100%;\"><tr><td><img src=\""+FasePrevia.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FasePrevia.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><p> Después de darte esa información, se te presentará la ficha del siguiente paciente.<br> Cuando hayas visto a un cierto número de pacientes pasaremos a la siguiente fase.</p>",
 					
-			//6: Instrucciones de la tarea de ALERGIAS // TFK requiere cambio - Texto fundamental en la fase de manipulación // CAMBIAR PARA GRUPOS B
+			//6: Instrucciones de la tarea de ALERGIAS
 			"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado esta fase del estudio de "+FaseTest.nombreSindrome +". Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\" ha sido "+FasePrevia.textoTransitBaja+". <br><br> Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.</p>",
 			
-			//6: Instrucciones 1b Phase 2: // TFK requiere cambio
+			//6: Instrucciones 1b Phase 2:
 			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una nueva serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el \"Batatrim\". <br><br> En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
 					
-			//7: Instrucciones 2 Phase 2 // TFK requiere cambio
+			//7: Instrucciones 2 Phase 2
 			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 					
 			// A guardar datos via Firebase!  
@@ -1076,8 +1075,8 @@ function prepararTextos(){
 	}
 	
 	if(grupoAsignado>3){
-		// También hay que modificar el array de botones?? TFK El bug de "Atrás / Comenzar" parece estar en otro sitio
-		console.log("Preparando botones para grupo de CONTROL");
+
+		//console.log("Preparando botones para grupo de CONTROL");		 // Comentarios para debug
 		arrayBoton = [
 			//0:
 			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",
@@ -1121,7 +1120,7 @@ function prepararTextos(){
 		];
 	}
 	else {
-		console.log("Preparando textos para grupos A y B");
+		//console.log("Preparando textos para grupos B1 y B2");		 // Comentarios para debug
 		arrayBoton = [
 			//0:
 			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='cuestionarioEdad()' value='Empezar'/>",
@@ -1185,6 +1184,7 @@ function cuestionarioEdad(){
 	
 	// Aquí mientras se rellenan los cuestionarios lanzamos la llamada a Firebase 
 	// para calcular grupos y tal
+	asignagrupo(); 
 	prepararTextos();   
 	generaEnsayos();
 	document.querySelector('input[name="edad"]').value="";
@@ -1232,7 +1232,6 @@ function validaPregunta(){
 function pregInduccion(){
     ocultar(divTextos);
     mostrar(divPregInduccion);
-	asignagrupo(); 
     pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaInduccion()' value='Aceptar y continuar'/>");
 	
 }

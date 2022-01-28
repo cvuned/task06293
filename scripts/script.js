@@ -155,12 +155,8 @@ function arranca(){
 	state=0;
     stateTexto=0;
     fase=0;
-	asignagrupo();
-	prepararTextos();
-    //genero las cadenas de outcomes: // TFK --> todo este bloque tiene que ir en una nueva función a la que llame después de leer de firebase
-    
-	
-	}             
+
+          
 
     pregInduccion();
     
@@ -262,7 +258,7 @@ function generaEnsayos(){
 		}  
 		arrayOutcome=shuffle(arrayOutcome);
 		FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
-		
+	}
 	if(grupoAsignado<4){
 		sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
 			return a + b;
@@ -279,6 +275,7 @@ function generaEnsayos(){
 		return a + b;
 	  });
 	console.log("Remisión espontánea: "+100*sum2/50+"%.");	// debug
+	
 }
 
 //++++++++++++++++++++++++++++++++++++++
@@ -1229,7 +1226,8 @@ function validaPregunta(){
 function pregInduccion(){
     ocultar(divTextos);
     mostrar(divPregInduccion);
-    
+	asignagrupo();
+	prepararTextos();    
     pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaInduccion()' value='Aceptar y continuar'/>");
 	
 }

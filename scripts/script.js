@@ -937,7 +937,7 @@ function previoTexto(){
 
 // Inicializamos el arrayInstruc con el modo grupos experimentales (grupos A y B)
 
-function prepararTextos(){}
+function prepararTextos(){
 	if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2: 
 		console.log("Preparando textos para grupo de ALTA");
 		var arrayInstruc=[

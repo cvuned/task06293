@@ -158,10 +158,11 @@ function arranca(){
     stateTexto=0;
     fase=0;
 
-          
-	setTimeout(function() {
-		pregInduccion();
-	}, (1 * 1000));
+    prepararTextos();   
+	pregInduccion();      
+	//setTimeout(function() {
+	//	pregInduccion();
+	//}, (1 * 1000));
     
     
 }
@@ -1184,6 +1185,7 @@ function cuestionarioEdad(){
 	
 	// Aquí mientras se rellenan los cuestionarios lanzamos la llamada a Firebase 
 	// para calcular grupos y tal
+	prepararTextos();   
 	generaEnsayos();
 	document.querySelector('input[name="edad"]').value="";
     
@@ -1230,8 +1232,7 @@ function validaPregunta(){
 function pregInduccion(){
     ocultar(divTextos);
     mostrar(divPregInduccion);
-	asignagrupo();
-	prepararTextos();    
+	asignagrupo(); 
     pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaInduccion()' value='Aceptar y continuar'/>");
 	
 }

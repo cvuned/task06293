@@ -295,7 +295,7 @@ var FaseTest = {
 	textoCue: "Este paciente tiene el Síndrome de Lindsay",
     textoPregunta: "¿Quieres administrarle \"Batatrim\"?",
 	textoYES: "Has administrado \"Batatrim\"",
-	textoNO: "No administrado usado \"Batatrim\"",
+	textoNO: "No has administrado \"Batatrim\"",
 	numTrials: 50,
     posibleOutcomes: [],
     secuenciaCells: [],
@@ -342,7 +342,7 @@ var FaseControl = {
 	textoCue: "Este paciente tiene el Síndrome de Lindsay",
 	textoPregunta: "¿Quieres administrarle \"Batatrim\"?",
 	textoYES: "Has administrado \"Batatrim\"",
-	textoNO: "No administrado usado \"Batatrim\"",
+	textoNO: "No has administrado \"Batatrim\"",
 	numTrials: 50, 
     posibleOutcomes: [],   
     secuenciaCells: [],
@@ -752,29 +752,29 @@ function showEvidentialValue(){
 	ocultar(divContingencia);
 	ocultar(divTextos);
 	pregunta = tempOrden.pop()
-	console.log("Vamos a ver que efectivamente estamos eliminando opciones");
-	console.log(tempOrden);
+	//console.log("Vamos a ver que efectivamente estamos eliminando opciones"); //debug
+	//console.log(tempOrden);													//debug
 
 	if (pregunta == "a"){
-		tomaOno = "fue administrado \"Batatrim\"";
+		tomaOno = "le fue administrado \"Batatrim\"";
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSano;
 	}
 	else if (pregunta == "b"){
-		tomaOno = "fue administrado \"Batatrim\"";
+		tomaOno = "le fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
 	}
 	else if (pregunta == "c"){
-		tomaOno = "NO fue administrado \"Batatrim\"";
+		tomaOno = "NO le fue administrado \"Batatrim\"";
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSano;
 	}
 	else if (pregunta == "d"){
-		tomaOno = "NO fue administrado \"Batatrim\"";
+		tomaOno = "NO le fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
@@ -786,7 +786,7 @@ function showEvidentialValue(){
 	//	+ "=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table></p>";
 	
 	// Estas dos líneas ya son un poco redundantes
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Casualidad.</li><li>100: Evidencia.</li></ul>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Ocurre por casualidad.</li><li>100: Podemos considerarlo evidencia científica.</li></ul>";
 	textoEvidentialValue = textoEvidentialValue.concat(textoInstrucciones);
 
 	pintarHTML('divPregunta', textoEvidentialValue);
@@ -977,7 +977,7 @@ function prepararTextos(){
 			"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado esta fase del estudio de "+FaseTest.nombreSindrome +". Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\" ha sido "+FasePrevia.textoTransitAlta+". <br><br> Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.</p>",
 		
 			//6: Instrucciones 1b Phase 2: 
-			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una nueva serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el \"Batatrim\". <br><br> En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
+			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una nueva serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el \"Batatrim\". <br></p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
 					
 			//7: Instrucciones 2 Phase 2
 			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br> Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
@@ -1059,7 +1059,7 @@ function prepararTextos(){
 			"<p><h3 class=\"titulo\">Instrucciones</h3>Ya has terminado esta fase del estudio de "+FaseTest.nombreSindrome +". Como has visto, la tasa de recuperación de los pacientes que han recibido \"Batatrim\" ha sido "+FasePrevia.textoTransitBaja+". <br><br> Después de ver los resultados anteriores, se te ha invitado a participar en un nuevo experimento con un grupo de población distinto al del experimento piloto.</p>",
 			
 			//6: Instrucciones 1b Phase 2:
-			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una nueva serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el \"Batatrim\". <br><br> En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el "+FaseTest.nombreClave+".</p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
+			"<p><h3 class=\"titulo\">Instrucciones</h3><p>Como parte de los ensayos clínicos para evaluar la efectividad del \"Batatrim\", te vamos a presentar una nueva serie de fichas médicas de pacientes que están sufriendo una crisis del \"Síndrome de Lindsay\". En cada ficha verás un paciente y se te dará la oportunidad de administrarle o no el \"Batatrim\". <br></p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenClave+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenNOClave+"\" width=\"150px\"></td></tr><tr><td>Administrar la medicina</td><td>No administrar la medicina</td></tr></table>",
 					
 			//7: Instrucciones 2 Phase 2
 			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",

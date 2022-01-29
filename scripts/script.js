@@ -143,9 +143,9 @@ function arranca(){
 	
 	function gotData(data) { 
 		
-		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
+		//console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
 	    grouplist = data.val().participantesPorGrupo;				// esta línea lee el histórico de firebase (añadida en el 2º run de la app)
-		console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
+		//console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
 	};
 		
 	function errData(err) {
@@ -177,9 +177,9 @@ function asignagrupo() {
 		if (grouplist[i] < grouplist[grupoAsignado]) {
 			grupoAsignado = i;
 		}
-	console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");
-	console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
-	console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 		// debug
+	//console.log("El GRUPO asignado es el: "+groupNames[grupoAsignado]+".");		//debug
+	//console.log("El grupo asignado es el: "+grupoAsignado+".");					// debug
+	//console.log("Grupo asignado aleatorio es el:"+grupoAsignado+".") 				// debug
 	}
 
 	// TODO ESTE BLOQUE SIGUIENTE CHECKEA LAS PROBABILIDADES: 
@@ -198,9 +198,9 @@ function asignagrupo() {
 			group= "Control Remisión Alta - C2"; 
 		}
 		else{
-			group= "ERROR!!!"
-			console.log(group);
-			console.log("El grupo asignado era: "+grupoAsignado+".");  
+			group= "ERROR!!!"	
+			//console.log(group);												//debug
+			//console.log("El grupo asignado era: "+grupoAsignado+".");  		//debug
 		}
 	}
 	else if(grupoAsignado < 2){
@@ -214,7 +214,7 @@ function asignagrupo() {
 		else{
 			group= "ERROR!!!"
 			console.log(group);
-			console.log("El grupo asignado era: "+grupoAsignado+".");
+			//console.log("El grupo asignado era: "+grupoAsignado+".");			//debug
 		}  
 	}
 	else{
@@ -227,11 +227,11 @@ function asignagrupo() {
 		}
 		else{
 			group= "ERROR!!!"
-			console.log(group);
-			console.log("El grupo asignado era: "+grupoAsignado+".");  
+			//console.log(group);												//debug
+			//console.log("El grupo asignado era: "+grupoAsignado+".");  		//debug
 		}
 	}
-	console.log("Pues te ha tocado grupo :"+group+".");					// debug
+	//console.log("Pues te ha tocado grupo :"+group+".");						// debug
 
 }    
 //++++++++++++++++++++++++++++++++++++++
@@ -263,22 +263,23 @@ function generaEnsayos(){
 		arrayOutcome=shuffle(arrayOutcome);
 		FaseTest.posibleOutcomes=FaseTest.posibleOutcomes.concat(arrayOutcome);
 	}
-	if(grupoAsignado<4){
-		sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
-			return a + b;
-		});
-		console.log("Expectativa inicial: "+100*sum/20+"%.");	// debug
-				// Para control qué dice
-	}
-	else{ 
-		console.log("Este es un grupo de control sin manipulación");	
-	}
-    //console.log("Resultados para fase test:");	// debug
-    //console.log(FaseTest.posibleOutcomes);	// debug
-	sum2 = FaseTest.posibleOutcomes.reduce((a, b) => {
-		return a + b;
-	  });
-	console.log("Remisión espontánea: "+100*sum2/50+"%.");	// debug
+	// Todo este bloque siguiente es para debugging //debug
+	//if(grupoAsignado<4){					
+	//	sum = FasePrevia.posibleOutcomes.reduce((a, b) => {
+	//		return a + b;
+	//	});
+	//	console.log("Expectativa inicial: "+100*sum/20+"%.");	
+	//			// Para control qué dice
+	//}
+	//else{ 
+	//	console.log("Este es un grupo de control sin manipulación");	
+	//}
+    //console.log("Resultados para fase test:");	
+    //console.log(FaseTest.posibleOutcomes);	
+	//sum2 = FaseTest.posibleOutcomes.reduce((a, b) => {
+	//	return a + b;
+	//  });
+	//console.log("Remisión espontánea: "+100*sum2/50+"%.");
 	
 }
 
@@ -739,8 +740,8 @@ function showRiesgo(){
 
 function showEvidentialValue(){
 	
-	console.log("Vamos a ver que el orden de Evidential Value se haya hecho aleatorio de forma correcta:");
-	console.log(tempOrden);
+	//console.log("Vamos a ver que el orden de Evidential Value se haya hecho aleatorio de forma correcta:");			//debug
+	//console.log(tempOrden);																							//debug
 
 	tomaOno = "";
     recuperaOno = "";
@@ -931,7 +932,7 @@ function siguienteTexto(){
 	
 	pintarHTML("divTextos",htmlContenido);
     pintarHTML("divBoton",htmlBotones);
-	console.log("Estado de texto actual = " + stateTexto)
+	//console.log("Estado de texto actual = " + stateTexto)		//debug
     stateTexto++;	
 }
 
@@ -944,7 +945,7 @@ function previoTexto(){
 
 function prepararTextos(){
 	if(grupoAsignado<2){ // Instrucciones para los grupos A1 y A2: 
-		console.log("Preparando textos para grupo de ALTA");
+		//console.log("Preparando textos para grupo de ALTA");			//debug
 		arrayInstruc=[
 			//0: (portada)  
 			"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br>"
@@ -994,7 +995,7 @@ function prepararTextos(){
 	else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL 
 
 		// Hay que modificar el arrayInstruc
-		console.log("Preparando textos para grupo de CONTROL");
+		//console.log("Preparando textos para grupo de CONTROL");	 	//debug
 		arrayInstruc=[
 			//0: (portada) 
 			"<h2 class=\"titulo\">ESTUDIO CVTD22XX2</h2><p>¡Muchas gracias por participar en esta investigación, no seria posible sin ti!</p><br><br><img style=\"display"
@@ -1334,9 +1335,9 @@ function saveData(){
 	// la siguiente línea guarda un vector con los participantes. 
 	// Recordatorio de cómo se lee: 
 	// grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
-	console.log("participantes: "+grouplist+".")
+	//console.log("participantes: "+grouplist+".")			//debug
 	grouplist[grupoAsignado]++
-	console.log("participantes: "+grouplist+".")
+	//console.log("participantes: "+grouplist+".")			//debug
 	firebase.database().ref('participantesPorGrupo').set(grouplist)
 	//firebase.database().ref('participantes/porGrupo/participantesPorGrupo').set(grouplist)
 
@@ -1356,6 +1357,6 @@ function guardaFirebase(){
     
 	firebase.database().ref('datoscontrol/').push(data); 								// MODO Operativo! 
     //firebase.database().ref('datoscontrol/').push(data); 								// MODO DEMO SIN CONEXIÓN
-	console.log("Experimento realizado en modo DEMO. ¡Datos NO guardados!");
+	//console.log("Experimento realizado en modo DEMO. ¡Datos NO guardados!");			//debug
 }
 

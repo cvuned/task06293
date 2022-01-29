@@ -171,9 +171,9 @@ function asignagrupo() {
 
 	//console.log(groupNames[grupoAsignado]);
 	
-	console.log(grouplist.length + " is the length");							// debug
+	//console.log(grouplist.length + " is the length");							// debug
 	for (var i = 0; i < grouplist.length; i++) {								// Este bucle asigna al grupo con menos participantes
-		console.log(grouplist[i]+"--- i ="+i)								// debug
+		//console.log(grouplist[i]+"--- i ="+i)								// debug
 		if (grouplist[i] < grouplist[grupoAsignado]) {
 			grupoAsignado = i;
 		}

@@ -934,6 +934,11 @@ function siguienteTexto(){
     ocultar(divContingencia);
     ocultar(divJuicio);
     ocultar(divCuestionariosEdad);
+
+	ocultar(divCheckEvidentialValueA);
+	ocultar(divCheckEvidentialValueB);
+	ocultar(divCheckEvidentialValueC);
+	ocultar(divCheckEvidentialValueD);
 	
     htmlContenido=arrayInstruc[stateTexto];
 	htmlBotones=arrayBoton[stateTexto];

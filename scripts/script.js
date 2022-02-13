@@ -764,28 +764,28 @@ function showEvidentialValue(){
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSano;
-		ordenEvidential.add(pregunta);
+		ordenEvidential.push(pregunta);
 	}
 	else if (pregunta == "b"){
 		tomaOno = "le fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
-		ordenEvidential.add(pregunta);
+		ordenEvidential.push(pregunta);
 	}
 	else if (pregunta == "c"){
 		tomaOno = "NO le fue administrado \"Batatrim\"";
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSano;
-		ordenEvidential.add(pregunta);
+		ordenEvidential.push(pregunta);
 	}
 	else if (pregunta == "d"){
 		tomaOno = "NO le fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
-		ordenEvidential.add(pregunta);
+		ordenEvidential.push(pregunta);
 	}
 	textoEvidentialValue= "<p class=\"pregunta\">A veces has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
 		+"¿Consideras que estos casos son importantes para determinar la eficacia del \"Batatrim\"?<br>"

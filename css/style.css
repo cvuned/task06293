@@ -457,6 +457,15 @@ input[type=range]::-moz-focus-outer {
     display: none;
 }
 
+.cuestionarioCheckeos{
+
+    padding:1%;
+    text-align:left;
+    font-size: 1em;
+    line-height: 1.2;
+    display: none;
+}
+
 .containerRadios{
     position: relative;
     padding-left: 50px;

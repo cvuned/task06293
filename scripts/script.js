@@ -1200,8 +1200,9 @@ function cuestionarioEdad(){
 function checkEvidentialValues(){
 	
     ocultar(divTextos);
-
+	"<p>A continuación puedes cambiar los valores si lo consideras necesario: </p>"
     mostrar(divCheckEvidentialValueA);
+	"<p>Tu respuesta en este caso fue: /p>"
 	mostrar(divCheckEvidentialValueB);
 	mostrar(divCheckEvidentialValueC);
 	mostrar(divCheckEvidentialValueD);

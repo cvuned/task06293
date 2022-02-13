@@ -855,7 +855,7 @@ function validaJuicio(){
         //console.log("--- LA HORA DEL JUICIO ESTÁ CERCA!!! ---");
 		//console.log(training[fase].Juicio);
 		document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
-        
+		
 		if(confianzaevaluada==0){
 			showConfianza();
 			confianzaevaluada++;
@@ -1201,9 +1201,9 @@ function cuestionarioEdad(){
 function checkEvidentialValues(){
 	
     ocultar(divTextos);
-	"<p>A continuación puedes cambiar los valores si lo consideras necesario: </p>"
+	"<p>A continuación puedes cambiar los valores si lo consideras necesario: </p>";
     mostrar(divCheckEvidentialValueA);
-	"<p>Tu respuesta en este caso fue: /p>"
+	"<p>Tu respuesta en este caso fue: /p>";
 	mostrar(divCheckEvidentialValueB);
 	mostrar(divCheckEvidentialValueC);
 	mostrar(divCheckEvidentialValueD);

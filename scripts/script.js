@@ -869,6 +869,7 @@ function validaJuicio(){
 			evidenciavaluado++
 		}
 		else if(evidenciavaluado==4){
+			checkEvidentialValues();			//TFK for test
 			cambiafase();
 		}
         

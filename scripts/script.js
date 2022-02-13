@@ -30,7 +30,9 @@ var evidenciaB = 999;
 var evidenciaC = 999;
 var evidenciaD = 999;
 var tempOrden = ["a", "b", "c", "d"];
+var ordenEvidential = [];
 tempOrden = shuffle(tempOrden);
+var ordenEvidential = ordenEvidential;			// Esta variable guarda el orden de las preguntas de Evidential value
 var alertcount = 0; 
 //variables demográficas:
 var Gender=""; 
@@ -173,7 +175,7 @@ function asignagrupo() {
 	
 	//console.log(grouplist.length + " is the length");							// debug
 	for (var i = 0; i < grouplist.length; i++) {								// Este bucle asigna al grupo con menos participantes
-		//console.log(grouplist[i]+"--- i ="+i)								// debug
+		//console.log(grouplist[i]+"--- i ="+i)									// debug
 		if (grouplist[i] < grouplist[grupoAsignado]) {
 			grupoAsignado = i;
 		}
@@ -1195,6 +1197,24 @@ function cuestionarioEdad(){
 
 }
 
+function checkEvidentialValues(){
+	
+    ocultar(divTextos);
+
+    mostrar(divCheckEvidentialValueA);
+	mostrar(divCheckEvidentialValueB);
+	mostrar(divCheckEvidentialValueC);
+	mostrar(divCheckEvidentialValueD);
+
+	
+	document.querySelector('input[name="edad"]').value="";
+    
+    var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";
+    pintarHTML('divBoton', HTMLboton);
+
+}
+
+
 function validaEdad(){
     if(
         // Esta condición exige que se respondan las preguntas de experiencia y edad	
@@ -1288,6 +1308,7 @@ function saveData(){
 			FaseTest.Confianza + "," + 				//Confianza 
 			FaseTest.Riesgo + "," + 				//Riesgo 
 			FaseTest.EvidentialValue + "," +  			//Evidential Value (a,b,c,d) respuestas dadas
+			ordenEvidential +
 			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
 			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
 			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
@@ -1309,6 +1330,7 @@ function saveData(){
 			FaseTest.Confianza + "," + 				//Confianza 
 			FaseTest.Riesgo + "," + 				//Riesgo 
 			FaseTest.EvidentialValue + "," +  		// Evidential value - respuestas dadas en un array
+			ordenEvidential +
 			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
 			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
 			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito

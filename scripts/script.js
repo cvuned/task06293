@@ -32,7 +32,8 @@ var evidenciaD = 999;
 var tempOrden = ["a", "b", "c", "d"];
 var ordenEvidential = [];
 tempOrden = shuffle(tempOrden);
-var ordenEvidential = ordenEvidential;			// Esta variable guarda el orden de las preguntas de Evidential value
+// TFK comprobar que se ha guardado bien el orden y eliminar estas líneas
+//var ordenEvidential = ordenEvidential;			// Esta variable guarda el orden de las preguntas de Evidential value
 var alertcount = 0; 
 //variables demográficas:
 var Gender=""; 
@@ -763,24 +764,28 @@ function showEvidentialValue(){
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSano;
+		ordenEvidential.add(pregunta);
 	}
 	else if (pregunta == "b"){
 		tomaOno = "le fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
+		ordenEvidential.add(pregunta);
 	}
 	else if (pregunta == "c"){
 		tomaOno = "NO le fue administrado \"Batatrim\"";
 		recuperaOno = "superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSano;
+		ordenEvidential.add(pregunta);
 	}
 	else if (pregunta == "d"){
 		tomaOno = "NO le fue administrado \"Batatrim\"";
 		recuperaOno = "NO superó la crisis";
 		Clarificar1 = FaseTest.ImagenNOClave;
 		Clarificar2 = FaseTest.ImagenSindrome;
+		ordenEvidential.add(pregunta);
 	}
 	textoEvidentialValue= "<p class=\"pregunta\">A veces has visto que el paciente "+tomaOno +" y "+recuperaOno+". " 
 		+"¿Consideras que estos casos son importantes para determinar la eficacia del \"Batatrim\"?<br>"

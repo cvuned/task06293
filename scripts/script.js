@@ -361,12 +361,12 @@ var FaseControl = {
 	TiemposRespuesta: [999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999],
 }
 
-//if(testeo === 1){
-//	FaseControl.numTrials = 2;
-//	FasePrevia.numTrials = 2;
-//	FaseTest.numTrials = 2; 
-//	console.log("This should only be running during tests.")
-//}
+if(testeo === 1){
+	FaseControl.numTrials = 2;
+	FasePrevia.numTrials = 2;
+	FaseTest.numTrials = 2; 
+	console.log("This should only be running during tests.")
+}
 
 
 

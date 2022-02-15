@@ -1381,15 +1381,15 @@ function saveData(){
 			FaseTest.Confianza + "," + 				//Confianza 
 			FaseTest.Riesgo + "," + 				//Riesgo 
 			FaseTest.EvidentialValue + "," +  		// Evidential value - respuestas dadas en un array ordenado
-			valoresEvidentialSinOrden + 			// Evidential value - array en orden de respuesta
-			valoresEvidentialRevisados +			// Evidential value - Valores después de la revisión
-			ordenEvidential +
+			valoresEvidentialSinOrden + "," +  		// Evidential value - array en orden de respuesta
+			valoresEvidentialRevisados + "," +      // Evidential value - Valores después de la revisión
+			ordenEvidential + "," +  				// Orden de las respuestas de Evidential value
 			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
 			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
 			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
 			FaseControl.secuenciaResps + "," + 		//Fase 2 - Secuencia de respuestas dada
 			FaseControl.posibleOutcomes + "," + 	//Fase 2 - Secuencia de resultados de éxito presentada
-			FaseControl.secuenciaCells + "," +  				//Fase 2 - Secuencia de combinaciones acción-éxito
+			FaseControl.secuenciaCells + "," +  	//Fase 2 - Secuencia de combinaciones acción-éxito
 			FaseTest.TiemposRespuesta + "," + 		//Tiempos de respuesta 
 			fecha
 	}
@@ -1405,15 +1405,15 @@ function saveData(){
 			FaseTest.Confianza + "," + 				//Confianza 
 			FaseTest.Riesgo + "," + 				//Riesgo 
 			FaseTest.EvidentialValue + "," +  		// Evidential value - respuestas dadas en un array ordenado
-			valoresEvidentialSinOrden + 			// Evidential value - array en orden de respuesta
-			valoresEvidentialRevisados +			// Evidential value - Valores después de la revisión
-			ordenEvidential +						// Orden de las respuestas de Evidential value
+			valoresEvidentialSinOrden + "," +  		// Evidential value - array en orden de respuesta
+			valoresEvidentialRevisados + "," +      // Evidential value - Valores después de la revisión
+			ordenEvidential + "," +  				// Orden de las respuestas de Evidential value
 			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
 			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
 			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito
 			FasePrevia.secuenciaResps + "," + 		//Fase 2 - Secuencia de respuestas dada
 			FasePrevia.posibleOutcomes + "," + 		//Fase 2 - Secuencia de resultados de éxito presentada
-			FasePrevia.secuenciaCells + "," + 	 				//Fase 2 - Secuencia de combinaciones acción-éxito
+			FasePrevia.secuenciaCells + "," + 	 	//Fase 2 - Secuencia de combinaciones acción-éxito
 			FaseTest.TiemposRespuesta + "," + 		//Tiempos de respuesta 
 			fecha
 	}

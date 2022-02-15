@@ -25,13 +25,18 @@ var juiciorealizado = 0;
 var confianzaevaluada = 0;
 var riesgoevaluado = 0;
 var evidenciavaluado = 0; 
+var revisionValores = 0; // Variable de control para el check de los evidential values
+
 var evidenciaA = 999;
 var evidenciaB = 999;
 var evidenciaC = 999;
 var evidenciaD = 999;
+var valoresEvidentialSinOrden = [];				// Valores que van desordenados
+var valoresEvidentialRevisados = [];
 var tempOrden = ["a", "b", "c", "d"];
 var ordenEvidential = [];
 tempOrden = shuffle(tempOrden);
+
 // TFK comprobar que se ha guardado bien el orden y eliminar estas líneas
 //var ordenEvidential = ordenEvidential;			// Esta variable guarda el orden de las preguntas de Evidential value
 var alertcount = 0; 
@@ -663,7 +668,7 @@ function showJuicio(){
 			training[fase].nombreClave+" es efectivo para curar las crisis del "+training[fase].nombreSindrome+"?</p>";
 	
 
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Nada efectivo.</li><li>100: Completamente efectivo.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Nada efectivo.</li><li>100: Completamente efectivo.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión. </p><br><br>";
 	textoJuicio = textoJuicio.concat(textoInstrucciones);
 	
 	pintarHTML('divPregunta', textoJuicio);
@@ -689,7 +694,7 @@ function showConfianza(){
     ocultar(divTextos);
     
 	textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: He respondido al azar.</li><li>100: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: He respondido al azar.</li><li>100: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
 	textoConfianza = textoConfianza.concat(textoInstrucciones);
 	pintarHTML('divPregunta', textoConfianza);
     
@@ -719,7 +724,7 @@ function showRiesgo(){
 	//	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
 	//}
 	textoRiesgo= "<p class=\"pregunta\">¿Qué nivel de riesgo has considerado que tenían tus decisiones para la salud de los pacientes?</p>";
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Ningún riesgo.</li><li>100: Riesgo catastrófico.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: Ningún riesgo.</li><li>100: Riesgo catastrófico.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
 	textoRiesgo = textoRiesgo.concat(textoInstrucciones);
 
 	pintarHTML('divPregunta', textoRiesgo);
@@ -845,15 +850,19 @@ function validaJuicio(){
 		else{
 			if (pregunta == "a"){
 				evidenciaA = document.getElementById('textInput').value;
+				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
 			}
 			else if (pregunta == "b"){
 				evidenciaB = document.getElementById('textInput').value;
+				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
 			}
 			else if (pregunta == "c"){
 				evidenciaC = document.getElementById('textInput').value;
+				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
 			}
 			else if (pregunta == "d"){
 				evidenciaD = document.getElementById('textInput').value;
+				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
 			}
 		}
 		//training[fase].Juicio=document.getElementById('textInput').value;
@@ -874,7 +883,7 @@ function validaJuicio(){
 			evidenciavaluado++
 		}
 		else if(evidenciavaluado==4){
-			checkEvidentialValues();			//TFK for test
+			prepararTextos(); 				// Hay que actualizar los textos con los valores de Evidencias A / B / C / D
 			cambiafase();
 		}
         
@@ -947,6 +956,12 @@ function siguienteTexto(){
     pintarHTML("divBoton",htmlBotones);
 	//console.log("Estado de texto actual = " + stateTexto)		//debug
     stateTexto++;	
+
+	if(evidenciavaluado==4 && revisionValores==0){
+		revisionValores = 1;
+		checkEvidentialValues(); 
+	}
+
 }
 
 function previoTexto(){
@@ -997,7 +1012,17 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br> Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 					
 			//12: Momento de checkear los datos de Evidential Value: 
-			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>",
+//			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
+//			+ "<p>En las preguntas anteriores has dado estas  respuestas dependiendo de si el paciente: </p>"
+//			+ "<table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\">"
+//			+ "<tr><td>SÍ tomaba medicina y SÍ se recuperaba "+evidenciaA+"."
+//			+ "</td><td>SÍ tomaba medicina y NO se recuperaba: "+evidenciaB+".</td></tr>"
+//			+ "<tr><td>NO tomaba medicina y SÍ se recuperaba: "+evidenciaC+".</td>"
+//			+ "<td>NO tomaba medicina y NO se recuperaba: "+evidenciaD+".</td></tr></table>"
+//			+ "Si quieres cambiar alguna de las respuestas, puede introducir los valores a continuación: ",
+			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
+			+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
+			+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
 
 			// A guardar datos via Firebase!  
 			//13: Save Data...
@@ -1043,7 +1068,9 @@ function prepararTextos(){
 			+ "Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 							
 			//12: Momento de checkear los datos de Evidential Value: 
-			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>",
+			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
+			+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
+			+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
 
 			// A guardar datos! 
 			//13: Save Data... 
@@ -1085,8 +1112,10 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 					
 			//12: Momento de checkear los datos de Evidential Value: 
-			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>",
-
+			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
+			+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
+			+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
+			
 			// A guardar datos via Firebase!  
 			//13: Save Data...
 			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
@@ -1225,7 +1254,6 @@ function cuestionarioEdad(){
 
 function checkEvidentialValues(){
 	
-    ocultar(divTextos);
 	"<p>A continuación puedes cambiar los valores si lo consideras necesario: </p>";
     mostrar(divCheckEvidentialValueA);
 	"<p>Tu respuesta en este caso fue: /p>";
@@ -1234,14 +1262,32 @@ function checkEvidentialValues(){
 	mostrar(divCheckEvidentialValueD);
 
 	
-	document.querySelector('input[name="edad"]').value="";
-    
-    var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";
+	document.querySelector('input[name="celdaA"]').value=evidenciaA;
+	document.querySelector('input[name="celdaB"]').value=evidenciaB;
+	document.querySelector('input[name="celdaC"]').value=evidenciaC;
+	document.querySelector('input[name="celdaD"]').value=evidenciaD;
+
+    var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEvidentialValues()' value='Continuar'/>";
     pintarHTML('divBoton', HTMLboton);
 
 }
 
+function validaEvidentialValues(){	
+	temp1 = document.querySelector('input[name="celdaA"]').value; 
+	temp2 = document.querySelector('input[name="celdaB"]').value;
+	temp3 = document.querySelector('input[name="celdaC"]').value; 
+	temp4 = document.querySelector('input[name="celdaD"]').value;
 
+	if( temp1 > 100 || temp2 > 100 || temp3 > 100 || temp4 > 100) {
+        alert("Solo se admiten valores entre 0 y 100");
+    }
+
+	else { 
+		// Esta función va a recoger los valores modificados
+		valoresEvidentialRevisados = [document.querySelector('input[name="celdaA"]').value, document.querySelector('input[name="celdaB"]').value, document.querySelector('input[name="celdaC"]').value, document.querySelector('input[name="celdaD"]').value];
+		siguienteTexto();
+	}
+}
 function validaEdad(){
     if(
         // Esta condición exige que se respondan las preguntas de experiencia y edad	
@@ -1334,7 +1380,9 @@ function saveData(){
 			FaseTest.Juicio + "," + 				//Juicio 
 			FaseTest.Confianza + "," + 				//Confianza 
 			FaseTest.Riesgo + "," + 				//Riesgo 
-			FaseTest.EvidentialValue + "," +  			//Evidential Value (a,b,c,d) respuestas dadas
+			FaseTest.EvidentialValue + "," +  		// Evidential value - respuestas dadas en un array ordenado
+			valoresEvidentialSinOrden + 			// Evidential value - array en orden de respuesta
+			valoresEvidentialRevisados +			// Evidential value - Valores después de la revisión
 			ordenEvidential +
 			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
 			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
@@ -1356,8 +1404,10 @@ function saveData(){
 			FaseTest.Juicio + "," + 				//Juicio 
 			FaseTest.Confianza + "," + 				//Confianza 
 			FaseTest.Riesgo + "," + 				//Riesgo 
-			FaseTest.EvidentialValue + "," +  		// Evidential value - respuestas dadas en un array
-			ordenEvidential +
+			FaseTest.EvidentialValue + "," +  		// Evidential value - respuestas dadas en un array ordenado
+			valoresEvidentialSinOrden + 			// Evidential value - array en orden de respuesta
+			valoresEvidentialRevisados +			// Evidential value - Valores después de la revisión
+			ordenEvidential +						// Orden de las respuestas de Evidential value
 			FaseTest.secuenciaResps + "," + 		//Secuencia de respuestas dada
 			FaseTest.posibleOutcomes + "," + 		//Secuencia de resultados de éxito presentada
 			FaseTest.secuenciaCells + "," + 		//Secuencia de combinaciones acción-éxito

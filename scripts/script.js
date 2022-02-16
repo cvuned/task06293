@@ -402,7 +402,7 @@ function showCue(){
 	pintarHTML("divPreStatus", "<img src=\""+training[fase].ImagenSindrome+"\" width=250px>"+
             "<br><br><br><p class=\"mensaje\">"+training[fase].textoCue+"</p><p class=\"mensaje\">"+training[fase].textoPregunta+"</p>");
     
-	pintarHTML("divRegistro", "<h3>Paciente "+RandomString(8)+"</h3>");
+	pintarHTML("divRegistro", "<h3>Paciente "+RandomString(4)+"</h3>");
 	
 	
     mostrar(divRegistro);

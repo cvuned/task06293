@@ -17,8 +17,8 @@ var fecha="";           //contendrá la fecha/hora.
 var Cuestionario=[];    //contiene las respuestas al cuestionario de generalizacion
 var t0 = 0; 
 var t1 = 0; 
-var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // mover a 0 para producción 
-//var testeo = 0;  
+//var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // mover a 0 para producción 
+var testeo = 0;  
 
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;

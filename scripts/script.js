@@ -142,7 +142,7 @@ function preloadIMG(){
 function arranca(){
     preloadIMG();
 	// CARGA la base de datos: 
-	//firebase.database().ref().on("value", gotData, errData); 	// TFK - MODO DEMO SIN CONEXIÓN
+	firebase.database().ref().on("value", gotData, errData); 	// TFK - MODO DEMO SIN CONEXIÓN
 	
 	
 	//Ver IP

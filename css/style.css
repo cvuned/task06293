@@ -100,6 +100,8 @@ ul{
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
+    background-color: #008CBA;
+    border-radius: 12px;
 /*
     border-radius: 10px;
     outline: none;

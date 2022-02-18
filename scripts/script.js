@@ -17,8 +17,8 @@ var fecha="";           //contendrá la fecha/hora.
 var Cuestionario=[];    //contiene las respuestas al cuestionario de generalizacion
 var t0 = 0; 
 var t1 = 0; 
-//var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // mover a 0 para producción 
-var testeo = 0;  
+var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // mover a 0 para producción 
+//var testeo = 0;  
 
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;
@@ -1029,8 +1029,8 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 					
 			//13:
-			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
-				+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
+			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
+				+" <br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
 		];
 	}
 	else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL 
@@ -1077,8 +1077,8 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 			
 			//13:
-			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
-				+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"
+			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
+				+" <br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
 		];
 	}
 	else{
@@ -1121,8 +1121,8 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 					
 			//13:
-			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
-				+" <br>Carlos Vera, Pedro Montoro, Cris Orgaz y María José Contreras.</p>"	
+			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
+				+" <br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
 		];
 	}
 	

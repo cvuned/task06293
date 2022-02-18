@@ -1029,8 +1029,9 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 					
 			//13:
-			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
-				+" <br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
+			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br>"
+				+" <br>Autores:<br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
+				+ "<br><br> Pulsa F11 para salir del modo pantalla completa."
 		];
 	}
 	else if(grupoAsignado>3){ // Instrucciones para el grupo de CONTROL 
@@ -1077,8 +1078,9 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 			
 			//13:
-			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
-				+" <br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
+			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br>"
+				+" <br>Autores:<br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
+				+ "<br><br> Pulsa F11 para salir del modo pantalla completa."
 		];
 	}
 	else{
@@ -1121,8 +1123,9 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Envío de datos</h3><p>A continuación podrás enviar los resultados para que se incluyan en nuestro estudio. Los datos que nos aportes se unirán a los del grupo y serán analizados estadísticamente.</p><p align=\"left\"> Para hacerlo, haz click en el botón \"Enviar\".</p>",
 					
 			//13:
-			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br><br>Pulsa F11 para salir del modo pantalla completa.<br><br>Autores:"
-				+" <br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
+			"<h3 class=\"titulo\">Ya has terminado. ¡Muchas gracias por tu colaboración!</h3><p>El experimento que acabas de realizar está directamente relacionado con la materia explicada en el Capítulo 3 del libro “Psicología del Aprendizaje” que utilizas en tu asignatura del mismo nombre, concretamente con el concepto de “Contingencia” explicado en el apartado 2.1 de dicho capítulo. Para más información no dudes en ponerte en contacto con los autores del estudio.<br>"
+				+" <br>Autores:<br>Carlos Vera, Pedro Montoro, Cristina Orgaz y María José Contreras.</p>"
+				+ "<br><br> Pulsa F11 para salir del modo pantalla completa."
 		];
 	}
 	

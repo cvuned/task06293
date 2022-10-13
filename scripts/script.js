@@ -74,7 +74,7 @@ var tempArray = [0, 1, 2, 3, 4, 5];
 var tempShuffled = shuffle(tempArray);
 var grupoAsignado = tempShuffled[0]; 	// Elige un grupo al azar
 
-ocultar(divNPS);
+
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
 //Funciones generales:
@@ -697,11 +697,12 @@ function showNPS(){
 	// para ello reutilizamos la confiaaza pero voy a ver si al mostrar el resultado puedo mostrar redondeado a 10 
 	ocultar(divContingencia);
     ocultar(divTextos);
-    
+    ocultar(divJuicio);
+
 	textoNPS= "<p class=\"pregunta\">¿Recomendarías a un familiar o amigo tomar "+training[fase].nombreClave+"?</p>";
 	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: En absoluto.</li><li>10: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
 	textoNPS = textoNPS.concat(textoInstrucciones);
-	pintarHTML('divPregunta', textoNPS);
+	pintarHTML('divPreguntaNPS', textoNPS);
     
     document.getElementById("sliderNPS").classList.add('sliderCONTPrimero');
 

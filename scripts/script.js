@@ -876,7 +876,13 @@ function validaJuicio(){
 			//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
 			//console.log(training[fase].Riesgo);								// debug
 		}
-
+	}
+	else {
+        alert("Contesta la pregunta");
+        document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
+        document.getElementById("textInput").value = "";
+    } 
+		
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
 		//else{
 		//	if (pregunta == "a"){
@@ -922,14 +928,7 @@ function validaJuicio(){
 		// Sacamos las siguiens dos líneas del loop, ya que no nos hace falta: 
 		prepararTextos(); 				
 		cambiafase();
-	}
-        
-	}
-	else {
-        alert("Contesta la pregunta");
-        document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
-        document.getElementById("textInput").value = "";
-         }   
+  
 }
 
 function cambiafase(){

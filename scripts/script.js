@@ -74,7 +74,7 @@ var tempArray = [0, 1, 2, 3, 4, 5];
 var tempShuffled = shuffle(tempArray);
 var grupoAsignado = tempShuffled[0]; 	// Elige un grupo al azar
 
-
+ocultar(divNPS);
 //++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++
 //Funciones generales:

@@ -22,6 +22,7 @@ var testeo = 0;
 
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;
+var NPSevaluada = 0;
 var confianzaevaluada = 0;
 var riesgoevaluado = 0;
 var evidenciavaluado = 0; 
@@ -908,6 +909,10 @@ function validaJuicio(){
 		document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
 		
 
+		if(NPSevaluada==0){
+			showNPS();
+			NPSevaluada++;
+		}
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
 		//if(confianzaevaluada==0){
 		//	showConfianza();
@@ -926,9 +931,10 @@ function validaJuicio(){
 		//	cambiafase();
 		
 		// Sacamos las siguiens dos líneas del loop, ya que no nos hace falta: 
-		prepararTextos(); 				
-		cambiafase();
-  
+		else{
+			prepararTextos(); 				
+			cambiafase();
+		}
 }
 
 function cambiafase(){

@@ -911,6 +911,8 @@ function validaJuicio(){
 		
 
 		if(NPSevaluada==0){
+			document.getElementById("sliderNPS").classList.remove('sliderCONTPrimero');
+			document.getElementById("textInput").value = "";
 			showNPS();
 			NPSevaluada++;
 		}
@@ -968,6 +970,7 @@ function cambiafase(){
 
 function ReseteoJuicios(){
 	document.getElementById('sliderJuicio').value=-10000;
+	document.getElementById('sliderNPS').value=-10000;
 	document.getElementById('textInput').value="";
 }
 

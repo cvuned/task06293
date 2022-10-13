@@ -689,6 +689,33 @@ function showJuicio(){
 
 }
 
+function showNPS(){
+	// Esta nueva función va a dar a evaluar el NPS de 1 a 10.
+	// para ello reutilizamos la confiaaza pero voy a ver si al mostrar el resultado puedo mostrar redondeado a 10 
+	ocultar(divContingencia);
+    ocultar(divTextos);
+    
+	textoNPS= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: He respondido al azar.</li><li>100: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
+	textoNPS = textoConfianza.concat(textoInstrucciones);
+	pintarHTML('divPregunta', textoNPS);
+    
+    document.getElementById("sliderNPS").classList.add('sliderCONTPrimero');
+
+    ReseteoJuicios();
+    
+    document.getElementById("textInput").disabled = true;
+    document.getElementById("textInput").value = "";
+
+    
+    textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
+    pintarHTML('divBoton', textoBoton);
+    
+    mostrar(divNPS);
+    setTimeout('mostrar(divBoton)', 500);    
+}
+
+
 function showConfianza(){
     ocultar(divContingencia);
     ocultar(divTextos);

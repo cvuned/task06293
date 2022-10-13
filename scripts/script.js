@@ -698,8 +698,8 @@ function showNPS(){
 	ocultar(divContingencia);
     ocultar(divTextos);
     
-	textoNPS= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: He respondido al azar.</li><li>100: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
+	textoNPS= "<p class=\"pregunta\">¿Recomendarías a un familiar o amigo tomar "+training[fase].nombreClave+"?</p>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: En absoluto.</li><li>10: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
 	textoNPS = textoNPS.concat(textoInstrucciones);
 	pintarHTML('divPregunta', textoNPS);
     
@@ -984,6 +984,7 @@ function siguienteTexto(){
 	mostrar(divBoton);
     ocultar(divContingencia);
     ocultar(divJuicio);
+	ocultar(divNPS);
     ocultar(divCuestionariosEdad);
 
 	ocultar(divCheckEvidentialValueA);

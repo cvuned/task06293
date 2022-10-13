@@ -658,7 +658,7 @@ function ITI(){
 function showJuicio(){
     ocultar(divContingencia);
     ocultar(divTextos);
-    ocultar(divNPS);
+
 	
 	// Se deja comentado por si hay que segregar por fases: 
     //if(training[fase] == FasePrevia){ 
@@ -715,7 +715,7 @@ function showNPS(){
     textoBoton="<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaJuicio()' value='Confirmar'/>";
     pintarHTML('divBoton', textoBoton);
     
-    mostrar(divNPS);
+
     setTimeout('mostrar(divBoton)', 100);    
 }
 
@@ -910,12 +910,12 @@ function validaJuicio(){
 		document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
 		
 
-		if(NPSevaluada==0){
-			document.getElementById("sliderNPS").classList.remove('sliderCONTPrimero');
-			document.getElementById("textInput").value = "";
-			showNPS();
-			NPSevaluada++;
-		}
+		//if(NPSevaluada==0){
+		//	document.getElementById("sliderNPS").classList.remove('sliderCONTPrimero');
+		//	document.getElementById("textInput").value = "";
+		//	showNPS();
+		//	NPSevaluada++;
+		//}
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
 		//if(confianzaevaluada==0){
 		//	showConfianza();
@@ -970,7 +970,7 @@ function cambiafase(){
 
 function ReseteoJuicios(){
 	document.getElementById('sliderJuicio').value=-10000;
-	document.getElementById('sliderNPS').value=-10000;
+	//document.getElementById('sliderNPS').value=-10000;
 	document.getElementById('textInput').value="";
 }
 
@@ -988,7 +988,6 @@ function siguienteTexto(){
 	mostrar(divBoton);
     ocultar(divContingencia);
     ocultar(divJuicio);
-	ocultar(divNPS);
     ocultar(divCuestionariosEdad);
 
 	ocultar(divCheckEvidentialValueA);

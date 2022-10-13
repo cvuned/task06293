@@ -1105,9 +1105,9 @@ function prepararTextos(){
 			+ "Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 							
 			//12: Momento de checkear los datos de Evidential Value: 
-			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
-			+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
-			+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
+			//"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
+			//+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
+			//+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
 
 			// A guardar datos! 
 			//13: Save Data... 
@@ -1150,9 +1150,9 @@ function prepararTextos(){
 			"<h3 class=\"titulo\">Instrucciones</h3><p>A continuación te informaremos de si el paciente superó la crisis. </p><table style=\"text-align: center; align-content: center; border: 0px; width: 100%;\"><tr><td><img src=\""+FaseTest.ImagenSindrome+"\" width=\"150px\"></td><td><img src=\""+FaseTest.ImagenSano+"\" width=\"150px\"></td></tr><tr><td>Paciente enfermo</td><td>Paciente curado</td></tr></table><br><p>Después de darte esa información, se te presentará la ficha del siguiente paciente. <br>Intenta averiguar hasta qué punto es efectivo el "+FaseTest.nombreClave+ ". Cuando hayas tratado a un buen número de pacientes te haremos algunas preguntas.</p>",
 					
 			//12: Momento de checkear los datos de Evidential Value: 
-			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
-			+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
-			+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
+			//"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
+			//+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
+			//+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
 			
 			// A guardar datos via Firebase!  
 			//13: Save Data...
@@ -1202,7 +1202,7 @@ function prepararTextos(){
 			//	+ "   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='showCue()' value='Comenzar'/>",
 			
 			//12:
-			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+			//"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
 
 			// A guardar datos! 
 			//13:
@@ -1249,7 +1249,7 @@ function prepararTextos(){
 				+ "   <input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='showCue()' value='Comenzar'/>",
 			
 			//12:
-			"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
+			//"<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='siguienteTexto()' value='Continuar'/>",
 
 			// A guardar datos! 
 			//13:

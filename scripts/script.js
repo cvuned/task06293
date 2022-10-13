@@ -1056,9 +1056,9 @@ function prepararTextos(){
 //			+ "<tr><td>NO tomaba medicina y SÍ se recuperaba: "+evidenciaC+".</td>"
 //			+ "<td>NO tomaba medicina y NO se recuperaba: "+evidenciaD+".</td></tr></table>"
 //			+ "Si quieres cambiar alguna de las respuestas, puede introducir los valores a continuación: ",
-			"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
-			+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
-			+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
+			//"<h3 class=\"titulo\">Comprobación de datos</h3><p></p>"
+			//+ "<p>En las 4 preguntas anteriores has dado estas  respuestas dependiendo de si al paciente le era administrado el Batatrim y si superaba o no la crisis. "
+			//+ "<br>Si quieres cambiar alguna de las respuestas, puede corregir los valores a continuación:</p>",
 
 			// A guardar datos via Firebase!  
 			//13: Save Data...

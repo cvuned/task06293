@@ -847,45 +847,53 @@ function validaJuicio(){
 			//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
 			//console.log(training[fase].Riesgo);								// debug
 		}
-		else{
-			if (pregunta == "a"){
-				evidenciaA = document.getElementById('textInput').value;
-				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-			}
-			else if (pregunta == "b"){
-				evidenciaB = document.getElementById('textInput').value;
-				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-			}
-			else if (pregunta == "c"){
-				evidenciaC = document.getElementById('textInput').value;
-				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-			}
-			else if (pregunta == "d"){
-				evidenciaD = document.getElementById('textInput').value;
-				valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-			}
-		}
+
+		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
+		//else{
+		//	if (pregunta == "a"){
+		//		evidenciaA = document.getElementById('textInput').value;
+		//		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
+		//	}
+		//	else if (pregunta == "b"){
+		//		evidenciaB = document.getElementById('textInput').value;
+		//		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
+		//	}
+		//	else if (pregunta == "c"){
+		//		evidenciaC = document.getElementById('textInput').value;
+		//		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
+		//	}
+		//	else if (pregunta == "d"){
+		//		evidenciaD = document.getElementById('textInput').value;
+		//		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
+		//	}
+		//}
 		//training[fase].Juicio=document.getElementById('textInput').value;
         //console.log("--- LA HORA DEL JUICIO ESTÁ CERCA!!! ---");
 		//console.log(training[fase].Juicio);
 		document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
 		
-		if(confianzaevaluada==0){
-			showConfianza();
-			confianzaevaluada++;
-		}
-		else if(riesgoevaluado==0){
-			showRiesgo();
-			riesgoevaluado++;
-		}	
-		else if(evidenciavaluado<4){
-			showEvidentialValue() 
-			evidenciavaluado++
-		}
-		else if(evidenciavaluado==4){
-			prepararTextos(); 				// Hay que actualizar los textos con los valores de Evidencias A / B / C / D
-			cambiafase();
-		}
+
+		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
+		//if(confianzaevaluada==0){
+		//	showConfianza();
+		//	confianzaevaluada++;
+		//}
+		//else if(riesgoevaluado==0){
+		//	showRiesgo();
+		//	riesgoevaluado++;
+		//}	
+		//else if(evidenciavaluado<4){
+		//	showEvidentialValue() 
+		//	evidenciavaluado++
+		//}
+		//else if(evidenciavaluado==4){
+		//	prepararTextos(); 				// Hay que actualizar los textos con los valores de Evidencias A / B / C / D
+		//	cambiafase();
+		
+		// Sacamos las siguiens dos líneas del loop, ya que no nos hace falta: 
+		prepararTextos(); 				
+		cambiafase();
+	}
         
 	}
 	else {

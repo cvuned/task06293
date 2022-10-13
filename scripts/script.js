@@ -409,7 +409,7 @@ function showCue(){
 	
     mostrar(divRegistro);
     mostrar(divPreStatus);
-    setTimeout('mostrarEleccion()', 500);
+    setTimeout('mostrarEleccion()', 100);
     
     //mostrar(divEleccion);
     //setTimeout('mostrar(divEleccion)', 500); 
@@ -505,7 +505,7 @@ function respuestaYES(){
     
 	pintarHTML("mensajeCue", "<p class=\"mensaje\">"+training[fase].textoYES+"</p>");
     
-    setTimeout('showOutcome()', 500);
+    setTimeout('showOutcome()', 100);
 }
 
 function respuestaNO(){
@@ -530,7 +530,7 @@ function respuestaNO(){
     
 	pintarHTML("mensajeCue", "<p class=\"mensaje\">"+training[fase].textoNO+"</p>");
     
-    setTimeout('showOutcome()', 500);
+    setTimeout('showOutcome()', 100);
 }
 
 
@@ -607,7 +607,7 @@ function showOutcome(){
 		pintarHTML('divBoton', "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='ITI()' value='Siguiente paciente'/>")		
 	}
     mostrar(divOutcome);
-    setTimeout('mostrar(divBoton)', 500);
+    setTimeout('mostrar(divBoton)', 100);
     
     
 }
@@ -636,7 +636,7 @@ function ITI(){
     
     if(state<training[fase].numTrials-1){
         state++;
-        setTimeout("showCue()", 500);
+        setTimeout("showCue()", 100);
     }
      else if(state==training[fase].numTrials-1){
 
@@ -687,7 +687,7 @@ function showJuicio(){
     pintarHTML('divBoton', textoBoton);
     
     mostrar(divJuicio);
-    setTimeout('mostrar(divBoton)', 500);
+    setTimeout('mostrar(divBoton)', 100);
 
 }
 
@@ -714,7 +714,7 @@ function showNPS(){
     pintarHTML('divBoton', textoBoton);
     
     mostrar(divNPS);
-    setTimeout('mostrar(divBoton)', 500);    
+    setTimeout('mostrar(divBoton)', 100);    
 }
 
 
@@ -739,7 +739,7 @@ function showConfianza(){
     pintarHTML('divBoton', textoBoton);
     
     mostrar(divJuicio);
-    setTimeout('mostrar(divBoton)', 500);    
+    setTimeout('mostrar(divBoton)', 100);    
 }
 
 function showRiesgo(){
@@ -770,7 +770,7 @@ function showRiesgo(){
     pintarHTML('divBoton', textoBoton);
     
     mostrar(divJuicio);
-    setTimeout('mostrar(divBoton)', 500);
+    setTimeout('mostrar(divBoton)', 100);
     
 
 }
@@ -846,7 +846,7 @@ function showEvidentialValue(){
 	pintarHTML('divBoton', textoBoton);
 		
 	mostrar(divJuicio);
-	setTimeout('mostrar(divBoton)', 500);
+	setTimeout('mostrar(divBoton)', 100);
 }
 
 

@@ -934,10 +934,9 @@ function validaJuicio(){
 		//	cambiafase();
 		
 		// Sacamos las siguiens dos líneas del loop, ya que no nos hace falta: 
-		else{
-			prepararTextos(); 				
-			cambiafase();
-		}
+		prepararTextos(); 				
+		cambiafase();
+		
 }
 
 function cambiafase(){

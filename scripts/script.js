@@ -988,7 +988,6 @@ function siguienteTexto(){
     ocultar(divContingencia);
     ocultar(divJuicio);
     ocultar(divCuestionariosEdad);
-	ocultar(divPreguntaNPS);
 
 	ocultar(divCheckEvidentialValueA);
 	ocultar(divCheckEvidentialValueB);

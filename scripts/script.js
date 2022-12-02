@@ -893,48 +893,17 @@ function validaJuicio(){
 			//console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
 			//console.log(training[fase].Confianza);							// debug
 		}	
-		// else if(training[fase].Riesgo==999){
-		// 	//training[fase].Riesgo=document.getElementById('textInput').value;
-		// 	FaseTest.Riesgo=document.getElementById('textInput').value;		// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
-		// 	//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
-		// 	//console.log(training[fase].Riesgo);								// debug
-		// }
-		// else{
-		// 	if (pregunta == "a"){
-		// 		evidenciaA = document.getElementById('textInput').value;
-		// 		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-		// 	}
-		// 	else if (pregunta == "b"){
-		// 		evidenciaB = document.getElementById('textInput').value;
-		// 		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-		// 	}
-		// 	else if (pregunta == "c"){
-		// 		evidenciaC = document.getElementById('textInput').value;
-		// 		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-		// 	}
-		// 	else if (pregunta == "d"){
-		// 		evidenciaD = document.getElementById('textInput').value;
-		// 		valoresEvidentialSinOrden.push(document.getElementById('textInput').value);
-		// 	}
-		// }
+		
 		document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
 		
 		if(confianzaevaluada==0){
 			showConfianza();
 			confianzaevaluada++;
 		}
-		// else if(riesgoevaluado==0){
-		// 	showRiesgo();
-		// 	riesgoevaluado++;
-		// }	
-		// else if(evidenciavaluado<4){
-		// 	showEvidentialValue() 
-		// 	evidenciavaluado++
-		// }
-		// else if(evidenciavaluado==4){
-		// 	prepararTextos(); 				// Hay que actualizar los textos con los valores de Evidencias A / B / C / D
-		// 	cambiafase();
-		// }
+		else if(confianzaevaluada==1){
+			prepararTextos();
+			cambiafase();
+		}
         
 	}
 	else {

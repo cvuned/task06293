@@ -885,7 +885,7 @@ function validaJuicio(){
 		else if(training[fase].Confianza==999){
 			//training[fase].Confianza=document.getElementById('textInput').value;
 			FaseTest.Confianza=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
-			FaseTest.NPS=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
+			FaseTest.NPS=Math.floor(document.getElementById('textInput').value/10);			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
 			//console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
 			//console.log(training[fase].Confianza);							// debug
 		}	
@@ -901,7 +901,15 @@ function validaJuicio(){
         document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
         document.getElementById("textInput").value = "";
     } 
-		
+	console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
+	console.log(training[fase].Confianza);							// debug
+	if(confianzaevaluada==0){
+		console.log("--- LA HORA DE LA CONFIANZA ESTÁ MUY, MUY CERCA!!! ---");		// debug
+		showConfianza();
+		confianzaevaluada++;
+	}
+
+
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
 		//else{
 		//	if (pregunta == "a"){
@@ -924,7 +932,7 @@ function validaJuicio(){
 		//training[fase].Juicio=document.getElementById('textInput').value;
         //console.log("--- LA HORA DEL JUICIO ESTÁ CERCA!!! ---");
 		//console.log(training[fase].Juicio);
-	document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
+		//document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
 		
 
 		//if(NPSevaluada==0){
@@ -934,10 +942,10 @@ function validaJuicio(){
 		//	NPSevaluada++;
 		//}
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
-	if(confianzaevaluada==0){
-		showConfianza();
-		confianzaevaluada++;
-	}
+		//if(confianzaevaluada==0){
+		//	showConfianza();
+		//	confianzaevaluada++;
+		//}
 		//else if(riesgoevaluado==0){
 		//	showRiesgo();
 		//	riesgoevaluado++;
@@ -951,7 +959,11 @@ function validaJuicio(){
 		//	cambiafase();
 		
 		// Sacamos las siguiens dos líneas del loop, ya que no nos hace falta: 
-	prepararTextos(); 				
+	if(confianzaevaluada==0){
+		showConfianza();
+		confianzaevaluada++;
+	}
+prepararTextos(); 				
 	cambiafase();
 		
 }

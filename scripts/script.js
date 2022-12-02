@@ -895,19 +895,19 @@ function validaJuicio(){
 			//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
 			//console.log(training[fase].Riesgo);								// debug
 		}
+		if(confianzaevaluada==0){
+			showConfianza();
+			confianzaevaluada++;
+		}
+		prepararTextos(); 				
+		cambiafase();
 	}
 	else {
         alert("Contesta la pregunta");
         document.getElementById("sliderJuicio").classList.add('sliderCONTPrimero');
         document.getElementById("textInput").value = "";
     } 
-	console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
-	console.log(training[fase].Confianza);							// debug
-	if(confianzaevaluada==0){
-		console.log("--- LA HORA DE LA CONFIANZA ESTÁ MUY, MUY CERCA!!! ---");		// debug
-		showConfianza();
-		confianzaevaluada++;
-	}
+
 
 
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
@@ -959,12 +959,7 @@ function validaJuicio(){
 		//	cambiafase();
 		
 		// Sacamos las siguiens dos líneas del loop, ya que no nos hace falta: 
-	if(confianzaevaluada==0){
-		showConfianza();
-		confianzaevaluada++;
-	}
-prepararTextos(); 				
-	cambiafase();
+
 		
 }
 

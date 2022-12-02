@@ -886,17 +886,19 @@ function validaJuicio(){
 			FaseTest.Confianza=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
 			console.log("--- LA HORA DE LA MEDIR NPS ESTÁ CERCA!!! ---");		// debug 
 			console.log(document.getElementById('textInput').value);		// debug 
-			console.log(Math.floor(document.getElementById('textInput').value/10));		// debug 
-			FaseTest.NPS=Math.floor(document.getElementById('textInput').value/10);			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
+			console.log(FaseTest.NPS)
+			FaseTest.NPS=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
+			console.log("--- HEMOS MEDIDO NPS! ---");		// debug 
+			console.log(FaseTest.NPS)
 			//console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
 			//console.log(training[fase].Confianza);							// debug
 		}	
-		else if(training[fase].Riesgo==999){
-			//training[fase].Riesgo=document.getElementById('textInput').value;
-			FaseTest.Riesgo=document.getElementById('textInput').value;		// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
-			//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
-			//console.log(training[fase].Riesgo);								// debug
-		}
+		// else if(training[fase].Riesgo==999){
+		// 	//training[fase].Riesgo=document.getElementById('textInput').value;
+		// 	FaseTest.Riesgo=document.getElementById('textInput').value;		// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
+		// 	//console.log("--- LA HORA DEL RIESGO ESTÁ CERCA!!! ---");			// debug
+		// 	//console.log(training[fase].Riesgo);								// debug
+		// }
 		// else{
 		// 	if (pregunta == "a"){
 		// 		evidenciaA = document.getElementById('textInput').value;

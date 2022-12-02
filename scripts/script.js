@@ -22,7 +22,6 @@ var testeo = 0;
 
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;
-var npsEvaluada = 0; 
 var confianzaevaluada = 0;
 var riesgoevaluado = 0;
 var evidenciavaluado = 0; 
@@ -885,6 +884,9 @@ function validaJuicio(){
 		else if(training[fase].Confianza==999){
 			//training[fase].Confianza=document.getElementById('textInput').value;
 			FaseTest.Confianza=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
+			console.log("--- LA HORA DE LA MEDIR NPS ESTÁ CERCA!!! ---");		// debug 
+			console.log(document.getElementById('textInput').value);		// debug 
+			console.log(Math.floor(document.getElementById('textInput').value/10));		// debug 
 			FaseTest.NPS=Math.floor(document.getElementById('textInput').value/10);			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
 			//console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
 			//console.log(training[fase].Confianza);							// debug

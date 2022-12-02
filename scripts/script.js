@@ -871,6 +871,28 @@ function updateTextInput(val) {
 	} 
 }
 
+function updateLimit() {
+	if(confianzaevaluada ==1 ){
+
+		return 10;
+	
+	}
+	else {
+		return 100;
+	} 
+}
+
+function updateLimitMax() {
+	if(confianzaevaluada ==1 ){
+
+	document.getElementById('textInput').value=Math.floor(val/10);
+	
+	}
+	else {
+		document.getElementById('textInput').value=val;
+	} 
+}
+
 function validaJuicio(){
     if (document.getElementById('textInput').value!=""){
 		
@@ -884,12 +906,12 @@ function validaJuicio(){
 		else if(training[fase].Confianza==999){
 			//training[fase].Confianza=document.getElementById('textInput').value;
 			FaseTest.Confianza=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
-			console.log("--- LA HORA DE LA MEDIR NPS ESTÁ CERCA!!! ---");		// debug 
-			console.log(document.getElementById('textInput').value);		// debug 
-			console.log(FaseTest.NPS)
+			// console.log("--- LA HORA DE LA MEDIR NPS ESTÁ CERCA!!! ---");		// debug 
+			// console.log(document.getElementById('textInput').value);		// debug 
+			// console.log(FaseTest.NPS)
 			FaseTest.NPS=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
-			console.log("--- HEMOS MEDIDO NPS! ---");		// debug 
-			console.log(FaseTest.NPS)
+			// console.log("--- HEMOS MEDIDO NPS! ---");		// debug 
+			// console.log(FaseTest.NPS)
 			//console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
 			//console.log(training[fase].Confianza);							// debug
 		}	

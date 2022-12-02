@@ -22,8 +22,7 @@ var testeo = 0;
 
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;
-var NPSevaluada = 0;
-var NPStime = 1; 
+var npsEvaluada = 0; 
 var confianzaevaluada = 0;
 var riesgoevaluado = 0;
 var evidenciavaluado = 0; 
@@ -315,6 +314,7 @@ var FaseTest = {
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
+	NPS: 999,
 	EvidentialValue: [999,999,999,999],
 	TiemposRespuesta: [],
 }
@@ -340,6 +340,7 @@ var FasePrevia = {
     Juicio: 999,
     Confianza: 999,
 	Riesgo: 999,
+	NPS: 999,
 	EvidentialValue: [999,999,999,999],
 	TiemposRespuesta: [],
 }
@@ -724,9 +725,16 @@ function showNPS(){
 function showConfianza(){
     ocultar(divContingencia);
     ocultar(divTextos);
-    
-	textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: He respondido al azar.</li><li>100: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
+
+	//textoConfianza= "<p class=\"pregunta\">¿Hasta qué punto estás seguro de tu respuesta sobre la efectividad del "+training[fase].nombreClave+"?</p>";
+	//textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: He respondido al azar.</li><li>100: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
+	//textoConfianza = textoConfianza.concat(textoInstrucciones);
+	pintarHTML('divPregunta', textoConfianza);
+
+	
+
+	textoConfianza= "<p class=\"pregunta\">En una escala del 0 al 10, ¿cómo de probable es que recomendaras a un paciente tomar "+training[fase].nombreClave+"?</p>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: No lo recomendaría en absoluto.</li><li>10: Lo recomendaría con total seguridad.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
 	textoConfianza = textoConfianza.concat(textoInstrucciones);
 	pintarHTML('divPregunta', textoConfianza);
     
@@ -854,7 +862,7 @@ function showEvidentialValue(){
 
 // Esta es la función que actualiza el valor según lo que se marca en a escala
 function updateTextInput(val) {
-	if(NPStime == 1){
+	if(juiciorealizado > 0){
 
 	document.getElementById('textInput').value=Math.floor(val/10);
 	
@@ -877,6 +885,7 @@ function validaJuicio(){
 		else if(training[fase].Confianza==999){
 			//training[fase].Confianza=document.getElementById('textInput').value;
 			FaseTest.Confianza=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
+			FaseTest.NPS=document.getElementById('textInput').value;			// Añadido porque en el exp CVTD22XX2 solo guardamos en fase test
 			//console.log("--- LA HORA DE LA CONFIANZA ESTÁ CERCA!!! ---");		// debug
 			//console.log(training[fase].Confianza);							// debug
 		}	
@@ -925,10 +934,10 @@ function validaJuicio(){
 		//	NPSevaluada++;
 		//}
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
-		//if(confianzaevaluada==0){
-		//	showConfianza();
-		//	confianzaevaluada++;
-		//}
+		if(confianzaevaluada==0){
+			showConfianza();
+			confianzaevaluada++;
+		}
 		//else if(riesgoevaluado==0){
 		//	showRiesgo();
 		//	riesgoevaluado++;
@@ -959,6 +968,7 @@ function cambiafase(){
         
 
 		juiciorealizado=0;
+		npsEvaluada=0;
 		confianzaevaluada=0;
 		riesgoevaluado=0;
 		evidenciavaluado=0;

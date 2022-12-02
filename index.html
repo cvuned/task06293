@@ -58,7 +58,7 @@
                     </div>
                     <div id="divEleccion" class="columnSmall ContingenciasFadeIn">
                         <div > 
-<!--                            <button id="botonYES" value="YES" class="botonEleccion" onclick='respuestaYES()'>
+                            <!--<button id="botonYES" value="YES" class="botonEleccion" onclick='respuestaYES()'>
                                 <img src="img/BatatrimBoton.png" width=150px class="icon icon_hover" id="imagenYES">
                             </button>
                         </div>
@@ -102,6 +102,33 @@
                     </div>
                 </div>
 				
+                <div id="divNPS">
+                    <div id="divNPSPregunta"></div>
+					
+					<!-- <div> -->
+                        <!-- <p align="left">Responde usando la siguiente escala, donde los números se interpretan así:</p> -->
+                        <!-- <ul> -->
+                        <!-- <li>0: Nada efectivo.</li> -->
+                        <!-- <li>50: Moderadamente efectivo.</li> -->
+                        <!-- <li>100: Perfectamente efectivo.</li> -->
+                        <!-- </ul> -->
+                        <!-- <p align="left">Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br> -->
+                    <!-- </div> -->
+                    
+				
+					<div class="wrapSeparadores">                
+                        <div class="separador1">1<br>|</div>
+                        <div class="separador2">10<br>|</div>
+	                </div>                            
+                    <div id="divNPSSlider">
+                        <input type="range" class="sliderCONT" name="sliderNPS" id="sliderNPS" value="" min="1" max="10" onchange="updateTextInput(this.value);">
+                    </div>    
+                   <div id="valoresNPS" style="text-align: left; vertical-align:middle;">
+                        Tu respuesta:         <input type="text" id="textInputNPS" value="" style="border: 0px; width: 50px;" class="values">
+                    </div>
+                </div>
+
+
                 <div id="divCuestionariosEdad" class="cuestionarios">
 					<br>
 					Edad:
@@ -156,45 +183,6 @@
                         <input type=radio name="induccion1" value="0" >
                         <span class="checkmark"></span>
                     </label><br><br>
-                    <!-- <label class="containerRadios">Funciona un poco. -->
-                        <!-- <input type=radio name="induccion1" value="1" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br> -->
-                    <!-- <label class="containerRadios">No funciona en absoluto. -->
-                        <!-- <input type=radio name="induccion1" value="0" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br> -->
-                    <!-- <label class="containerRadios">Funciona un poco. -->
-                        <!-- <input type=radio name="induccion1" value="1" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br> -->
-                    <!-- <label class="containerRadios">Funciona bastante bien. -->
-                        <!-- <input type=radio name="induccion1" value="2" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br>                 -->
-                    <!-- <label class="containerRadios">Funciona perfectamente. -->
-                        <!-- <input type=radio name="induccion1" value="3" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br>                -->
-                    <!-- <p class="mensaje"> -->
-                        <!-- Cuando salga a la venta, ¿cuál crees que sería su precio? -->
-                    <!-- </p> -->
-                    <!-- <label class="containerRadios">Menos de 10 euros. -->
-                        <!-- <input type=radio name="induccion2" value="0" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br>                      -->
-                    <!-- <label class="containerRadios">Entre 10 euros y 50 euros. -->
-                        <!-- <input type=radio name="induccion2" value="1" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br>    -->
-                    <!-- <label class="containerRadios">Entre 50 euros y 200 euros. -->
-                        <!-- <input type=radio name="induccion2" value="2" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br>                                         -->
-                    <!-- <label class="containerRadios">Más de 200 euros. -->
-                        <!-- <input type=radio name="induccion2" value="3" > -->
-                        <!-- <span class="checkmark"></span> -->
-                    <!-- </label><br><br>                        -->
                 </div>
                 
                 

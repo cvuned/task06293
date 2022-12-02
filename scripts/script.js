@@ -924,7 +924,7 @@ function validaJuicio(){
 		//training[fase].Juicio=document.getElementById('textInput').value;
         //console.log("--- LA HORA DEL JUICIO ESTÁ CERCA!!! ---");
 		//console.log(training[fase].Juicio);
-		document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
+	document.getElementById("sliderJuicio").classList.remove('sliderCONTPrimero');
 		
 
 		//if(NPSevaluada==0){
@@ -934,10 +934,10 @@ function validaJuicio(){
 		//	NPSevaluada++;
 		//}
 		// Todo este bloque fuera, ya que no vamos a ver ni confianza, ni riesgo ni evidential value
-		if(confianzaevaluada==0){
-			showConfianza();
-			confianzaevaluada++;
-		}
+	if(confianzaevaluada==0){
+		showConfianza();
+		confianzaevaluada++;
+	}
 		//else if(riesgoevaluado==0){
 		//	showRiesgo();
 		//	riesgoevaluado++;
@@ -951,8 +951,8 @@ function validaJuicio(){
 		//	cambiafase();
 		
 		// Sacamos las siguiens dos líneas del loop, ya que no nos hace falta: 
-		prepararTextos(); 				
-		cambiafase();
+	prepararTextos(); 				
+	cambiafase();
 		
 }
 

@@ -856,7 +856,7 @@ function showEvidentialValue(){
 function updateTextInput(val) {
 	if(NPStime == 1){
 
-	document.getElementById('textInput').value=math.floor(val/10);
+	document.getElementById('textInput').value=Math.floor(val/10);
 	
 	}
 	else {

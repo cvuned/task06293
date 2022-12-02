@@ -23,6 +23,7 @@ var testeo = 0;
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;
 var NPSevaluada = 0;
+var NPStime = 1; 
 var confianzaevaluada = 0;
 var riesgoevaluado = 0;
 var evidenciavaluado = 0; 
@@ -851,9 +852,16 @@ function showEvidentialValue(){
 	setTimeout('mostrar(divBoton)', 100);
 }
 
-
+// Esta es la función que actualiza el valor según lo que se marca en a escala
 function updateTextInput(val) {
-	document.getElementById('textInput').value=val; 
+	if(NPStime == 1){
+
+	document.getElementById('textInput').value=math.floor(val/10);
+	
+	}
+	else {
+		document.getElementById('textInput').value=val;
+	} 
 }
 
 function validaJuicio(){

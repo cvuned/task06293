@@ -707,7 +707,7 @@ function showNPS(){
     ocultar(divTextos);
  
 	textoNPS= "<p class=\"pregunta\">¿Recomendarías a un familiar o amigo tomar "+training[fase].nombreClave+"?</p>";
-	textoInstruccionesNPS="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: En absoluto.</li><li>10: Completamente seguro.</li></ul><p> Ignora las etiquetas (50 / 100) de la escala y asume que es una escala de 0 a 10.</p><br><br>";
+	textoInstruccionesNPS="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: En absoluto.</li><li>10: Completamente seguro.</li></ul><p> Ignora las etiquetas (50 - 100) de la escala y asume que es una escala de 0 a 10.</p><br><br>";
 	textoNPS = textoNPS.concat(textoInstruccionesNPS);
 	pintarHTML('divPreguntaNPS', textoNPS);
     
@@ -739,7 +739,7 @@ function showConfianza(){
 	
 
 	textoConfianza= "<p class=\"pregunta\">En una escala del 0 al 10, ¿cómo de probable es que recomendaras a un paciente tomar "+training[fase].nombreClave+"?</p>";
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: No lo recomendaría en absoluto.</li><li>10: Lo recomendaría con total seguridad.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: No lo recomendaría en absoluto.</li><li>10: Lo recomendaría con total seguridad.</li></ul><p>Ignora las etiquetas (50 - 100) de la escala y asume que es una escala de 0 a 10.</p><br><br>";
 	textoConfianza = textoConfianza.concat(textoInstrucciones);
 	pintarHTML('divPregunta', textoConfianza);
     
@@ -943,8 +943,8 @@ function validaJuicio(){
 
 
 function cambiafase(){
-	startData = "A participant with ID has completed the first phase " + personId +","+ stringDate();
-	guardaFirebase(startData, 'mySurvivalLogs');
+	//startData = "A participant with ID has completed the first phase " + personId +","+ stringDate();
+	//guardaFirebase(startData, 'mySurvivalLogs');
 	
     if (grupoAsignado > 3){
 		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 

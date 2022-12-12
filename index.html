@@ -7,10 +7,10 @@
 		 <script type="text/javascript" src="scripts/script.js"></script>
         
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -34,7 +34,7 @@
     };
     // Initialize Firebase
     //firebase.initializeApp(firebaseConfig);     // MODO DEMO
-    const firebase = firebase.initializeApp(firebaseConfig); // TFK añadido en TS
+    const firebase = initializeApp(firebaseConfig); // TFK añadido en TS
     //analytics = getAnalytics(app);
 </script>
 	

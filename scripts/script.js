@@ -5,7 +5,7 @@
 //++++++++++++++++++++++++++++++++++++++
 
 var personId = Math.floor((Math.random() * 1000000) + 1);
-//TFK var startData = ["A participant has started", personID, stringDate();]
+var startData = [];
 var group =99; 
 //var Balanceo = Math.floor(Math.random()*2 + 1);
 var state=99;           //controla el ensayo dentro de cada fase
@@ -145,6 +145,9 @@ function arranca(){
 	// CARGA la base de datos: 
 	firebase.database().ref().on("value", gotData, errData); 	// TFK - MODO DEMO SIN CONEXIÓN
 	
+	//TFK Esta línea nos guarda el intento: 
+	//TFK startData = ["A participant has started", personID, stringDate()];
+
 	
 	//Ver IP
 	//PartIP = myip; //Modified for testing TFK

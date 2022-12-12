@@ -5,7 +5,6 @@
 //++++++++++++++++++++++++++++++++++++++
 
 var personId = Math.floor((Math.random() * 1000000) + 1);
-var startData = [];
 var group =99; 
 //var Balanceo = Math.floor(Math.random()*2 + 1);
 var state=99;           //controla el ensayo dentro de cada fase
@@ -1297,8 +1296,8 @@ function cuestionarioEdad(){
     
 	/////// Aquí vamos a aprovechar para enviar a Firebase los datos de nuestro participante
 	//TFK Esta línea nos guarda el intento: 
-	startData = ["A participant has started", personID, stringDate()];
-	guardaFirebase(startData)
+	startData = "A participant has started with ID " + personId +","+ stringDate();
+	guardaFirebase(startData);
 	///////
     var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";
     pintarHTML('divBoton', HTMLboton);

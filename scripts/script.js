@@ -5,6 +5,7 @@
 //++++++++++++++++++++++++++++++++++++++
 
 var personId = Math.floor((Math.random() * 1000000) + 1);
+//TFK var startData = ["A participant has started", personID, stringDate();]
 var group =99; 
 //var Balanceo = Math.floor(Math.random()*2 + 1);
 var state=99;           //controla el ensayo dentro de cada fase
@@ -1293,6 +1294,9 @@ function cuestionarioEdad(){
 	generaEnsayos();
 	document.querySelector('input[name="edad"]').value="";
     
+	/////// Aquí vamos a aprovechar para enviar a Firebase los datos de nuestro participante
+	//TFK guardaFirebase(startData)
+	///////
     var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";
     pintarHTML('divBoton', HTMLboton);
 
@@ -1489,18 +1493,18 @@ function saveData(){
 
 
     //console.log(data);      // Debug
-    guardaFirebase();
+    guardaFirebase(data);
     siguienteTexto();
 }
 
-function guardaFirebase(){
+function guardaFirebase(myData){
 
 	var expdata={
 		expName:"TFM-Carlos",
-		datos:data
+		datos:myData
 	}
     
-	firebase.database().ref('datoscontrol/').push(data); 								// MODO Operativo! 
+	firebase.database().ref('datoscontrol/').push(myData); 								// MODO Operativo! 
     //firebase.database().ref('datoscontrol/').push(data); 								// MODO DEMO SIN CONEXIÓN
 	//console.log("Experimento realizado en modo DEMO. ¡Datos NO guardados!");			//debug
 }

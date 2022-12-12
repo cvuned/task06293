@@ -701,13 +701,13 @@ function showJuicio(){
 }
 
 function showNPS(){
-	// Esta nueva función va a dar a evaluar el NPS de 1 a 10.
+	// Esta nueva función va a dar a evaluar el NPS de  a0 10.
 	// para ello reutilizamos la confiaaza pero voy a ver si al mostrar el resultado puedo mostrar redondeado a 10 
 	ocultar(divContingencia);
     ocultar(divTextos);
  
 	textoNPS= "<p class=\"pregunta\">¿Recomendarías a un familiar o amigo tomar "+training[fase].nombreClave+"?</p>";
-	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: En absoluto.</li><li>10: Completamente seguro.</li></ul><p>Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido. También puedes usar las flechas del teclado (izquierda / derecha) para ajustar el valor de la respuesta con más precisión.</p><br><br>";
+	textoInstrucciones="<p>Responde usando la siguiente escala, donde los números se interpretan así:</p><ul><li>0: En absoluto.</li><li>10: Completamente seguro.</li></ul><p> Ignora las etiquetas (50 / 100) de la escala y asume que es una escala de 0 a 10.</p><br><br>";
 	textoNPS = textoNPS.concat(textoInstrucciones);
 	pintarHTML('divPreguntaNPS', textoNPS);
     

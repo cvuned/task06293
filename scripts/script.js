@@ -17,8 +17,8 @@ var fecha="";           //contendrá la fecha/hora.
 var Cuestionario=[];    //contiene las respuestas al cuestionario de generalizacion
 var t0 = 0; 
 var t1 = 0; 
-//var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // mover a 0 para producción 
-var testeo = 0;  
+var testeo = 1;  // variable para reducir el número de ensayos durante el testeo del código // mover a 0 para producción 
+//var testeo = 0;  
 
 // Indicadores de estado para ver qué pregunta se lanza  
 var juiciorealizado = 0;
@@ -144,16 +144,15 @@ function arranca(){
 	// CARGA la base de datos: 
 	firebase.database().ref().on("value", gotData, errData); 	// TFK - MODO DEMO SIN CONEXIÓN
 	
-	
-	
 	//Ver IP
 	//PartIP = myip; //Modified for testing TFK
 	//console.log("my IP is: "+PartIP+"."); //debug
 	
 	function gotData(data) { 
-		
+			
 		//console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
-	    grouplist = data.val().participantesPorGrupo;				// esta línea lee el histórico de firebase (añadida en el 2º run de la app)
+		//firebase.database().ref('participantesPorGrupo').set(grouplist)
+		grouplist = data.val().participantesPorGrupo;				// esta línea lee el histórico de firebase (añadida en el 2º run de la app)
 		//console.log("participantes: "+grouplist+".");				// debug para comprobar el grupo antes de leer datos
 	};
 		
@@ -644,7 +643,7 @@ function ITI(){
 		// Aquí vamos a ir haciendo capturas
 		if(state % 10 == 0){
 			startData = "A participant with ID " + personId +","+ "reached state:"+ ","+ state +","+ stringDate();
-			guardaFirebase(startData);
+			guardaFirebase(startData, 'mySurvivalLogs');
 		}
     }
      else if(state==training[fase].numTrials-1){
@@ -945,7 +944,7 @@ function validaJuicio(){
 
 function cambiafase(){
 	startData = "A participant with ID has completed the first phase " + personId +","+ stringDate();
-	guardaFirebase(startData);
+	guardaFirebase(startData, 'mySurvivalLogs');
 	
     if (grupoAsignado > 3){
 		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
@@ -1306,7 +1305,7 @@ function cuestionarioEdad(){
 	/////// Aquí vamos a aprovechar para enviar a Firebase los datos de nuestro participante
 	// Esta línea nos guarda el intento: 
 	startData = "A participant has started with ID " + personId +","+ stringDate();
-	guardaFirebase(startData);
+	guardaFirebase(startData, 'mySurvivalLogs');
 	///////
     var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";
     pintarHTML('divBoton', HTMLboton);
@@ -1495,9 +1494,9 @@ function saveData(){
 	// la siguiente línea guarda un vector con los participantes. 
 	// Recordatorio de cómo se lee: 
 	// grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
-	console.log("participantes: "+grouplist+".")			//debug
+	//console.log("participantes: "+grouplist+".")			//debug
 	grouplist[grupoAsignado]++
-	console.log("participantes: "+grouplist+".")			//debug
+	//console.log("participantes: "+grouplist+".")			//debug
 	firebase.database().ref('participantesPorGrupo').set(grouplist)
 	//firebase.database().ref('participantes/porGrupo/participantesPorGrupo').set(grouplist)
 

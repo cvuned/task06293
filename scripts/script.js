@@ -1493,18 +1493,18 @@ function saveData(){
 
 
     //console.log(data);      // Debug
-    guardaFirebase(data);
+    guardaFirebase(data,'datoscontrol/');
     siguienteTexto();
 }
 
-function guardaFirebase(myData){
+function guardaFirebase(myData, target ){
 
 	var expdata={
 		expName:"TFM-Carlos",
 		datos:myData
 	}
     
-	firebase.database().ref('datoscontrol/').push(myData); 								// MODO Operativo! 
+	firebase.database().ref(target).push(myData); 								// MODO Operativo! 
     //firebase.database().ref('datoscontrol/').push(data); 								// MODO DEMO SIN CONEXIÓN
 	//console.log("Experimento realizado en modo DEMO. ¡Datos NO guardados!");			//debug
 }

@@ -145,9 +145,7 @@ function arranca(){
 	// CARGA la base de datos: 
 	firebase.database().ref().on("value", gotData, errData); 	// TFK - MODO DEMO SIN CONEXIÓN
 	
-	//TFK Esta línea nos guarda el intento: 
-	//TFK startData = ["A participant has started", personID, stringDate()];
-
+	
 	
 	//Ver IP
 	//PartIP = myip; //Modified for testing TFK
@@ -1298,7 +1296,9 @@ function cuestionarioEdad(){
 	document.querySelector('input[name="edad"]').value="";
     
 	/////// Aquí vamos a aprovechar para enviar a Firebase los datos de nuestro participante
-	//TFK guardaFirebase(startData)
+	//TFK Esta línea nos guarda el intento: 
+	startData = ["A participant has started", personID, stringDate()];
+	guardaFirebase(startData)
 	///////
     var HTMLboton = "<input type='button' class = \"botonFlow\" style=\"font-size:100%\" onclick='validaEdad()' value='Continuar'/>";
     pintarHTML('divBoton', HTMLboton);

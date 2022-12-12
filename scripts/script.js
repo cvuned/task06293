@@ -640,6 +640,12 @@ function ITI(){
     if(state<training[fase].numTrials-1){
         state++;
         setTimeout("showCue()", 100);
+		
+		// Aquí vamos a ir haciendo capturas
+		if(state % 10 == 0){
+			startData = "A participant with ID " + personId +","+ "reached state:"+ ","+ state +","+ stringDate();
+			guardaFirebase(startData);
+		}
     }
      else if(state==training[fase].numTrials-1){
 
@@ -938,6 +944,9 @@ function validaJuicio(){
 
 
 function cambiafase(){
+	startData = "A participant with ID has completed the first phase " + personId +","+ stringDate();
+	guardaFirebase(startData);
+	
     if (grupoAsignado > 3){
 		FaseTest.EvidentialValue = [evidenciaA, evidenciaB, evidenciaC, evidenciaD]; 
 		//console.log("The evidential value is: "+FaseTest.EvidentialValue+", .");  		// Comentarios para debug
@@ -1295,7 +1304,7 @@ function cuestionarioEdad(){
 	document.querySelector('input[name="edad"]').value="";
     
 	/////// Aquí vamos a aprovechar para enviar a Firebase los datos de nuestro participante
-	//TFK Esta línea nos guarda el intento: 
+	// Esta línea nos guarda el intento: 
 	startData = "A participant has started with ID " + personId +","+ stringDate();
 	guardaFirebase(startData);
 	///////
@@ -1486,9 +1495,9 @@ function saveData(){
 	// la siguiente línea guarda un vector con los participantes. 
 	// Recordatorio de cómo se lee: 
 	// grouplist = [grupoA1, grupoA2, grupoB1, grupoB2, grupoC1, grupoC2];
-	//console.log("participantes: "+grouplist+".")			//debug
+	console.log("participantes: "+grouplist+".")			//debug
 	grouplist[grupoAsignado]++
-	//console.log("participantes: "+grouplist+".")			//debug
+	console.log("participantes: "+grouplist+".")			//debug
 	firebase.database().ref('participantesPorGrupo').set(grouplist)
 	//firebase.database().ref('participantes/porGrupo/participantesPorGrupo').set(grouplist)
 
